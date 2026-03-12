@@ -1,0 +1,8 @@
+*.zip
+*.dsk
+*.~*
+*.dcu
+*.identcache
+*.dproj
+*.dproj.local
+*.exe

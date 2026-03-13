@@ -21,6 +21,7 @@ type
     public
         { Public declarations }
     end;
+const blowfishKey = '[;''.]94-31==-&%@!^+]';
 var
     Form3: TForm3;
     engine: TEngine;
@@ -43,6 +44,7 @@ end;
 
 procedure TForm3.FormCreate(Sender: TObject);
 begin
+    InitBlowfish(blowfishKey);
     engine := TEngine.Create;
 
 end;

@@ -1,5 +1,7 @@
+
+
 {
- отсылает login-сервер
+ РѕС‚СЃС‹Р»Р°РµС‚ login-СЃРµСЂРІРµСЂ
 0x01 loginfail2
 0x02 accountKicked1
 0x03 loginok
@@ -8,19 +10,19 @@
 0x06 playfail
 0x07 playok
 0x08 accountKicked
-0x09 blockedAccMsg  // бан
+0x09 blockedAccMsg  // Р±Р°РЅ
 0x20 protocol version different
 0x00 VersionCheck
- Логин-сервер обрабатывает пакеты:
-0x00 - RequestAuthLogin (запрос на авторизацию - содержит логин и пароль)
-0x02 - RequestServerLogin (запрос на заход на сервер)
-0x05 - RequestServerList (запрос на список серверов)
-На остальные он попросту не отвечает, оставляя лишь запись в логах. Клиентом же обрабатываются
-пакеты следующих типов:
-0x01 - авторизация не прошла
-0x03 - вы успешно авторизованы
-0x04 - ответ на RequestServerLogin
-0x06 - ответ на RequestServerList
+ Р›РѕРіРёРЅ-СЃРµСЂРІРµСЂ РѕР±СЂР°Р±Р°С‚С‹РІР°РµС‚ РїР°РєРµС‚С‹:
+0x00 - RequestAuthLogin (Р·Р°РїСЂРѕСЃ РЅР° Р°РІС‚РѕСЂРёР·Р°С†РёСЋ - СЃРѕРґРµСЂР¶РёС‚ Р»РѕРіРёРЅ Рё РїР°СЂРѕР»СЊ)
+0x02 - RequestServerLogin (Р·Р°РїСЂРѕСЃ РЅР° Р·Р°С…РѕРґ РЅР° СЃРµСЂРІРµСЂ)
+0x05 - RequestServerList (Р·Р°РїСЂРѕСЃ РЅР° СЃРїРёСЃРѕРє СЃРµСЂРІРµСЂРѕРІ)
+РќР° РѕСЃС‚Р°Р»СЊРЅС‹Рµ РѕРЅ РїРѕРїСЂРѕСЃС‚Сѓ РЅРµ РѕС‚РІРµС‡Р°РµС‚, РѕСЃС‚Р°РІР»СЏСЏ Р»РёС€СЊ Р·Р°РїРёСЃСЊ РІ Р»РѕРіР°С…. РљР»РёРµРЅС‚РѕРј Р¶Рµ РѕР±СЂР°Р±Р°С‚С‹РІР°СЋС‚СЃСЏ
+РїР°РєРµС‚С‹ СЃР»РµРґСѓСЋС‰РёС… С‚РёРїРѕРІ:
+0x01 - Р°РІС‚РѕСЂРёР·Р°С†РёСЏ РЅРµ РїСЂРѕС€Р»Р°
+0x03 - РІС‹ СѓСЃРїРµС€РЅРѕ Р°РІС‚РѕСЂРёР·РѕРІР°РЅС‹
+0x04 - РѕС‚РІРµС‚ РЅР° RequestServerLogin
+0x06 - РѕС‚РІРµС‚ РЅР° RequestServerList
 }
 
 unit LoginPackets;
@@ -28,20 +30,22 @@ unit LoginPackets;
 interface
 
 uses L2PacketBase;
-const
-    pckRequestAuthLogin = $00;
-    //function RequestAuthLogin(login, pass: string): TL2PacketStream;
+
+const 
+    pckRequestAuthLogin =   $00;
+
 procedure RequestAuthLogin(var ms: TL2PacketStream; login, pass: string);
+
+
 implementation
 
 procedure RequestAuthLogin(var ms: TL2PacketStream; login, pass: string);
 
 begin
-    ms.WriteH(0);
+    sendPacket.Init();
     ms.WriteC(pckRequestAuthLogin);
     ms.WriteS(login);
     ms.WriteS(pass);
-
+    sendPacket.Fin();
 end;
 end.
-

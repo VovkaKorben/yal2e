@@ -1,30 +1,45 @@
+
 unit L2PacketBase;
 
 interface
 
-uses
-    System.Classes, System.SysUtils, Winapi.Winsock2;
+uses 
+System.Classes, System.SysUtils, Winapi.Winsock2;
 
-type
-    TL2PacketStream = class(TMemoryStream)
-    public
-        // Запись базовых типов L2
-        procedure WriteC(Value: Byte); // 1 байт (char)
-        procedure WriteH(Value: Word); // 2 байта (short)
-        procedure WriteD(Value: Integer); // 4 байта (int)
-        procedure WriteF(Value: Double); // 8 байт (double)
-        procedure WriteS(Value: string); // UTF-16LE строка с нулевым терминатором
+type 
+    TL2PacketStream =   class(TMemoryStream)
+        public 
+            // Р—Р°РїРёСЃСЊ Р±Р°Р·РѕРІС‹С… С‚РёРїРѕРІ L2
+            procedure WriteC(Value: Byte);
+            // 1 Р±Р°Р№С‚ (char)
+            procedure WriteH(Value: Word);
+            // 2 Р±Р°Р№С‚Р° (short)
+            procedure WriteD(Value: int32);
+            // 4 Р±Р°Р№С‚Р° (int)
+            procedure WriteF(Value: Double);
+            // 8 Р±Р°Р№С‚ (double)
+            procedure WriteS(Value: string);
+            // UTF-16LE СЃС‚СЂРѕРєР° СЃ РЅСѓР»РµРІС‹Рј С‚РµСЂРјРёРЅР°С‚РѕСЂРѕРј
 
-        // Подсчет контрольной суммы по алгоритму из статьи
-        procedure AddChecksum;
+            // РџРѕРґСЃС‡РµС‚ РєРѕРЅС‚СЂРѕР»СЊРЅРѕР№ СЃСѓРјРјС‹ РїРѕ Р°Р»РіРѕСЂРёС‚РјСѓ РёР· СЃС‚Р°С‚СЊРё
+            procedure AddChecksum;
 
-        // Финализация: запись длины в первые 2 байта
-        procedure PrepareToSend;
+            // Р¤РёРЅР°Р»РёР·Р°С†РёСЏ: Р·Р°РїРёСЃСЊ РґР»РёРЅС‹ РІ РїРµСЂРІС‹Рµ 2 Р±Р°Р№С‚Р°
+            procedure PrepareToSend;
+            procedure Init();
+            procedure Fin();
     end;
+procedure InitBlowfish(key:string);
 
 implementation
 
 { TL2PacketStream }
+var BFData:   TBlowfishData;
+
+procedure TL2PacketStream.WriteC(Value: Byte);
+begin
+    Write(Value, 1);
+end;
 
 procedure TL2PacketStream.WriteC(Value: Byte);
 begin
@@ -36,7 +51,7 @@ begin
     Write(Value, 2);
 end;
 
-procedure TL2PacketStream.WriteD(Value: Integer);
+procedure TL2PacketStream.WriteD(Value: int32);
 begin
     Write(Value, 4);
 end;
@@ -47,56 +62,102 @@ begin
 end;
 
 procedure TL2PacketStream.WriteS(Value: string);
-var
-    Buffer: TBytes;
+var 
+    Buffer:   TBytes;
 begin
     if Value <> '' then
-    begin
-        // В L2 строки передаются в Unicode (UTF-16LE)
-        Buffer := TEncoding.Unicode.GetBytes(Value);
-        Write(Buffer[0], Length(Buffer));
-    end;
-    // Конец строки: два нулевых байта [cite: 140]
+        begin
+            Buffer := TEncoding.Unicode.GetBytes(Value);
+            Write(Buffer[0], Length(Buffer));
+        end;
+    // null terminated
     WriteH(0);
+
 end;
 
 procedure TL2PacketStream.AddChecksum;
-var
-    Chk: LongWord;
-    Temp: LongWord;
-    I: Integer;
-    Ptr: PLongWord;
-    DataSize: Integer;
+var 
+    xorResult:   uint32;
+    Ptr:   PLongWord;
+    checksumPos,bodyPadSize ,i:   int32;
+    zero:   uint8;
 begin
-    // Алгоритм из статьи: XOR 32-битных слов [cite: 60, 61, 68]
-    Chk := 0;
-    DataSize := Self.Size - 2; // Не считаем первые 2 байта длины [cite: 59]
+    zero := 0;
 
-    // Резервируем место под чексумму (4 байта), если еще не сделали
-    if Self.Position < Self.Size then
-        Self.Size := Self.Size + 4;
+    // put checksum placeholder
+    checksumPos := self.Size;
+    Write(zero, 4);
 
+    // pad to 8 bytes (blowfish requirement)
+    bodyPadSize := ( (self.Size - 2) + 7) and not 7;
+    while (self.Size - 2 < bodyPadSize) do
+        Write(zero, 1);
+
+    xorResult := 0;
     Ptr := PLongWord(PByte(Self.Memory) + 2);
-    // Итерируемся по 4 байта [cite: 67]
-    for I := 0 to (DataSize div 4) - 2 do
-    begin
-        Chk := Chk xor Ptr^;
-        Inc(Ptr);
-    end;
+    // РС‚РµСЂРёСЂСѓРµРјСЃСЏ РїРѕ 4 Р±Р°Р№С‚Р° [cite: 67]
+    for I := 0 to ((checksumPos-2) div 4) - 1 do
+        begin
+            xorResult := xorResult xor Ptr^;
+            Inc(Ptr);
+        end;
 
-    // Записываем результат в конец пакета [cite: 69]
-    Self.Position := Self.Size - 4;
-    Write(Chk, 4);
+    // write checksum
+    Self.Position := checksumPos;
+    Write(xorResult, 4);
 end;
 
 procedure TL2PacketStream.PrepareToSend;
-var
-    FullSize: Word;
+var 
+    FullSize:   uint16;
 begin
     FullSize := Self.Size;
     Self.Position := 0;
-    Write(FullSize, 2); // Записываем общую длину пакета [cite: 52]
+    Write(FullSize, 2);
+
+end;
+
+
+procedure TL2PacketStream.Init();
+begin
+    self.Clear();
+    // reserve 2 byte for packet size
+    WriteH(0);
+end;
+
+procedure TL2PacketStream.Fin();
+begin
+    // calc xor checksum
+    AddChecksum();
+    // do blowfish
+    EncryptPacket(BFData);
+    // add packet size
+    PrepareToSend();
+end;
+procedure InitBlowfish(key:string);
+begin
+    BlowfishInit(BFData, PChar(key), Length(key), nil);
+end;
+
+procedure TL2PacketStream.EncryptPacket(const ABFData: TBlowfishData);
+var 
+    i:   Integer;
+    BlocksCount:   Integer;
+    Ptr:   PByte;
+begin
+    // РћРїСЂРµРґРµР»СЏРµРј РєРѕР»РёС‡РµСЃС‚РІРѕ 8-Р±Р°Р№С‚РѕРІС‹С… Р±Р»РѕРєРѕРІ РІ С‚РµР»Рµ РїР°РєРµС‚Р°
+    BlocksCount := (self.Size - 2) div 8;
+
+    // РЈРєР°Р·Р°С‚РµР»СЊ РЅР° РЅР°С‡Р°Р»Рѕ РґР°РЅРЅС‹С… (РїСЂРѕРїСѓСЃРєР°РµРј Р·Р°РіРѕР»РѕРІРѕРє 2 Р±Р°Р№С‚Р°)
+    Ptr := PByte(self.Memory) + 2;
+
+    for i := 0 to BlocksCount - 1 do
+        begin
+            // РЁРёС„СЂСѓРµРј Р±Р»РѕРє РЅР° РјРµСЃС‚Рµ (InData Рё OutData СѓРєР°Р·С‹РІР°СЋС‚ РЅР° РѕРґРёРЅ Р°РґСЂРµСЃ)
+            BlowfishEncryptECB(ABFData, Ptr, Ptr);
+            // РЎРґРІРёРіР°РµРј СѓРєР°Р·Р°С‚РµР»СЊ РЅР° СЃР»РµРґСѓСЋС‰РёР№ Р±Р»РѕРє (8 Р±Р°Р№С‚)
+            Inc(Ptr, 8);
+        end;
 end;
 
 end.
-

@@ -33,10 +33,10 @@ end;
 
 function TEngine.login(login, pass: string): boolean;
 begin
-    sendPacket.Clear;
+  
     RequestAuthLogin(sendPacket, login, pass);
-    sendPacket.AddChecksum;
-    sendPacket.PrepareToSend;
+  
+    
 end;
 
 function TEngine.PacketToHex(): string;
@@ -51,11 +51,11 @@ begin
     P := sendPacket.Memory;
     for i := 0 to sendPacket.Size - 1 do
     begin
-        // ����������� ���� � Hex � ��������� ������
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅ Hex пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
         Result := Result + IntToHex(P^, 2) + ' ';
         Inc(P);
     end;
-    Result := Trim(Result); // ������� ������ ������ � �����
+    Result := Trim(Result); // пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅ
 end;
 end.
 

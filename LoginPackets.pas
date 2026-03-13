@@ -42,10 +42,10 @@ implementation
 procedure RequestAuthLogin(var ms: TL2PacketStream; login, pass: string);
 
 begin
-    sendPacket.Init();
+    ms.Init();
     ms.WriteC(pckRequestAuthLogin);
     ms.WriteS(login);
     ms.WriteS(pass);
-    sendPacket.Fin();
+    ms.Fin();
 end;
 end.

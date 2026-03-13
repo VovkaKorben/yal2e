@@ -9,17 +9,11 @@ System.Classes, System.SysUtils, Winapi.Winsock2;
 type 
     TL2PacketStream =   class(TMemoryStream)
         public 
-            // Запись базовых типов L2
             procedure WriteC(Value: Byte);
-            // 1 байт (char)
             procedure WriteH(Value: Word);
-            // 2 байта (short)
             procedure WriteD(Value: int32);
-            // 4 байта (int)
             procedure WriteF(Value: Double);
-            // 8 байт (double)
             procedure WriteS(Value: string);
-            // UTF-16LE строка с нулевым терминатором
 
             // Подсчет контрольной суммы по алгоритму из статьи
             procedure AddChecksum;
@@ -29,17 +23,14 @@ type
             procedure Init();
             procedure Fin();
     end;
-procedure InitBlowfish(key:string);
+
 
 implementation
 
 { TL2PacketStream }
-var BFData:   TBlowfishData;
 
-procedure TL2PacketStream.WriteC(Value: Byte);
-begin
-    Write(Value, 1);
-end;
+
+
 
 procedure TL2PacketStream.WriteC(Value: Byte);
 begin
@@ -78,24 +69,27 @@ end;
 procedure TL2PacketStream.AddChecksum;
 var 
     xorResult:   uint32;
+
+
     Ptr:   PLongWord;
     checksumPos,bodyPadSize ,i:   int32;
     zero:   uint8;
 begin
     zero := 0;
 
-    // put checksum placeholder
-    checksumPos := self.Size;
-    Write(zero, 4);
 
-    // pad to 8 bytes (blowfish requirement)
-    bodyPadSize := ( (self.Size - 2) + 7) and not 7;
-    while (self.Size - 2 < bodyPadSize) do
+    // pad to 8 bytes
+    // checksumPos := (self.Size +5) and not 7;
+    checksumPos := ((Self.Size - 2 + 7) and not 7) + 2;
+    while (self.Size  < checksumPos) do
+        Write(zero, 1);
+
+    // put checksum placeholder + four pad zeroes
+    for I := 7 downto 0 do
         Write(zero, 1);
 
     xorResult := 0;
     Ptr := PLongWord(PByte(Self.Memory) + 2);
-    // Итерируемся по 4 байта [cite: 67]
     for I := 0 to ((checksumPos-2) div 4) - 1 do
         begin
             xorResult := xorResult xor Ptr^;
@@ -134,10 +128,7 @@ begin
     // add packet size
     PrepareToSend();
 end;
-procedure InitBlowfish(key:string);
-begin
-    BlowfishInit(BFData, PChar(key), Length(key), nil);
-end;
+
 
 procedure TL2PacketStream.EncryptPacket(const ABFData: TBlowfishData);
 var 

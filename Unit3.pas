@@ -21,7 +21,7 @@ type
     public
         { Public declarations }
     end;
-const blowfishKey = '[;''.]94-31==-&%@!^+]';
+
 var
     Form3: TForm3;
     engine: TEngine;

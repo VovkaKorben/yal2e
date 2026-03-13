@@ -11,6 +11,7 @@ type
         Edit1: TEdit;
         Edit2: TEdit;
         Button1: TButton;
+        Memo1: TMemo;
         procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
         procedure Button1Click(Sender: TObject);
         procedure FormCreate(Sender: TObject);
@@ -30,7 +31,8 @@ implementation
 
 procedure TForm3.Button1Click(Sender: TObject);
 begin
-
+    engine.login(edit1.Text, edit2.Text);
+    Memo1.Lines.Add('Packet Dump: ' + engine.PacketToHex());
     // IdTCPClient1.Host := '51.83.130.113';    IdTCPClient1.Port := 2106;    IdTCPClient1.Connect;
 end;
 
@@ -42,7 +44,7 @@ end;
 procedure TForm3.FormCreate(Sender: TObject);
 begin
     engine := TEngine.Create;
-    engine.login(edit1.Text, edit2.Text);
+
 end;
 
 procedure TForm3.FormKeyDown(Sender: TObject; var Key: Word;

@@ -2,7 +2,7 @@ unit EngineUnit;
 
 interface
 
-uses L2PacketBase, LoginPackets;
+uses sysutils, classes, L2PacketBase, LoginPackets;
 type
     AccountState = (asNone, asLogged);
     TEngine = class
@@ -10,6 +10,7 @@ type
         sendPacket: TL2PacketStream;
     public
         function login(login, pass: string): boolean;
+        function PacketToHex(): string;
         constructor Create;
         destructor Destroy; override;
 
@@ -38,5 +39,23 @@ begin
     sendPacket.PrepareToSend;
 end;
 
+function TEngine.PacketToHex(): string;
+var
+    i: Integer;
+    P: PByte;
+begin
+    Result := '';
+    if (sendPacket = nil) or (sendPacket.Size = 0) then
+        Exit;
+
+    P := sendPacket.Memory;
+    for i := 0 to sendPacket.Size - 1 do
+    begin
+        // Преобразуем байт в Hex и добавляем пробел
+        Result := Result + IntToHex(P^, 2) + ' ';
+        Inc(P);
+    end;
+    Result := Trim(Result); // Убираем лишний пробел в конце
+end;
 end.
 

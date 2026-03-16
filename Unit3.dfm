@@ -1,8 +1,8 @@
-object Form3: TForm3
+object FMainForm: TFMainForm
   Left = 0
   Top = 0
-  Caption = 'Form3'
-  ClientHeight = 299
+  Caption = 'FMainForm'
+  ClientHeight = 425
   ClientWidth = 635
   Color = clBtnFace
   Font.Charset = RUSSIAN_CHARSET
@@ -16,6 +16,9 @@ object Form3: TForm3
   OnClose = FormClose
   OnCreate = FormCreate
   OnKeyDown = FormKeyDown
+  DesignSize = (
+    635
+    425)
   PixelsPerInch = 96
   TextHeight = 17
   object Edit1: TEdit
@@ -44,10 +47,11 @@ object Form3: TForm3
     OnClick = Button1Click
   end
   object Memo1: TMemo
-    Left = 148
-    Top = 136
-    Width = 321
-    Height = 125
+    Left = 8
+    Top = 172
+    Width = 619
+    Height = 245
+    Anchors = [akLeft, akTop, akRight, akBottom]
     Lines.Strings = (
       'Memo1')
     TabOrder = 3

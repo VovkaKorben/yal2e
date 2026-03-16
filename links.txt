@@ -1,1 +1,3 @@
 https://npetrovski.github.io/l2js-client/guide/authorizationProcedure.html#general-information
+
+https://github.com/npetrovski/l2js-client/blob/master/src/network/incoming/login/Init.ts

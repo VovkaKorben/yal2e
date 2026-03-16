@@ -1,36 +1,40 @@
-
+﻿
 unit L2PacketBase;
 
 interface
 
-uses 
-System.Classes, System.SysUtils, Winapi.Winsock2;
+uses
+    System.Classes, System.SysUtils, Blowfish;
 
-type 
-    TL2PacketStream =   class(TMemoryStream)
-        public 
-            procedure WriteC(Value: Byte);
-            procedure WriteH(Value: Word);
-            procedure WriteD(Value: int32);
-            procedure WriteF(Value: Double);
-            procedure WriteS(Value: string);
+type
+    TL2PacketStream = class(TMemoryStream)
+    private
+        BFData: TBlowfishData;
+        procedure EncryptPacket();
 
-            // Подсчет контрольной суммы по алгоритму из статьи
-            procedure AddChecksum;
+    public
+        function ReadC: uint8;
 
-            // Финализация: запись длины в первые 2 байта
-            procedure PrepareToSend;
-            procedure Init();
-            procedure Fin();
+        procedure WriteC(Value: uint8);
+        procedure WriteH(Value: uint16);
+        procedure WriteD(Value: int32);
+        procedure WriteF(Value: Double);
+        procedure WriteS(Value: string);
+
+        // Подсчет контрольной суммы по алгоритму из статьи
+        procedure AddChecksum;
+
+        // Финализация: запись длины в первые 2 байта
+        procedure PrepareToSend;
+        procedure Init();
+        procedure Fin();
+        constructor Create(blowfishInitKey: string);
+
     end;
-
 
 implementation
 
 { TL2PacketStream }
-
-
-
 
 procedure TL2PacketStream.WriteC(Value: Byte);
 begin
@@ -53,35 +57,33 @@ begin
 end;
 
 procedure TL2PacketStream.WriteS(Value: string);
-var 
-    Buffer:   TBytes;
+var
+    Buffer: TBytes;
 begin
     if Value <> '' then
-        begin
-            Buffer := TEncoding.Unicode.GetBytes(Value);
-            Write(Buffer[0], Length(Buffer));
-        end;
+    begin
+        Buffer := TEncoding.Unicode.GetBytes(Value);
+        Write(Buffer[0], Length(Buffer));
+    end;
     // null terminated
     WriteH(0);
 
 end;
 
 procedure TL2PacketStream.AddChecksum;
-var 
-    xorResult:   uint32;
+var
+    xorResult: uint32;
 
-
-    Ptr:   PLongWord;
-    checksumPos,bodyPadSize ,i:   int32;
-    zero:   uint8;
+    Ptr: PLongWord;
+    checksumPos, i: int32;
+    zero: uint8;
 begin
     zero := 0;
-
 
     // pad to 8 bytes
     // checksumPos := (self.Size +5) and not 7;
     checksumPos := ((Self.Size - 2 + 7) and not 7) + 2;
-    while (self.Size  < checksumPos) do
+    while (self.Size < checksumPos) do
         Write(zero, 1);
 
     // put checksum placeholder + four pad zeroes
@@ -90,11 +92,11 @@ begin
 
     xorResult := 0;
     Ptr := PLongWord(PByte(Self.Memory) + 2);
-    for I := 0 to ((checksumPos-2) div 4) - 1 do
-        begin
-            xorResult := xorResult xor Ptr^;
-            Inc(Ptr);
-        end;
+    for I := 0 to ((checksumPos - 2) div 4) - 1 do
+    begin
+        xorResult := xorResult xor Ptr^;
+        Inc(Ptr);
+    end;
 
     // write checksum
     Self.Position := checksumPos;
@@ -102,8 +104,8 @@ begin
 end;
 
 procedure TL2PacketStream.PrepareToSend;
-var 
-    FullSize:   uint16;
+var
+    FullSize: uint16;
 begin
     FullSize := Self.Size;
     Self.Position := 0;
@@ -111,6 +113,10 @@ begin
 
 end;
 
+function TL2PacketStream.ReadC: uint8;
+begin
+    Read(result, 1);
+end;
 
 procedure TL2PacketStream.Init();
 begin
@@ -121,34 +127,30 @@ end;
 
 procedure TL2PacketStream.Fin();
 begin
-    // calc xor checksum
-    AddChecksum();
-    // do blowfish
-    EncryptPacket(BFData);
-    // add packet size
-    PrepareToSend();
+    AddChecksum(); // calc xor checksum
+    EncryptPacket(); // do blowfish
+    PrepareToSend(); // add packet size
 end;
 
-
-procedure TL2PacketStream.EncryptPacket(const ABFData: TBlowfishData);
-var 
-    i:   Integer;
-    BlocksCount:   Integer;
-    Ptr:   PByte;
+constructor TL2PacketStream.Create(blowfishInitKey: string);
 begin
-    // Определяем количество 8-байтовых блоков в теле пакета
-    BlocksCount := (self.Size - 2) div 8;
+    BlowfishInit(BFData, PChar(blowfishInitKey), Length(blowfishInitKey), nil);
+end;
 
-    // Указатель на начало данных (пропускаем заголовок 2 байта)
-    Ptr := PByte(self.Memory) + 2;
-
+procedure TL2PacketStream.EncryptPacket();
+var
+    i: Integer;
+    BlocksCount: Integer;
+    Ptr: PByte;
+begin
+    BlocksCount := (self.Size - 2) div 8; // Определяем количество 8-байтовых блоков в теле пакета
+    Ptr := PByte(self.Memory) + 2; // Указатель на начало данных (пропускаем заголовок 2 байта)
     for i := 0 to BlocksCount - 1 do
-        begin
-            // Шифруем блок на месте (InData и OutData указывают на один адрес)
-            BlowfishEncryptECB(ABFData, Ptr, Ptr);
-            // Сдвигаем указатель на следующий блок (8 байт)
-            Inc(Ptr, 8);
-        end;
+    begin
+        BlowfishEncryptECB(BFData, Ptr, Ptr); // Шифруем блок на месте (InData и OutData указывают на один адрес)
+        Inc(Ptr, 8); // Сдвигаем указатель на следующий блок (8 байт)
+    end;
 end;
 
 end.
+

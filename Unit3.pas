@@ -7,7 +7,7 @@ uses
     Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, L2PacketBase, EngineUnit;
 
 type
-    TForm3 = class(TForm)
+    TFMainForm = class(TForm)
         Edit1: TEdit;
         Edit2: TEdit;
         Button1: TButton;
@@ -23,33 +23,33 @@ type
     end;
 
 var
-    Form3: TForm3;
+    FMainForm: TFMainForm;
     engine: TEngine;
 
 implementation
 
 {$R *.dfm}
 
-procedure TForm3.Button1Click(Sender: TObject);
+procedure TFMainForm.Button1Click(Sender: TObject);
 begin
-    engine.login(edit1.Text, edit2.Text);
+    engine.doLogin();
     Memo1.Lines.Add('Packet Dump: ' + engine.PacketToHex());
     // IdTCPClient1.Host := '51.83.130.113';    IdTCPClient1.Port := 2106;    IdTCPClient1.Connect;
 end;
 
-procedure TForm3.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure TFMainForm.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
     engine.Free;
 end;
 
-procedure TForm3.FormCreate(Sender: TObject);
+procedure TFMainForm.FormCreate(Sender: TObject);
 begin
-    InitBlowfish(blowfishKey);
-    engine := TEngine.Create;
-
+    //    InitBlowfish(blowfishKey);
+    engine := TEngine.Create(edit1.Text, edit2.Text);
+    engine.doLogin();
 end;
 
-procedure TForm3.FormKeyDown(Sender: TObject; var Key: Word;
+procedure TFMainForm.FormKeyDown(Sender: TObject; var Key: Word;
     Shift: TShiftState);
 begin
     if key = 27 then

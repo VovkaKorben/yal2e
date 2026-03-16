@@ -2,16 +2,17 @@ program Project4;
 
 uses
   Vcl.Forms,
-  Unit3 in 'Unit3.pas' {Form3},
+  Unit3 in 'Unit3.pas' {FMainForm},
   L2PacketBase in 'L2PacketBase.pas',
   LoginPackets in 'LoginPackets.pas',
-  EngineUnit in 'EngineUnit.pas';
+  EngineUnit in 'EngineUnit.pas',
+  Blowfish in 'Blowfish.pas';
 
 {$R *.res}
 
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
-  Application.CreateForm(TForm3, Form3);
+  Application.CreateForm(TFMainForm, FMainForm);
   Application.Run;
 end.

@@ -1,14 +1,13 @@
 const net = require('net');
 const crypto = require('crypto');
 
+// Адрес и порт логин-сервера
 const HOST = '51.83.130.113';
 const PORT = 2106;
 
-// Стандартный ключ Blowfish для первого пакета Login-сервера
-const LOGIN_KEY = Buffer.from([
-    0x6b, 0x60, 0xcb, 0x5b, 0x82, 0xce, 0x90, 0xb1,
-    0xcc, 0x2b, 0x6c, 0x55, 0x6c, 0x6c, 0x6c, 0x6c
-]);
+// В данном проекте (L2CAT) для расшифровки первого пакета логин-сервера
+// используется СТАТИЧЕСКИЙ КЛЮЧ ОТ ИГРОВОГО СЕРВЕРА L2J
+const LOGIN_KEY = Buffer.from("[;'.]94-31==-&%@!^+]", 'ascii');
 
 function hexDump(buffer) {
     console.log('-'.repeat(70));
@@ -27,6 +26,9 @@ function decryptInitPacket(buffer) {
         decipher = crypto.createDecipheriv('bf-ecb', LOGIN_KEY, '');
         decipher.setAutoPadding(false);
     } catch (e) {
+        console.error("Ошибка инициализации Blowfish.");
+        console.error("Вероятно, вы используете Node.js v17+.");
+        console.error("Запустите скрипт с флагом: node --openssl-legacy-provider client_parsed.js");
         process.exit(1);
     }
 
@@ -35,22 +37,27 @@ function decryptInitPacket(buffer) {
 
     for (let i = 0; i < blocksCount; i++) {
         const start = i * 8;
-        const currentCipherBlock = Buffer.from(buffer.subarray(start, start + 8));
+        const currentCipherBlock = buffer.subarray(start, start + 8);
         
+        // 1. Меняем порядок байт (Little Endian -> Big Endian) 
         const swappedIn = Buffer.alloc(8);
         swappedIn.writeUInt32BE(currentCipherBlock.readUInt32LE(0), 0);
         swappedIn.writeUInt32BE(currentCipherBlock.readUInt32LE(4), 4);
         
+        // 2. Декодируем
         const decryptedRaw = decipher.update(swappedIn);
         
+        // 3. Возвращаем порядок байт (Big Endian -> Little Endian)
         const decryptedBlock = Buffer.alloc(8);
         decryptedBlock.writeUInt32LE(decryptedRaw.readUInt32BE(0), 0);
         decryptedBlock.writeUInt32LE(decryptedRaw.readUInt32BE(4), 4);
         
+        // 4. CBC-XOR: ксорим расшифрованный блок с ПРЕДЫДУЩИМ зашифрованным блоком
         for (let j = 0; j < 8; j++) {
             buffer[start + j] = decryptedBlock[j] ^ prevBlock[j];
         }
         
+        // 5. Обновляем маску для следующей итерации
         currentCipherBlock.copy(prevBlock);
     }
 }
@@ -71,10 +78,12 @@ client.on('data', (data) => {
         packetSize = dataBuffer.readUInt16LE(0) - 2;
         headerRead = true;
         dataBuffer = dataBuffer.subarray(2);
+        console.log(`Ожидаемый размер тела: ${packetSize} байт`);
     }
 
     if (headerRead && dataBuffer.length >= packetSize) {
         const packetBody = dataBuffer.subarray(0, packetSize);
+        console.log(`Получено тело пакета (${packetBody.length} байт), декодируем...`);
         
         const decodedBody = Buffer.from(packetBody);
         decryptInitPacket(decodedBody);
@@ -83,7 +92,7 @@ client.on('data', (data) => {
         const id = decodedBody.readUInt8(0);
         console.log(`Id пакета: 0x${id.toString(16).padStart(2, '0')}`);
         
-        if (id === 0x00) {
+        if (id === 0x00 && decodedBody.length >= 170) {
             const sessionId = decodedBody.readUInt32LE(1);
             console.log(`Session ID: 0x${sessionId.toString(16).padStart(8, '0')} (${sessionId})`);
             
@@ -93,17 +102,13 @@ client.on('data', (data) => {
             const rsaKey = decodedBody.subarray(9, 9 + 128);
             console.log(`RSA Public Key (128 bytes): ${rsaKey.toString('hex').substring(0, 64)}...`);
             
-            // GG и Blowfish ключи обычно идут после RSA, но длина может варьироваться.
-            // В Interlude стандартно 16 GG и 16 BF.
-            if (decodedBody.length >= 170) {
-                const gg = decodedBody.subarray(137, 137 + 16);
-                console.log(`GG (16 bytes): ${gg.toString('hex')}`);
-                
-                const blowfishKey = decodedBody.subarray(153, 153 + 16);
-                console.log(`Новый Blowfish Key для след. пакетов (16 bytes): ${blowfishKey.toString('hex')}`);
-            } else {
-                 console.log(`(Пакет короче 170 байт, не могу разобрать GG и Blowfish key)`);
-            }
+            const gg = decodedBody.subarray(137, 137 + 16);
+            console.log(`GG (16 bytes): ${gg.toString('hex')}`);
+            
+            const blowfishKey = decodedBody.subarray(153, 153 + 16);
+            console.log(`Новый Blowfish Key (16 bytes): ${blowfishKey.toString('hex')}`);
+        } else {
+            console.log("Внимание: размер пакета или Id не совпадает со стандартным Init (170+ байт).");
         }
         console.log("------------------------------\n");
 
@@ -112,4 +117,12 @@ client.on('data', (data) => {
 
         client.destroy();
     }
+});
+
+client.on('close', () => {
+    console.log('Соединение закрыто.');
+});
+
+client.on('error', (err) => {
+    console.error(`Ошибка сокета: ${err.message}`);
 });

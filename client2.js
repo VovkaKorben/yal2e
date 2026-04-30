@@ -27,6 +27,8 @@ function decryptInitPacket(buffer) {
         decipher = crypto.createDecipheriv('bf-ecb', LOGIN_KEY, '');
         decipher.setAutoPadding(false);
     } catch (e) {
+        console.error("Ошибка инициализации Blowfish.");
+        console.error("Запустите скрипт с флагом: node --openssl-legacy-provider client.js");
         process.exit(1);
     }
 
@@ -35,22 +37,24 @@ function decryptInitPacket(buffer) {
 
     for (let i = 0; i < blocksCount; i++) {
         const start = i * 8;
+
+        // ВАЖНОЕ ИСПРАВЛЕНИЕ: Копируем блок, чтобы не мутировать исходный буфер раньше времени (чиним CBC XOR)
         const currentCipherBlock = Buffer.from(buffer.subarray(start, start + 8));
-        
+
         const swappedIn = Buffer.alloc(8);
         swappedIn.writeUInt32BE(currentCipherBlock.readUInt32LE(0), 0);
         swappedIn.writeUInt32BE(currentCipherBlock.readUInt32LE(4), 4);
-        
+
         const decryptedRaw = decipher.update(swappedIn);
-        
+
         const decryptedBlock = Buffer.alloc(8);
         decryptedBlock.writeUInt32LE(decryptedRaw.readUInt32BE(0), 0);
         decryptedBlock.writeUInt32LE(decryptedRaw.readUInt32BE(4), 4);
-        
+
         for (let j = 0; j < 8; j++) {
             buffer[start + j] = decryptedBlock[j] ^ prevBlock[j];
         }
-        
+
         currentCipherBlock.copy(prevBlock);
     }
 }
@@ -75,34 +79,30 @@ client.on('data', (data) => {
 
     if (headerRead && dataBuffer.length >= packetSize) {
         const packetBody = dataBuffer.subarray(0, packetSize);
-        
+
         const decodedBody = Buffer.from(packetBody);
         decryptInitPacket(decodedBody);
-        
+
         console.log("\n--- Распаковка Init пакета ---");
         const id = decodedBody.readUInt8(0);
         console.log(`Id пакета: 0x${id.toString(16).padStart(2, '0')}`);
-        
+
         if (id === 0x00) {
             const sessionId = decodedBody.readUInt32LE(1);
             console.log(`Session ID: 0x${sessionId.toString(16).padStart(8, '0')} (${sessionId})`);
-            
+
             const protocol = decodedBody.readUInt32LE(5);
-            console.log(`Protocol Version: 0x${protocol.toString(16).padStart(8, '0')} (${protocol})`);
-            
+            console.log(`Protocol Version: 0x${protocol.toString(16).padStart(8, '0')} (динамически рандомизирован)`);
+
             const rsaKey = decodedBody.subarray(9, 9 + 128);
             console.log(`RSA Public Key (128 bytes): ${rsaKey.toString('hex').substring(0, 64)}...`);
-            
-            // GG и Blowfish ключи обычно идут после RSA, но длина может варьироваться.
-            // В Interlude стандартно 16 GG и 16 BF.
+
             if (decodedBody.length >= 170) {
                 const gg = decodedBody.subarray(137, 137 + 16);
                 console.log(`GG (16 bytes): ${gg.toString('hex')}`);
-                
+
                 const blowfishKey = decodedBody.subarray(153, 153 + 16);
                 console.log(`Новый Blowfish Key для след. пакетов (16 bytes): ${blowfishKey.toString('hex')}`);
-            } else {
-                 console.log(`(Пакет короче 170 байт, не могу разобрать GG и Blowfish key)`);
             }
         }
         console.log("------------------------------\n");

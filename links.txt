@@ -1,3 +1,9 @@
+напиши скрипт на питоне, который будет подключаться к логин серверу Lineage 2 Interlude, читать самый первый пакет, декодировать его и выводить в консоль хекс-дамп и расшифровку.
+константы для подключения даю.
+IP = "51.83.130.113"
+LOGIN_PORT = 2106
+
+
 https://npetrovski.github.io/l2js-client/guide/authorizationProcedure.html#general-information
 
 https://github.com/npetrovski/l2js-client/blob/master/src/network/incoming/login/Init.ts

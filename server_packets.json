@@ -1,0 +1,8799 @@
+{
+    "00": {
+        "name": "KeyInit",
+        "data": [
+            {
+                "type": "c",
+                "name": "01"
+            },
+            {
+                "type": "q",
+                "name": "Key"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            }
+        ]
+    },
+    "01": {
+        "name": "MoveToLocation",
+        "data": [
+            {
+                "type": "d",
+                "name": "ObjectID"
+            },
+            {
+                "type": "d",
+                "name": "ToX"
+            },
+            {
+                "type": "d",
+                "name": "ToY"
+            },
+            {
+                "type": "d",
+                "name": "ToZ"
+            },
+            {
+                "type": "d",
+                "name": "OrigX"
+            },
+            {
+                "type": "d",
+                "name": "OrigY"
+            },
+            {
+                "type": "d",
+                "name": "OrigZ"
+            }
+        ]
+    },
+    "02": {
+        "name": "NpcSay",
+        "data": [
+            {
+                "type": "d",
+                "name": "npcID"
+            },
+            {
+                "type": "d",
+                "name": "ClassID"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "s",
+                "name": "msg"
+            }
+        ]
+    },
+    "03": {
+        "name": "CharInfo",
+        "data": [
+            {
+                "type": "d",
+                "name": "X"
+            },
+            {
+                "type": "d",
+                "name": "Y"
+            },
+            {
+                "type": "d",
+                "name": "Z"
+            },
+            {
+                "type": "d",
+                "name": "Heading"
+            },
+            {
+                "type": "d",
+                "name": "ObjectID"
+            },
+            {
+                "type": "s",
+                "name": "Name"
+            },
+            {
+                "type": "d",
+                "name": "Race"
+            },
+            {
+                "type": "d",
+                "name": "Sex"
+            },
+            {
+                "type": "d",
+                "name": "ClassID"
+            },
+            {
+                "type": "d",
+                "name": "DHair"
+            },
+            {
+                "type": "d",
+                "name": "Head"
+            },
+            {
+                "type": "d",
+                "name": "RHand"
+            },
+            {
+                "type": "d",
+                "name": "LHand"
+            },
+            {
+                "type": "d",
+                "name": "Gloves"
+            },
+            {
+                "type": "d",
+                "name": "Chest"
+            },
+            {
+                "type": "d",
+                "name": "Legs"
+            },
+            {
+                "type": "d",
+                "name": "Feet"
+            },
+            {
+                "type": "d",
+                "name": "Back"
+            },
+            {
+                "type": "d",
+                "name": "LRHand"
+            },
+            {
+                "type": "d",
+                "name": "Hair"
+            },
+            {
+                "type": "d",
+                "name": "Face"
+            },
+            {
+                "type": "z",
+                "name": "0048"
+            },
+            {
+                "type": "d",
+                "name": "PvpFlag"
+            },
+            {
+                "type": "d",
+                "name": "Karma"
+            },
+            {
+                "type": "d",
+                "name": "MSpeed"
+            },
+            {
+                "type": "d",
+                "name": "PSpeed"
+            },
+            {
+                "type": "d",
+                "name": "PvpFlag"
+            },
+            {
+                "type": "d",
+                "name": "Karma"
+            },
+            {
+                "type": "d",
+                "name": "runSpd"
+            },
+            {
+                "type": "d",
+                "name": "walkSpd"
+            },
+            {
+                "type": "d",
+                "name": "swimRSpd"
+            },
+            {
+                "type": "d",
+                "name": "swimWSpd"
+            },
+            {
+                "type": "d",
+                "name": "flRunSpd"
+            },
+            {
+                "type": "d",
+                "name": "flWalkSpd"
+            },
+            {
+                "type": "d",
+                "name": "flyRSpd"
+            },
+            {
+                "type": "d",
+                "name": "flyWSpd"
+            },
+            {
+                "type": "f",
+                "name": "SpdMul"
+            },
+            {
+                "type": "f",
+                "name": "ASpdMul"
+            },
+            {
+                "type": "f",
+                "name": "collisRadius"
+            },
+            {
+                "type": "f",
+                "name": "collisHeight"
+            },
+            {
+                "type": "d",
+                "name": "HairStyle"
+            },
+            {
+                "type": "d",
+                "name": "HairColor"
+            },
+            {
+                "type": "d",
+                "name": "Face"
+            },
+            {
+                "type": "s",
+                "name": "Title"
+            },
+            {
+                "type": "d",
+                "name": "clanID"
+            },
+            {
+                "type": "d",
+                "name": "clanCrest"
+            },
+            {
+                "type": "d",
+                "name": "allyID"
+            },
+            {
+                "type": "d",
+                "name": "allyCrest"
+            },
+            {
+                "type": "d",
+                "name": "siegeFlag"
+            },
+            {
+                "type": "c",
+                "name": "isStand"
+            },
+            {
+                "type": "c",
+                "name": "isRun"
+            },
+            {
+                "type": "c",
+                "name": "isInFight"
+            },
+            {
+                "type": "c",
+                "name": "isAlikeDead"
+            },
+            {
+                "type": "c",
+                "name": "Invis"
+            },
+            {
+                "type": "c",
+                "name": "Mount"
+            },
+            {
+                "type": "c",
+                "name": "shop"
+            },
+            {
+                "type": "h",
+                "name": "cubics",
+                "repeat": 1
+            },
+            {
+                "type": "h",
+                "name": "cubID"
+            },
+            {
+                "type": "c",
+                "name": "findparty"
+            },
+            {
+                "type": "d",
+                "name": "abnEffects"
+            },
+            {
+                "type": "c",
+                "name": "RecomLeft"
+            },
+            {
+                "type": "h",
+                "name": "RecomHave"
+            },
+            {
+                "type": "d",
+                "name": "classID"
+            },
+            {
+                "type": "d",
+                "name": "maxCP"
+            },
+            {
+                "type": "d",
+                "name": "curCP"
+            },
+            {
+                "type": "c",
+                "name": "isMounted"
+            },
+            {
+                "type": "c",
+                "name": "Team"
+            },
+            {
+                "type": "d",
+                "name": "clanBigCrestId"
+            },
+            {
+                "type": "c",
+                "name": "isNoble"
+            },
+            {
+                "type": "c",
+                "name": "isHero"
+            },
+            {
+                "type": "c",
+                "name": "isFishing"
+            },
+            {
+                "type": "d",
+                "name": "fishX"
+            },
+            {
+                "type": "d",
+                "name": "fishY"
+            },
+            {
+                "type": "d",
+                "name": "fishZ"
+            },
+            {
+                "type": "d",
+                "name": "NameColor"
+            },
+            {
+                "type": "d",
+                "name": "isRun"
+            },
+            {
+                "type": "d",
+                "name": "PledgeClass"
+            },
+            {
+                "type": "d",
+                "name": "PledgeColor"
+            },
+            {
+                "type": "d",
+                "name": "TitleColor"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "Cursed"
+            }
+        ]
+    },
+    "04": {
+        "name": "UserInfo",
+        "data": [
+            {
+                "type": "d",
+                "name": "X"
+            },
+            {
+                "type": "d",
+                "name": "Y"
+            },
+            {
+                "type": "d",
+                "name": "Z"
+            },
+            {
+                "type": "d",
+                "name": "Heading"
+            },
+            {
+                "type": "d",
+                "name": "ObjectID"
+            },
+            {
+                "type": "s",
+                "name": "Name"
+            },
+            {
+                "type": "d",
+                "name": "Race"
+            },
+            {
+                "type": "d",
+                "name": "Sex"
+            },
+            {
+                "type": "d",
+                "name": "ClassID"
+            },
+            {
+                "type": "d",
+                "name": "Level"
+            },
+            {
+                "type": "q",
+                "name": "Exp"
+            },
+            {
+                "type": "d",
+                "name": "STR"
+            },
+            {
+                "type": "d",
+                "name": "DEX"
+            },
+            {
+                "type": "d",
+                "name": "CON"
+            },
+            {
+                "type": "d",
+                "name": "INT"
+            },
+            {
+                "type": "d",
+                "name": "WIT"
+            },
+            {
+                "type": "d",
+                "name": "MEN"
+            },
+            {
+                "type": "d",
+                "name": "MaxHP"
+            },
+            {
+                "type": "d",
+                "name": "CurHP"
+            },
+            {
+                "type": "d",
+                "name": "MaxMP"
+            },
+            {
+                "type": "d",
+                "name": "CurMP"
+            },
+            {
+                "type": "d",
+                "name": "SP"
+            },
+            {
+                "type": "d",
+                "name": "CurLoad"
+            },
+            {
+                "type": "d",
+                "name": "MaxLoad"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "DHair"
+            },
+            {
+                "type": "d",
+                "name": "Rear"
+            },
+            {
+                "type": "d",
+                "name": "Lear"
+            },
+            {
+                "type": "d",
+                "name": "Neck"
+            },
+            {
+                "type": "d",
+                "name": "RFinger"
+            },
+            {
+                "type": "d",
+                "name": "LFinger"
+            },
+            {
+                "type": "d",
+                "name": "Head"
+            },
+            {
+                "type": "d",
+                "name": "RHand"
+            },
+            {
+                "type": "d",
+                "name": "LHand"
+            },
+            {
+                "type": "d",
+                "name": "Gloves"
+            },
+            {
+                "type": "d",
+                "name": "Chest"
+            },
+            {
+                "type": "d",
+                "name": "Legs"
+            },
+            {
+                "type": "d",
+                "name": "Feet"
+            },
+            {
+                "type": "d",
+                "name": "Back"
+            },
+            {
+                "type": "d",
+                "name": "LRHand"
+            },
+            {
+                "type": "d",
+                "name": "Hair"
+            },
+            {
+                "type": "d",
+                "name": "Face"
+            },
+            {
+                "type": "d",
+                "name": "DHair"
+            },
+            {
+                "type": "d",
+                "name": "Rear"
+            },
+            {
+                "type": "d",
+                "name": "Lear"
+            },
+            {
+                "type": "d",
+                "name": "Neck"
+            },
+            {
+                "type": "d",
+                "name": "RFinger"
+            },
+            {
+                "type": "d",
+                "name": "LFinger"
+            },
+            {
+                "type": "d",
+                "name": "Head"
+            },
+            {
+                "type": "d",
+                "name": "RHand"
+            },
+            {
+                "type": "d",
+                "name": "LHand"
+            },
+            {
+                "type": "d",
+                "name": "Gloves"
+            },
+            {
+                "type": "d",
+                "name": "Chest"
+            },
+            {
+                "type": "d",
+                "name": "Legs"
+            },
+            {
+                "type": "d",
+                "name": "Feet"
+            },
+            {
+                "type": "d",
+                "name": "Back"
+            },
+            {
+                "type": "d",
+                "name": "LRHand"
+            },
+            {
+                "type": "d",
+                "name": "Hair"
+            },
+            {
+                "type": "d",
+                "name": "Face"
+            },
+            {
+                "type": "z",
+                "name": "0068"
+            },
+            {
+                "type": "d",
+                "name": "Patk"
+            },
+            {
+                "type": "d",
+                "name": "Paspd"
+            },
+            {
+                "type": "d",
+                "name": "Pdef"
+            },
+            {
+                "type": "d",
+                "name": "evasion"
+            },
+            {
+                "type": "d",
+                "name": "accur"
+            },
+            {
+                "type": "d",
+                "name": "crithit"
+            },
+            {
+                "type": "d",
+                "name": "Matk"
+            },
+            {
+                "type": "d",
+                "name": "Maspd"
+            },
+            {
+                "type": "d",
+                "name": "Paspd"
+            },
+            {
+                "type": "d",
+                "name": "Mdef"
+            },
+            {
+                "type": "d",
+                "name": "PvpFlag"
+            },
+            {
+                "type": "d",
+                "name": "Karma"
+            },
+            {
+                "type": "d",
+                "name": "runSpd"
+            },
+            {
+                "type": "d",
+                "name": "walkSpd"
+            },
+            {
+                "type": "d",
+                "name": "swimRSpd"
+            },
+            {
+                "type": "d",
+                "name": "swimWSpd"
+            },
+            {
+                "type": "d",
+                "name": "flRSpd"
+            },
+            {
+                "type": "d",
+                "name": "flWSpd"
+            },
+            {
+                "type": "d",
+                "name": "flyRSpd"
+            },
+            {
+                "type": "d",
+                "name": "flyWSpd"
+            },
+            {
+                "type": "f",
+                "name": "MoveMul"
+            },
+            {
+                "type": "f",
+                "name": "aspdMul"
+            },
+            {
+                "type": "f",
+                "name": "collisRadius"
+            },
+            {
+                "type": "f",
+                "name": "collisHeight"
+            },
+            {
+                "type": "d",
+                "name": "HairStyle"
+            },
+            {
+                "type": "d",
+                "name": "HairColor"
+            },
+            {
+                "type": "d",
+                "name": "Face"
+            },
+            {
+                "type": "d",
+                "name": "AccessLvl"
+            },
+            {
+                "type": "s",
+                "name": "Title"
+            },
+            {
+                "type": "d",
+                "name": "clanID"
+            },
+            {
+                "type": "d",
+                "name": "clanCrestId"
+            },
+            {
+                "type": "d",
+                "name": "AllyID"
+            },
+            {
+                "type": "d",
+                "name": "AllyCrestId"
+            },
+            {
+                "type": "d",
+                "name": "ClanLeader"
+            },
+            {
+                "type": "c",
+                "name": "Mount"
+            },
+            {
+                "type": "c",
+                "name": "shop"
+            },
+            {
+                "type": "c",
+                "name": "DwarfCraft"
+            },
+            {
+                "type": "d",
+                "name": "PKkills"
+            },
+            {
+                "type": "d",
+                "name": "PVPkills"
+            },
+            {
+                "type": "h",
+                "name": "cubics",
+                "repeat": 1
+            },
+            {
+                "type": "h",
+                "name": "cubID"
+            },
+            {
+                "type": "c",
+                "name": "findparty"
+            },
+            {
+                "type": "d",
+                "name": "abnEffects"
+            },
+            {
+                "type": "c",
+                "name": "c"
+            },
+            {
+                "type": "d",
+                "name": "clanPrivil"
+            },
+            {
+                "type": "h",
+                "name": "RecomLeft"
+            },
+            {
+                "type": "h",
+                "name": "RecomHave"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "h",
+                "name": "InventLimit"
+            },
+            {
+                "type": "d",
+                "name": "classId"
+            },
+            {
+                "type": "d",
+                "name": "sEff"
+            },
+            {
+                "type": "d",
+                "name": "maxCP"
+            },
+            {
+                "type": "d",
+                "name": "curCP"
+            },
+            {
+                "type": "c",
+                "name": "Mount"
+            },
+            {
+                "type": "c",
+                "name": "Team"
+            },
+            {
+                "type": "d",
+                "name": "clanBigCrestId"
+            },
+            {
+                "type": "c",
+                "name": "Noble"
+            },
+            {
+                "type": "c",
+                "name": "Hero"
+            },
+            {
+                "type": "c",
+                "name": "Fishing"
+            },
+            {
+                "type": "d",
+                "name": "fishX"
+            },
+            {
+                "type": "d",
+                "name": "fishY"
+            },
+            {
+                "type": "d",
+                "name": "fishZ"
+            },
+            {
+                "type": "d",
+                "name": "NameColor"
+            },
+            {
+                "type": "c",
+                "name": "isRun"
+            },
+            {
+                "type": "d",
+                "name": "PledgeClass"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "TitleColor"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "CurseWeap"
+            }
+        ]
+    },
+    "05": {
+        "name": "Attack",
+        "data": [
+            {
+                "type": "d",
+                "name": "AttackerID"
+            },
+            {
+                "type": "d",
+                "name": "TargetID"
+            },
+            {
+                "type": "d",
+                "name": "Damage"
+            },
+            {
+                "type": "c",
+                "name": "Flags"
+            },
+            {
+                "type": "d",
+                "name": "X"
+            },
+            {
+                "type": "d",
+                "name": "Y"
+            },
+            {
+                "type": "d",
+                "name": "Z"
+            },
+            {
+                "type": "h",
+                "name": "ListHits",
+                "repeat": 3
+            },
+            {
+                "type": "d",
+                "name": "targetId"
+            },
+            {
+                "type": "d",
+                "name": "damage"
+            },
+            {
+                "type": "c",
+                "name": "flags"
+            }
+        ]
+    },
+    "06": {
+        "name": "Die",
+        "data": [
+            {
+                "type": "d",
+                "name": "CharID"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "HAsHideout"
+            },
+            {
+                "type": "d",
+                "name": "HasCastle"
+            },
+            {
+                "type": "d",
+                "name": "flags"
+            },
+            {
+                "type": "d",
+                "name": "sweepable"
+            },
+            {
+                "type": "d",
+                "name": "access"
+            }
+        ]
+    },
+    "07": {
+        "name": "Revive",
+        "data": [
+            {
+                "type": "d",
+                "name": "ObjectID"
+            }
+        ]
+    },
+    "08": {
+        "name": "AttackOutOfRange",
+        "data": []
+    },
+    "09": {
+        "name": "AttackinCoolTime",
+        "data": []
+    },
+    "0A": {
+        "name": "AttackDeadTarget",
+        "data": []
+    },
+    "0B": {
+        "name": "SpawnItem",
+        "data": [
+            {
+                "type": "d",
+                "name": "ObjectID"
+            },
+            {
+                "type": "d",
+                "name": "ItemID"
+            },
+            {
+                "type": "d",
+                "name": "X"
+            },
+            {
+                "type": "d",
+                "name": "Y"
+            },
+            {
+                "type": "d",
+                "name": "Z"
+            },
+            {
+                "type": "d",
+                "name": "Stackable"
+            },
+            {
+                "type": "d",
+                "name": "Count"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            }
+        ]
+    },
+    "0C": {
+        "name": "DropItem",
+        "data": [
+            {
+                "type": "d",
+                "name": "PlayerID"
+            },
+            {
+                "type": "d",
+                "name": "ObjectID"
+            },
+            {
+                "type": "d",
+                "name": "ItemID"
+            },
+            {
+                "type": "d",
+                "name": "X"
+            },
+            {
+                "type": "d",
+                "name": "Y"
+            },
+            {
+                "type": "d",
+                "name": "Z"
+            },
+            {
+                "type": "d",
+                "name": "Stackable"
+            },
+            {
+                "type": "d",
+                "name": "Count"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            }
+        ]
+    },
+    "0D": {
+        "name": "GetItem",
+        "data": [
+            {
+                "type": "d",
+                "name": "PlayerID"
+            },
+            {
+                "type": "d",
+                "name": "ObjectID"
+            },
+            {
+                "type": "d",
+                "name": "X"
+            },
+            {
+                "type": "d",
+                "name": "Y"
+            },
+            {
+                "type": "d",
+                "name": "Z"
+            }
+        ]
+    },
+    "0E": {
+        "name": "StatusUpdate",
+        "data": [
+            {
+                "type": "d",
+                "name": "ObjectID"
+            },
+            {
+                "type": "d",
+                "name": "AttribCount",
+                "repeat": 2
+            },
+            {
+                "type": "d",
+                "name": "AttrID"
+            },
+            {
+                "type": "d",
+                "name": "AttrValue"
+            }
+        ]
+    },
+    "0F": {
+        "name": "NpcHtmlMessage",
+        "data": [
+            {
+                "type": "d",
+                "name": "MessageID"
+            },
+            {
+                "type": "s",
+                "name": "HTML"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            }
+        ]
+    },
+    "10": {
+        "name": "SellList",
+        "data": [
+            {
+                "type": "d",
+                "name": "Money"
+            },
+            {
+                "type": "d",
+                "name": "Lease"
+            },
+            {
+                "type": "h",
+                "name": "SellList",
+                "repeat": 11
+            },
+            {
+                "type": "h",
+                "name": "ItemType1"
+            },
+            {
+                "type": "d",
+                "name": "ObjectID"
+            },
+            {
+                "type": "d",
+                "name": "ItemID"
+            },
+            {
+                "type": "d",
+                "name": "Count"
+            },
+            {
+                "type": "h",
+                "name": "ItemType2"
+            },
+            {
+                "type": "h",
+                "name": "h"
+            },
+            {
+                "type": "d",
+                "name": "ItemBodyPart"
+            },
+            {
+                "type": "h",
+                "name": "EnchantLevel"
+            },
+            {
+                "type": "h",
+                "name": "h"
+            },
+            {
+                "type": "h",
+                "name": "h"
+            },
+            {
+                "type": "d",
+                "name": "refPrice"
+            }
+        ]
+    },
+    "11": {
+        "name": "BuyList",
+        "data": [
+            {
+                "type": "d",
+                "name": "Money"
+            },
+            {
+                "type": "d",
+                "name": "ListID"
+            },
+            {
+                "type": "h",
+                "name": "ListCount",
+                "repeat": 11
+            },
+            {
+                "type": "h",
+                "name": "ItemType1"
+            },
+            {
+                "type": "d",
+                "name": "ObjectId"
+            },
+            {
+                "type": "d",
+                "name": "ItemID"
+            },
+            {
+                "type": "d",
+                "name": "maxcnt"
+            },
+            {
+                "type": "h",
+                "name": "ItemType2"
+            },
+            {
+                "type": "h",
+                "name": "h"
+            },
+            {
+                "type": "d",
+                "name": "ItemBodyPart"
+            },
+            {
+                "type": "h",
+                "name": "EnchantLevel"
+            },
+            {
+                "type": "h",
+                "name": "h"
+            },
+            {
+                "type": "h",
+                "name": "h"
+            },
+            {
+                "type": "d",
+                "name": "PriceToSell"
+            }
+        ]
+    },
+    "12": {
+        "name": "DeleteObject",
+        "data": [
+            {
+                "type": "d",
+                "name": "ObjectID"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            }
+        ]
+    },
+    "13": {
+        "name": "CharSelectInfo",
+        "data": [
+            {
+                "type": "d",
+                "name": "Count",
+                "repeat": 65
+            },
+            {
+                "type": "s",
+                "name": "Name"
+            },
+            {
+                "type": "d",
+                "name": "CharID"
+            },
+            {
+                "type": "s",
+                "name": "LoginName"
+            },
+            {
+                "type": "d",
+                "name": "SessionID"
+            },
+            {
+                "type": "d",
+                "name": "ClanID"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "Sex"
+            },
+            {
+                "type": "d",
+                "name": "Race"
+            },
+            {
+                "type": "d",
+                "name": "ClassID"
+            },
+            {
+                "type": "d",
+                "name": "active"
+            },
+            {
+                "type": "d",
+                "name": "X"
+            },
+            {
+                "type": "d",
+                "name": "Y"
+            },
+            {
+                "type": "d",
+                "name": "Z"
+            },
+            {
+                "type": "f",
+                "name": "cur_HP"
+            },
+            {
+                "type": "f",
+                "name": "cur_MP"
+            },
+            {
+                "type": "d",
+                "name": "SP"
+            },
+            {
+                "type": "q",
+                "name": "Exp"
+            },
+            {
+                "type": "d",
+                "name": "Level"
+            },
+            {
+                "type": "d",
+                "name": "Karma"
+            },
+            {
+                "type": "z",
+                "name": "0036"
+            },
+            {
+                "type": "d",
+                "name": "Under"
+            },
+            {
+                "type": "d",
+                "name": "Rear"
+            },
+            {
+                "type": "d",
+                "name": "Lear"
+            },
+            {
+                "type": "d",
+                "name": "Neck"
+            },
+            {
+                "type": "d",
+                "name": "RFinger"
+            },
+            {
+                "type": "d",
+                "name": "LFinger"
+            },
+            {
+                "type": "d",
+                "name": "Head"
+            },
+            {
+                "type": "d",
+                "name": "RHand"
+            },
+            {
+                "type": "d",
+                "name": "LHand"
+            },
+            {
+                "type": "d",
+                "name": "Gloves"
+            },
+            {
+                "type": "d",
+                "name": "Chest"
+            },
+            {
+                "type": "d",
+                "name": "Legs"
+            },
+            {
+                "type": "d",
+                "name": "Feet"
+            },
+            {
+                "type": "d",
+                "name": "Back"
+            },
+            {
+                "type": "d",
+                "name": "LRHand"
+            },
+            {
+                "type": "d",
+                "name": "Hair"
+            },
+            {
+                "type": "d",
+                "name": "Face"
+            },
+            {
+                "type": "d",
+                "name": "Under"
+            },
+            {
+                "type": "d",
+                "name": "Rear"
+            },
+            {
+                "type": "d",
+                "name": "Lear"
+            },
+            {
+                "type": "d",
+                "name": "Neck"
+            },
+            {
+                "type": "d",
+                "name": "RFinger"
+            },
+            {
+                "type": "d",
+                "name": "LFinger"
+            },
+            {
+                "type": "d",
+                "name": "Head"
+            },
+            {
+                "type": "d",
+                "name": "RHand"
+            },
+            {
+                "type": "d",
+                "name": "LHand"
+            },
+            {
+                "type": "d",
+                "name": "Gloves"
+            },
+            {
+                "type": "d",
+                "name": "Chest"
+            },
+            {
+                "type": "d",
+                "name": "Legs"
+            },
+            {
+                "type": "d",
+                "name": "Feet"
+            },
+            {
+                "type": "d",
+                "name": "Back"
+            },
+            {
+                "type": "d",
+                "name": "LRHand"
+            },
+            {
+                "type": "d",
+                "name": "Hair"
+            },
+            {
+                "type": "d",
+                "name": "Face"
+            },
+            {
+                "type": "d",
+                "name": "HairStyle"
+            },
+            {
+                "type": "d",
+                "name": "HairColor"
+            },
+            {
+                "type": "d",
+                "name": "Face"
+            },
+            {
+                "type": "f",
+                "name": "Max_HP"
+            },
+            {
+                "type": "f",
+                "name": "Max_MP"
+            },
+            {
+                "type": "d",
+                "name": "DELdays"
+            },
+            {
+                "type": "d",
+                "name": "ClassID"
+            },
+            {
+                "type": "d",
+                "name": "autSel"
+            },
+            {
+                "type": "c",
+                "name": "EnchEffect"
+            },
+            {
+                "type": "h",
+                "name": "face"
+            },
+            {
+                "type": "h",
+                "name": "face"
+            }
+        ]
+    },
+    "14": {
+        "name": "LoginFail",
+        "data": [
+            {
+                "type": "d",
+                "name": "reason"
+            }
+        ]
+    },
+    "15": {
+        "name": "CharSelected",
+        "data": [
+            {
+                "type": "s",
+                "name": "Name"
+            },
+            {
+                "type": "d",
+                "name": "CharID"
+            },
+            {
+                "type": "s",
+                "name": "Title"
+            },
+            {
+                "type": "d",
+                "name": "SessionID"
+            },
+            {
+                "type": "d",
+                "name": "ClanID"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "Sex"
+            },
+            {
+                "type": "d",
+                "name": "Race"
+            },
+            {
+                "type": "d",
+                "name": "ClassID"
+            },
+            {
+                "type": "d",
+                "name": "active"
+            },
+            {
+                "type": "d",
+                "name": "X"
+            },
+            {
+                "type": "d",
+                "name": "Y"
+            },
+            {
+                "type": "d",
+                "name": "Z"
+            },
+            {
+                "type": "f",
+                "name": "Cur_HP"
+            },
+            {
+                "type": "f",
+                "name": "Cur_MP"
+            },
+            {
+                "type": "d",
+                "name": "SP"
+            },
+            {
+                "type": "q",
+                "name": "EXP"
+            },
+            {
+                "type": "d",
+                "name": "Level"
+            },
+            {
+                "type": "d",
+                "name": "Karma"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "INT"
+            },
+            {
+                "type": "d",
+                "name": "STR"
+            },
+            {
+                "type": "d",
+                "name": "CON"
+            },
+            {
+                "type": "d",
+                "name": "MEN"
+            },
+            {
+                "type": "d",
+                "name": "DEX"
+            },
+            {
+                "type": "d",
+                "name": "WIT"
+            },
+            {
+                "type": "z",
+                "name": "0128"
+            },
+            {
+                "type": "d",
+                "name": "inGameTime"
+            },
+            {
+                "type": "z",
+                "name": "0072"
+            }
+        ]
+    },
+    "16": {
+        "name": "NpcInfo",
+        "data": [
+            {
+                "type": "d",
+                "name": "ObjectID"
+            },
+            {
+                "type": "d",
+                "name": "NpcTypeId"
+            },
+            {
+                "type": "d",
+                "name": "IsAttackable"
+            },
+            {
+                "type": "d",
+                "name": "X"
+            },
+            {
+                "type": "d",
+                "name": "Y"
+            },
+            {
+                "type": "d",
+                "name": "Z"
+            },
+            {
+                "type": "d",
+                "name": "Heading"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "Maspd"
+            },
+            {
+                "type": "d",
+                "name": "Paspd"
+            },
+            {
+                "type": "d",
+                "name": "runSpd"
+            },
+            {
+                "type": "d",
+                "name": "walkSpd"
+            },
+            {
+                "type": "d",
+                "name": "swimRSpd"
+            },
+            {
+                "type": "d",
+                "name": "swimWSpd"
+            },
+            {
+                "type": "d",
+                "name": "flRSpd"
+            },
+            {
+                "type": "d",
+                "name": "flWSpd"
+            },
+            {
+                "type": "d",
+                "name": "FlyRSpd"
+            },
+            {
+                "type": "d",
+                "name": "FlyWSpd"
+            },
+            {
+                "type": "f",
+                "name": "ProperMul"
+            },
+            {
+                "type": "f",
+                "name": "Paspd"
+            },
+            {
+                "type": "f",
+                "name": "CollisRadius"
+            },
+            {
+                "type": "f",
+                "name": "CollisHeight"
+            },
+            {
+                "type": "d",
+                "name": "RHand"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "LHand"
+            },
+            {
+                "type": "c",
+                "name": "nameabove"
+            },
+            {
+                "type": "c",
+                "name": "isRun"
+            },
+            {
+                "type": "c",
+                "name": "isInFight"
+            },
+            {
+                "type": "c",
+                "name": "isAlikeDead"
+            },
+            {
+                "type": "c",
+                "name": "isSummoned"
+            },
+            {
+                "type": "s",
+                "name": "Name"
+            },
+            {
+                "type": "s",
+                "name": "Title"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "PvpFlag"
+            },
+            {
+                "type": "d",
+                "name": "karma?"
+            },
+            {
+                "type": "h",
+                "name": "abnEffect"
+            },
+            {
+                "type": "h",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "c",
+                "name": "c"
+            },
+            {
+                "type": "c",
+                "name": "Team"
+            },
+            {
+                "type": "f",
+                "name": "collisRadius"
+            },
+            {
+                "type": "f",
+                "name": "collisHeight"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            }
+        ]
+    },
+    "17": {
+        "name": "CharTemplates",
+        "data": [
+            {
+                "type": "d",
+                "name": "count",
+                "repeat": 20
+            },
+            {
+                "type": "d",
+                "name": "Race"
+            },
+            {
+                "type": "d",
+                "name": "classID"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "base_STR"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "base_DEX"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "base_CON"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "base_INT"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "base_WIT"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "base_MEN"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            }
+        ]
+    },
+    "18": {
+        "name": "NewCharFail",
+        "data": []
+    },
+    "19": {
+        "name": "CharCreateSuccess",
+        "data": [
+            {
+                "type": "d",
+                "name": "ok"
+            }
+        ]
+    },
+    "1A": {
+        "name": "CharCreateFail",
+        "data": [
+            {
+                "type": "d",
+                "name": "reason"
+            }
+        ]
+    },
+    "1B": {
+        "name": "ItemListPacket",
+        "data": [
+            {
+                "type": "h",
+                "name": "window"
+            },
+            {
+                "type": "h",
+                "name": "ListCount",
+                "repeat": 12
+            },
+            {
+                "type": "h",
+                "name": "itemType1"
+            },
+            {
+                "type": "d",
+                "name": "ObjectId"
+            },
+            {
+                "type": "d",
+                "name": "ItemID"
+            },
+            {
+                "type": "d",
+                "name": "count"
+            },
+            {
+                "type": "h",
+                "name": "itemType2"
+            },
+            {
+                "type": "h",
+                "name": "CustType1"
+            },
+            {
+                "type": "h",
+                "name": "isEquipped"
+            },
+            {
+                "type": "d",
+                "name": "BodyPart"
+            },
+            {
+                "type": "h",
+                "name": "EnchantLevel"
+            },
+            {
+                "type": "h",
+                "name": "CustType2"
+            },
+            {
+                "type": "d",
+                "name": "AugId"
+            },
+            {
+                "type": "d",
+                "name": "Shadowtime"
+            }
+        ]
+    },
+    "1C": {
+        "name": "SunRise",
+        "data": []
+    },
+    "1D": {
+        "name": "SunSet",
+        "data": []
+    },
+    "1E": {
+        "name": "TradeStart",
+        "data": [
+            {
+                "type": "d",
+                "name": "ObjectId"
+            },
+            {
+                "type": "h",
+                "name": "ListCount",
+                "repeat": 10
+            },
+            {
+                "type": "h",
+                "name": "itemType1"
+            },
+            {
+                "type": "d",
+                "name": "ObjectId"
+            },
+            {
+                "type": "d",
+                "name": "ItemId"
+            },
+            {
+                "type": "d",
+                "name": "Count"
+            },
+            {
+                "type": "h",
+                "name": "itemType2"
+            },
+            {
+                "type": "h",
+                "name": "h"
+            },
+            {
+                "type": "d",
+                "name": "BodyPart"
+            },
+            {
+                "type": "h",
+                "name": "EnchantLevel"
+            },
+            {
+                "type": "h",
+                "name": "h"
+            },
+            {
+                "type": "h",
+                "name": "h"
+            }
+        ]
+    },
+    "1F": {
+        "name": "TradeStartOk",
+        "data": []
+    },
+    "20": {
+        "name": "TradeOwnAdd",
+        "data": [
+            {
+                "type": "h",
+                "name": "count",
+                "repeat": 10
+            },
+            {
+                "type": "h",
+                "name": "itemType1"
+            },
+            {
+                "type": "d",
+                "name": "ObjectId"
+            },
+            {
+                "type": "d",
+                "name": "ItemId"
+            },
+            {
+                "type": "d",
+                "name": "Count"
+            },
+            {
+                "type": "h",
+                "name": "itemType2"
+            },
+            {
+                "type": "h",
+                "name": "h"
+            },
+            {
+                "type": "d",
+                "name": "BodyPart"
+            },
+            {
+                "type": "h",
+                "name": "EnchantLevel"
+            },
+            {
+                "type": "h",
+                "name": "h"
+            },
+            {
+                "type": "h",
+                "name": "h"
+            }
+        ]
+    },
+    "21": {
+        "name": "TradeOtherAdd",
+        "data": [
+            {
+                "type": "h",
+                "name": "count",
+                "repeat": 10
+            },
+            {
+                "type": "h",
+                "name": "itemType1"
+            },
+            {
+                "type": "d",
+                "name": "ObjectId"
+            },
+            {
+                "type": "d",
+                "name": "ItemId"
+            },
+            {
+                "type": "d",
+                "name": "Count"
+            },
+            {
+                "type": "h",
+                "name": "itemType2"
+            },
+            {
+                "type": "h",
+                "name": "h"
+            },
+            {
+                "type": "d",
+                "name": "BodyPart"
+            },
+            {
+                "type": "h",
+                "name": "EnchantLevel"
+            },
+            {
+                "type": "h",
+                "name": "h"
+            },
+            {
+                "type": "h",
+                "name": "h"
+            }
+        ]
+    },
+    "22": {
+        "name": "TradeDone",
+        "data": [
+            {
+                "type": "d",
+                "name": "num"
+            }
+        ]
+    },
+    "23": {
+        "name": "CharDeleteSuccess",
+        "data": []
+    },
+    "24": {
+        "name": "CharDeleteFail",
+        "data": [
+            {
+                "type": "d",
+                "name": "reason"
+            }
+        ]
+    },
+    "25": {
+        "name": "ActionFail",
+        "data": []
+    },
+    "26": {
+        "name": "SeverClose",
+        "data": []
+    },
+    "27": {
+        "name": "InventoryUpdate",
+        "data": [
+            {
+                "type": "h",
+                "name": "count",
+                "repeat": 13
+            },
+            {
+                "type": "h",
+                "name": "1add2mod3remove"
+            },
+            {
+                "type": "h",
+                "name": "itemType1"
+            },
+            {
+                "type": "d",
+                "name": "ObjectId"
+            },
+            {
+                "type": "d",
+                "name": "ItemId"
+            },
+            {
+                "type": "d",
+                "name": "Count"
+            },
+            {
+                "type": "h",
+                "name": "itemType2"
+            },
+            {
+                "type": "h",
+                "name": "cusType1"
+            },
+            {
+                "type": "h",
+                "name": "isEquipped"
+            },
+            {
+                "type": "d",
+                "name": "BodyPart"
+            },
+            {
+                "type": "h",
+                "name": "EnchantLevel"
+            },
+            {
+                "type": "h",
+                "name": "cusType2"
+            },
+            {
+                "type": "d",
+                "name": "AugId"
+            },
+            {
+                "type": "d",
+                "name": "Shadowtime"
+            }
+        ]
+    },
+    "28": {
+        "name": "TeleportToLocation",
+        "data": [
+            {
+                "type": "d",
+                "name": "targetId"
+            },
+            {
+                "type": "d",
+                "name": "X"
+            },
+            {
+                "type": "d",
+                "name": "Y"
+            },
+            {
+                "type": "d",
+                "name": "Z"
+            }
+        ]
+    },
+    "29": {
+        "name": "TargetSelected",
+        "data": [
+            {
+                "type": "d",
+                "name": "ObjectID"
+            },
+            {
+                "type": "d",
+                "name": "TargetID"
+            },
+            {
+                "type": "d",
+                "name": "X"
+            },
+            {
+                "type": "d",
+                "name": "Y"
+            },
+            {
+                "type": "d",
+                "name": "Z"
+            }
+        ]
+    },
+    "2A": {
+        "name": "TargetUnselected",
+        "data": [
+            {
+                "type": "d",
+                "name": "TargetID"
+            },
+            {
+                "type": "d",
+                "name": "X"
+            },
+            {
+                "type": "d",
+                "name": "Y"
+            },
+            {
+                "type": "d",
+                "name": "Z"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            }
+        ]
+    },
+    "2B": {
+        "name": "AutoAttackStart",
+        "data": [
+            {
+                "type": "d",
+                "name": "TargetID"
+            }
+        ]
+    },
+    "2C": {
+        "name": "AutoAttackStop",
+        "data": [
+            {
+                "type": "d",
+                "name": "TargetID"
+            }
+        ]
+    },
+    "2D": {
+        "name": "SocialAction",
+        "data": [
+            {
+                "type": "d",
+                "name": "PlayerID"
+            },
+            {
+                "type": "d",
+                "name": "Action"
+            }
+        ]
+    },
+    "2E": {
+        "name": "ChangeMoveType",
+        "data": [
+            {
+                "type": "d",
+                "name": "charID"
+            },
+            {
+                "type": "d",
+                "name": "MoveType"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            }
+        ]
+    },
+    "2F": {
+        "name": "ChangeWaitType",
+        "data": [
+            {
+                "type": "d",
+                "name": "objectID"
+            },
+            {
+                "type": "d",
+                "name": "WaitType"
+            },
+            {
+                "type": "d",
+                "name": "X"
+            },
+            {
+                "type": "d",
+                "name": "Y"
+            },
+            {
+                "type": "d",
+                "name": "Z"
+            }
+        ]
+    },
+    "30": {
+        "name": "ManagePledgePower",
+        "data": [
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "privils"
+            }
+        ]
+    },
+    "31": {
+        "name": "CreatePledge",
+        "data": [
+            {
+                "type": "d",
+                "name": "d"
+            }
+        ]
+    },
+    "32": {
+        "name": "AskJoinPledge",
+        "data": [
+            {
+                "type": "d",
+                "name": "requestorId"
+            },
+            {
+                "type": "s",
+                "name": "pledgeName"
+            }
+        ]
+    },
+    "33": {
+        "name": "JoinPledge",
+        "data": [
+            {
+                "type": "d",
+                "name": "pledgeId"
+            }
+        ]
+    },
+    "34": {
+        "name": "WithdrawalPledge",
+        "data": [
+            {
+                "type": "d",
+                "name": "pledgeId"
+            }
+        ]
+    },
+    "35": {
+        "name": "OustPledgeMember",
+        "data": [
+            {
+                "type": "d",
+                "name": "d"
+            }
+        ]
+    },
+    "36": {
+        "name": "SetOustPledgeMember",
+        "data": []
+    },
+    "37": {
+        "name": "DismissPledge",
+        "data": [
+            {
+                "type": "d",
+                "name": "pledgeId"
+            }
+        ]
+    },
+    "38": {
+        "name": "SetDismissPledge",
+        "data": []
+    },
+    "39": {
+        "name": "AskJoinParty",
+        "data": [
+            {
+                "type": "s",
+                "name": "requestorName"
+            },
+            {
+                "type": "d",
+                "name": "itemDistribution"
+            }
+        ]
+    },
+    "3A": {
+        "name": "JoinParty",
+        "data": [
+            {
+                "type": "d",
+                "name": "response"
+            }
+        ]
+    },
+    "3B": {
+        "name": "WithdrawalParty",
+        "data": [
+            {
+                "type": "d",
+                "name": "partyID"
+            }
+        ]
+    },
+    "3C": {
+        "name": "OustPartyMember",
+        "data": [
+            {
+                "type": "d",
+                "name": "d"
+            }
+        ]
+    },
+    "3D": {
+        "name": "SetOustPartyMember",
+        "data": []
+    },
+    "3E": {
+        "name": "DismissParty",
+        "data": [
+            {
+                "type": "d",
+                "name": "partyID"
+            }
+        ]
+    },
+    "3F": {
+        "name": "SetDismissParty",
+        "data": []
+    },
+    "40": {
+        "name": "MagicAndSkillList",
+        "data": [
+            {
+                "type": "d",
+                "name": "ObjectID"
+            },
+            {
+                "type": "d",
+                "name": "CharID"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            }
+        ]
+    },
+    "41": {
+        "name": "WareHouseDepositList",
+        "data": [
+            {
+                "type": "h",
+                "name": "WHtype"
+            },
+            {
+                "type": "d",
+                "name": "PlayerAdena"
+            },
+            {
+                "type": "h",
+                "name": "ListItemst",
+                "repeat": 11
+            },
+            {
+                "type": "h",
+                "name": "itemType1"
+            },
+            {
+                "type": "d",
+                "name": "ObjectId"
+            },
+            {
+                "type": "d",
+                "name": "ItemId"
+            },
+            {
+                "type": "d",
+                "name": "Count"
+            },
+            {
+                "type": "h",
+                "name": "itemType2"
+            },
+            {
+                "type": "h",
+                "name": "h"
+            },
+            {
+                "type": "d",
+                "name": "BodyPart"
+            },
+            {
+                "type": "h",
+                "name": "EnchantLvl"
+            },
+            {
+                "type": "h",
+                "name": "h"
+            },
+            {
+                "type": "h",
+                "name": "h"
+            },
+            {
+                "type": "d",
+                "name": "ObjectId"
+            }
+        ]
+    },
+    "42": {
+        "name": "WareHouseWithdrawList",
+        "data": [
+            {
+                "type": "h",
+                "name": "WHtype"
+            },
+            {
+                "type": "d",
+                "name": "PlayerAdena"
+            },
+            {
+                "type": "h",
+                "name": "ListItemst",
+                "repeat": 11
+            },
+            {
+                "type": "h",
+                "name": "itemType1"
+            },
+            {
+                "type": "d",
+                "name": "ObjectId"
+            },
+            {
+                "type": "d",
+                "name": "ItemId"
+            },
+            {
+                "type": "d",
+                "name": "Count"
+            },
+            {
+                "type": "h",
+                "name": "itemType2"
+            },
+            {
+                "type": "h",
+                "name": "h"
+            },
+            {
+                "type": "d",
+                "name": "BodyPart"
+            },
+            {
+                "type": "h",
+                "name": "EnchantLvl"
+            },
+            {
+                "type": "h",
+                "name": "h"
+            },
+            {
+                "type": "h",
+                "name": "h"
+            },
+            {
+                "type": "d",
+                "name": "ObjectId"
+            }
+        ]
+    },
+    "43": {
+        "name": "WareHouseDone",
+        "data": [
+            {
+                "type": "d",
+                "name": "whId"
+            }
+        ]
+    },
+    "44": {
+        "name": "ShortCutRegister",
+        "data": [
+            {
+                "type": "d",
+                "name": "Type"
+            },
+            {
+                "type": "d",
+                "name": "Slot"
+            },
+            {
+                "type": "d",
+                "name": "_id"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "c",
+                "name": "c"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            }
+        ]
+    },
+    "45": {
+        "name": "ShortCutInit_",
+        "data": [
+            {
+                "type": "-",
+                "name": "Script"
+            }
+        ]
+    },
+    "46": {
+        "name": "ShortCutDelete",
+        "data": [
+            {
+                "type": "d",
+                "name": "shortcutId"
+            }
+        ]
+    },
+    "47": {
+        "name": "StopMove",
+        "data": [
+            {
+                "type": "d",
+                "name": "ObjectId"
+            },
+            {
+                "type": "d",
+                "name": "X"
+            },
+            {
+                "type": "d",
+                "name": "Y"
+            },
+            {
+                "type": "d",
+                "name": "Z"
+            },
+            {
+                "type": "d",
+                "name": "Heading"
+            }
+        ]
+    },
+    "48": {
+        "name": "MagicSkillUse",
+        "data": [
+            {
+                "type": "d",
+                "name": "charID"
+            },
+            {
+                "type": "d",
+                "name": "targetID"
+            },
+            {
+                "type": "d",
+                "name": "skillID"
+            },
+            {
+                "type": "d",
+                "name": "skillLvl"
+            },
+            {
+                "type": "d",
+                "name": "hitTime"
+            },
+            {
+                "type": "d",
+                "name": "reuseDelay"
+            },
+            {
+                "type": "d",
+                "name": "X"
+            },
+            {
+                "type": "d",
+                "name": "Y"
+            },
+            {
+                "type": "d",
+                "name": "Z"
+            },
+            {
+                "type": "h",
+                "name": "count",
+                "repeat": 3
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            }
+        ]
+    },
+    "49": {
+        "name": "MagicSkillCanceled",
+        "data": [
+            {
+                "type": "d",
+                "name": "objectID"
+            }
+        ]
+    },
+    "4A": {
+        "name": "Say2",
+        "data": [
+            {
+                "type": "d",
+                "name": "ObjectID"
+            },
+            {
+                "type": "d",
+                "name": "textType"
+            },
+            {
+                "type": "s",
+                "name": "charName"
+            },
+            {
+                "type": "s",
+                "name": "Message"
+            }
+        ]
+    },
+    "4B": {
+        "name": "EquipUpdate",
+        "data": [
+            {
+                "type": "d",
+                "name": "change"
+            },
+            {
+                "type": "d",
+                "name": "objectID"
+            },
+            {
+                "type": "d",
+                "name": "BodyPart"
+            }
+        ]
+    },
+    "4C": {
+        "name": "DoorInfo",
+        "data": [
+            {
+                "type": "d",
+                "name": "objectID"
+            },
+            {
+                "type": "d",
+                "name": "DoorID"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            }
+        ]
+    },
+    "4D": {
+        "name": "DoorStatusUpdate",
+        "data": [
+            {
+                "type": "d",
+                "name": "objectID"
+            },
+            {
+                "type": "d",
+                "name": "Open"
+            },
+            {
+                "type": "d",
+                "name": "Damage"
+            },
+            {
+                "type": "d",
+                "name": "enemy"
+            },
+            {
+                "type": "d",
+                "name": "DoorID"
+            }
+        ]
+    },
+    "4E": {
+        "name": "PartySmallWindowAll",
+        "data": [
+            {
+                "type": "d",
+                "name": "objectID"
+            },
+            {
+                "type": "d",
+                "name": "Party"
+            },
+            {
+                "type": "d",
+                "name": "ListCount",
+                "repeat": 12
+            },
+            {
+                "type": "d",
+                "name": "objID"
+            },
+            {
+                "type": "s",
+                "name": "Name"
+            },
+            {
+                "type": "d",
+                "name": "cur_CP"
+            },
+            {
+                "type": "d",
+                "name": "max_CP"
+            },
+            {
+                "type": "d",
+                "name": "cur_HP"
+            },
+            {
+                "type": "d",
+                "name": "max_HP"
+            },
+            {
+                "type": "d",
+                "name": "cur_MP"
+            },
+            {
+                "type": "d",
+                "name": "max_MP"
+            },
+            {
+                "type": "d",
+                "name": "lvl"
+            },
+            {
+                "type": "d",
+                "name": "classId"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            }
+        ]
+    },
+    "4F": {
+        "name": "PartySmallWindowAdd",
+        "data": [
+            {
+                "type": "d",
+                "name": "playerObjId"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "memObjId"
+            },
+            {
+                "type": "s",
+                "name": "memName"
+            },
+            {
+                "type": "d",
+                "name": "cur_CP"
+            },
+            {
+                "type": "d",
+                "name": "max_CP"
+            },
+            {
+                "type": "d",
+                "name": "cur_HP"
+            },
+            {
+                "type": "d",
+                "name": "max_HP"
+            },
+            {
+                "type": "d",
+                "name": "cur_MP"
+            },
+            {
+                "type": "d",
+                "name": "max_MP"
+            },
+            {
+                "type": "d",
+                "name": "lvl"
+            },
+            {
+                "type": "d",
+                "name": "classId"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            }
+        ]
+    },
+    "50": {
+        "name": "PartySmallWindowDeleteAll",
+        "data": []
+    },
+    "51": {
+        "name": "PartySmallWindowDelete",
+        "data": [
+            {
+                "type": "d",
+                "name": "memObjId"
+            },
+            {
+                "type": "s",
+                "name": "memberName"
+            }
+        ]
+    },
+    "52": {
+        "name": "PartySmallWindowUpdate",
+        "data": [
+            {
+                "type": "d",
+                "name": "memObjId"
+            },
+            {
+                "type": "s",
+                "name": "memberName"
+            },
+            {
+                "type": "d",
+                "name": "cur_CP"
+            },
+            {
+                "type": "d",
+                "name": "max_CP"
+            },
+            {
+                "type": "d",
+                "name": "cur_HP"
+            },
+            {
+                "type": "d",
+                "name": "max_HP"
+            },
+            {
+                "type": "d",
+                "name": "cur_MP"
+            },
+            {
+                "type": "d",
+                "name": "max_MP"
+            },
+            {
+                "type": "d",
+                "name": "lvl"
+            },
+            {
+                "type": "d",
+                "name": "classId"
+            }
+        ]
+    },
+    "53": {
+        "name": "PledgeShowMemberListAll",
+        "data": [
+            {
+                "type": "d",
+                "name": "mainOrSubpledge"
+            },
+            {
+                "type": "d",
+                "name": "clanID"
+            },
+            {
+                "type": "d",
+                "name": "pledgeType"
+            },
+            {
+                "type": "s",
+                "name": "clanName"
+            },
+            {
+                "type": "s",
+                "name": "LeaderName"
+            },
+            {
+                "type": "d",
+                "name": "clanCrestId"
+            },
+            {
+                "type": "d",
+                "name": "clanLvl"
+            },
+            {
+                "type": "d",
+                "name": "hasCastle"
+            },
+            {
+                "type": "d",
+                "name": "hasHideOut"
+            },
+            {
+                "type": "d",
+                "name": "Rank"
+            },
+            {
+                "type": "d",
+                "name": "reputation"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "AllyID"
+            },
+            {
+                "type": "s",
+                "name": "AllyName"
+            },
+            {
+                "type": "d",
+                "name": "AllyCrestId"
+            },
+            {
+                "type": "d",
+                "name": "isAtWar"
+            },
+            {
+                "type": "d",
+                "name": "memberCount",
+                "repeat": 7
+            },
+            {
+                "type": "s",
+                "name": "memberName"
+            },
+            {
+                "type": "d",
+                "name": "memLvl"
+            },
+            {
+                "type": "d",
+                "name": "memClassId"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "memObjId"
+            },
+            {
+                "type": "d",
+                "name": "isOnLine"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            }
+        ]
+    },
+    "54": {
+        "name": "PledgeShowMemberListUpdate",
+        "data": [
+            {
+                "type": "s",
+                "name": "playerName"
+            },
+            {
+                "type": "d",
+                "name": "Lvl"
+            },
+            {
+                "type": "d",
+                "name": "ClassId"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "objectID"
+            },
+            {
+                "type": "d",
+                "name": "isOnLine"
+            },
+            {
+                "type": "d",
+                "name": "pledgeType"
+            },
+            {
+                "type": "d",
+                "name": "hasSponsor"
+            }
+        ]
+    },
+    "55": {
+        "name": "PledgeShowMemberListAdd",
+        "data": [
+            {
+                "type": "s",
+                "name": "Name"
+            },
+            {
+                "type": "d",
+                "name": "Lvl"
+            },
+            {
+                "type": "d",
+                "name": "ClassId"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "isOnLine"
+            },
+            {
+                "type": "d",
+                "name": "pledgeType"
+            }
+        ]
+    },
+    "56": {
+        "name": "PledgeShowMemberListDelete",
+        "data": [
+            {
+                "type": "s",
+                "name": "playerName"
+            }
+        ]
+    },
+    "57": {
+        "name": "MagicList",
+        "data": []
+    },
+    "58": {
+        "name": "SkillList",
+        "data": [
+            {
+                "type": "d",
+                "name": "ListCount",
+                "repeat": 4
+            },
+            {
+                "type": "d",
+                "name": "isPassive"
+            },
+            {
+                "type": "d",
+                "name": "lvl"
+            },
+            {
+                "type": "d",
+                "name": "SkillID"
+            },
+            {
+                "type": "c",
+                "name": "c"
+            }
+        ]
+    },
+    "59": {
+        "name": "VehicleInfo",
+        "data": [
+            {
+                "type": "d",
+                "name": "boatObjId"
+            },
+            {
+                "type": "d",
+                "name": "boat_X"
+            },
+            {
+                "type": "d",
+                "name": "boat_Y"
+            },
+            {
+                "type": "d",
+                "name": "boat_Z"
+            },
+            {
+                "type": "d",
+                "name": "boat_Heading"
+            }
+        ]
+    },
+    "5A": {
+        "name": "VehicleDeparture",
+        "data": [
+            {
+                "type": "d",
+                "name": "boatObjId"
+            },
+            {
+                "type": "d",
+                "name": "spd1"
+            },
+            {
+                "type": "d",
+                "name": "spd2"
+            },
+            {
+                "type": "d",
+                "name": "X"
+            },
+            {
+                "type": "d",
+                "name": "Y"
+            },
+            {
+                "type": "d",
+                "name": "Z"
+            }
+        ]
+    },
+    "5B": {
+        "name": "VehicleCheckLocation",
+        "data": [
+            {
+                "type": "d",
+                "name": "boatObjId"
+            },
+            {
+                "type": "d",
+                "name": "X"
+            },
+            {
+                "type": "d",
+                "name": "Y"
+            },
+            {
+                "type": "d",
+                "name": "Z"
+            },
+            {
+                "type": "d",
+                "name": "boat_Heading"
+            }
+        ]
+    },
+    "5C": {
+        "name": "GetOnVehicle",
+        "data": [
+            {
+                "type": "d",
+                "name": "ObjectId"
+            },
+            {
+                "type": "d",
+                "name": "boatObjId"
+            },
+            {
+                "type": "d",
+                "name": "X"
+            },
+            {
+                "type": "d",
+                "name": "Y"
+            },
+            {
+                "type": "d",
+                "name": "Z"
+            }
+        ]
+    },
+    "5D": {
+        "name": "GetOffVehicle",
+        "data": [
+            {
+                "type": "d",
+                "name": "ObjectId"
+            },
+            {
+                "type": "d",
+                "name": "boatObjId"
+            },
+            {
+                "type": "d",
+                "name": "X"
+            },
+            {
+                "type": "d",
+                "name": "Y"
+            },
+            {
+                "type": "d",
+                "name": "Z"
+            }
+        ]
+    },
+    "5E": {
+        "name": "TradeRequest",
+        "data": [
+            {
+                "type": "d",
+                "name": "senderID"
+            }
+        ]
+    },
+    "5F": {
+        "name": "RestartResponse",
+        "data": [
+            {
+                "type": "d",
+                "name": "ok"
+            },
+            {
+                "type": "s",
+                "name": "Message"
+            }
+        ]
+    },
+    "60": {
+        "name": "MoveToPawn",
+        "data": [
+            {
+                "type": "d",
+                "name": "charID"
+            },
+            {
+                "type": "d",
+                "name": "targetId"
+            },
+            {
+                "type": "d",
+                "name": "distance"
+            },
+            {
+                "type": "d",
+                "name": "X"
+            },
+            {
+                "type": "d",
+                "name": "Y"
+            },
+            {
+                "type": "d",
+                "name": "Z"
+            }
+        ]
+    },
+    "61": {
+        "name": "ValidateLocation",
+        "data": [
+            {
+                "type": "d",
+                "name": "charID"
+            },
+            {
+                "type": "d",
+                "name": "X"
+            },
+            {
+                "type": "d",
+                "name": "Y"
+            },
+            {
+                "type": "d",
+                "name": "Z"
+            },
+            {
+                "type": "d",
+                "name": "Heading"
+            }
+        ]
+    },
+    "62": {
+        "name": "StartRotating",
+        "data": [
+            {
+                "type": "d",
+                "name": "charId"
+            },
+            {
+                "type": "d",
+                "name": "degree"
+            },
+            {
+                "type": "d",
+                "name": "side"
+            }
+        ]
+    },
+    "63": {
+        "name": "FinishRotating",
+        "data": [
+            {
+                "type": "d",
+                "name": "objectId"
+            },
+            {
+                "type": "d",
+                "name": "Heading"
+            }
+        ]
+    },
+    "64": {
+        "name": "SystemMessage",
+        "data": [
+            {
+                "type": "d",
+                "name": "MsgID"
+            },
+            {
+                "type": "d",
+                "name": "typesCount"
+            }
+        ]
+    },
+    "65": {
+        "name": "StartPledgeWar",
+        "data": [
+            {
+                "type": "s",
+                "name": "char"
+            },
+            {
+                "type": "s",
+                "name": "pledgename"
+            }
+        ]
+    },
+    "66": {
+        "name": "ReplyStartPledgeWar",
+        "data": [
+            {
+                "type": "d",
+                "name": "d"
+            }
+        ]
+    },
+    "67": {
+        "name": "StopPledgeWar",
+        "data": [
+            {
+                "type": "s",
+                "name": "pledgename"
+            },
+            {
+                "type": "s",
+                "name": "char"
+            }
+        ]
+    },
+    "68": {
+        "name": "ReplyStopPledgeWar",
+        "data": [
+            {
+                "type": "d",
+                "name": "d"
+            }
+        ]
+    },
+    "69": {
+        "name": "SurrenderPledgeWar",
+        "data": [
+            {
+                "type": "s",
+                "name": "pledgename"
+            },
+            {
+                "type": "s",
+                "name": "char"
+            }
+        ]
+    },
+    "6A": {
+        "name": "ReplySurrenderPledgeWar",
+        "data": [
+            {
+                "type": "d",
+                "name": "d"
+            }
+        ]
+    },
+    "6B": {
+        "name": "SetPledgeCrest",
+        "data": []
+    },
+    "6C": {
+        "name": "PledgeCrest",
+        "data": [
+            {
+                "type": "d",
+                "name": "crestID"
+            },
+            {
+                "type": "b",
+                "name": "IconCrest"
+            }
+        ]
+    },
+    "6D": {
+        "name": "SetupGauge",
+        "data": [
+            {
+                "type": "d",
+                "name": "dat1"
+            },
+            {
+                "type": "d",
+                "name": "time"
+            },
+            {
+                "type": "d",
+                "name": "time"
+            }
+        ]
+    },
+    "6E": {
+        "name": "ShowBoard",
+        "data": [
+            {
+                "type": "c",
+                "name": "show"
+            },
+            {
+                "type": "s",
+                "name": "s1"
+            },
+            {
+                "type": "s",
+                "name": "s2"
+            },
+            {
+                "type": "s",
+                "name": "s3"
+            },
+            {
+                "type": "s",
+                "name": "s4"
+            },
+            {
+                "type": "s",
+                "name": "s5"
+            },
+            {
+                "type": "s",
+                "name": "s6"
+            },
+            {
+                "type": "s",
+                "name": "s7"
+            },
+            {
+                "type": "s",
+                "name": "s8"
+            },
+            {
+                "type": "s",
+                "name": "curpage"
+            }
+        ]
+    },
+    "6F": {
+        "name": "ChooseInventoryItem",
+        "data": [
+            {
+                "type": "d",
+                "name": "ItemId"
+            }
+        ]
+    },
+    "70": {
+        "name": "Dummy",
+        "data": []
+    },
+    "71": {
+        "name": "MoveToLocationInVehicle",
+        "data": [
+            {
+                "type": "d",
+                "name": "pcID"
+            },
+            {
+                "type": "d",
+                "name": "boatID"
+            },
+            {
+                "type": "d",
+                "name": "dest_X"
+            },
+            {
+                "type": "d",
+                "name": "dest_Y"
+            },
+            {
+                "type": "d",
+                "name": "dest_Z"
+            },
+            {
+                "type": "d",
+                "name": "orig_X"
+            },
+            {
+                "type": "d",
+                "name": "orig_Y"
+            },
+            {
+                "type": "d",
+                "name": "orig_Z"
+            }
+        ]
+    },
+    "72": {
+        "name": "StopMoveInVehicle",
+        "data": [
+            {
+                "type": "d",
+                "name": "objId"
+            },
+            {
+                "type": "d",
+                "name": "boatId"
+            },
+            {
+                "type": "d",
+                "name": "X"
+            },
+            {
+                "type": "d",
+                "name": "Y"
+            },
+            {
+                "type": "d",
+                "name": "Z"
+            },
+            {
+                "type": "d",
+                "name": "Heading"
+            }
+        ]
+    },
+    "73": {
+        "name": "ValidateLocationInVehicle",
+        "data": [
+            {
+                "type": "d",
+                "name": "PlayerID"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "X"
+            },
+            {
+                "type": "d",
+                "name": "Y"
+            },
+            {
+                "type": "d",
+                "name": "Z"
+            },
+            {
+                "type": "d",
+                "name": "Heading"
+            }
+        ]
+    },
+    "74": {
+        "name": "TradeUpdate",
+        "data": []
+    },
+    "75": {
+        "name": "TradePressOwnOk",
+        "data": []
+    },
+    "76": {
+        "name": "MagicSkillLaunched",
+        "data": [
+            {
+                "type": "d",
+                "name": "charID"
+            },
+            {
+                "type": "d",
+                "name": "skillID"
+            },
+            {
+                "type": "d",
+                "name": "skillLvl"
+            },
+            {
+                "type": "d",
+                "name": "failed"
+            },
+            {
+                "type": "d",
+                "name": "targetId"
+            }
+        ]
+    },
+    "77": {
+        "name": "FriendAddRequestResult",
+        "data": [
+            {
+                "type": "d",
+                "name": "d"
+            }
+        ]
+    },
+    "78": {
+        "name": "FriendAdd",
+        "data": []
+    },
+    "79": {
+        "name": "FriendRemove",
+        "data": []
+    },
+    "7A": {
+        "name": "FriendList",
+        "data": []
+    },
+    "7B": {
+        "name": "FriendStatus",
+        "data": []
+    },
+    "7C": {
+        "name": "TradePressOtherOk",
+        "data": []
+    },
+    "7D": {
+        "name": "FriendAddRequest",
+        "data": [
+            {
+                "type": "s",
+                "name": "requestorName"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            }
+        ]
+    },
+    "7E": {
+        "name": "LogOutOk",
+        "data": []
+    },
+    "7F": {
+        "name": "MagicEffectIcons",
+        "data": [
+            {
+                "type": "h",
+                "name": "ListCount",
+                "repeat": 3
+            },
+            {
+                "type": "d",
+                "name": "skillID"
+            },
+            {
+                "type": "h",
+                "name": "Lvl"
+            },
+            {
+                "type": "d",
+                "name": "Duration"
+            }
+        ]
+    },
+    "80": {
+        "name": "QuestList",
+        "data": [
+            {
+                "type": "h",
+                "name": "Count",
+                "repeat": 2
+            },
+            {
+                "type": "d",
+                "name": "QuestId"
+            },
+            {
+                "type": "d",
+                "name": "cond"
+            },
+            {
+                "type": "h",
+                "name": "AllQCount",
+                "repeat": 4
+            },
+            {
+                "type": "d",
+                "name": "drObId"
+            },
+            {
+                "type": "d",
+                "name": "drId"
+            },
+            {
+                "type": "d",
+                "name": "drItCn"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            }
+        ]
+    },
+    "81": {
+        "name": "EnchantResult",
+        "data": [
+            {
+                "type": "d",
+                "name": "result"
+            }
+        ]
+    },
+    "82": {
+        "name": "PledgeShowMemberListDeleteAll",
+        "data": []
+    },
+    "83": {
+        "name": "PledgeInfo",
+        "data": [
+            {
+                "type": "d",
+                "name": "clanId"
+            },
+            {
+                "type": "s",
+                "name": "clanName"
+            },
+            {
+                "type": "s",
+                "name": "allyName"
+            }
+        ]
+    },
+    "84": {
+        "name": "PledgeExtendedInfo",
+        "data": []
+    },
+    "85": {
+        "name": "SurrenderPersonally",
+        "data": []
+    },
+    "86": {
+        "name": "Ride",
+        "data": [
+            {
+                "type": "d",
+                "name": "_id"
+            },
+            {
+                "type": "d",
+                "name": "bRide"
+            },
+            {
+                "type": "d",
+                "name": "rideType"
+            },
+            {
+                "type": "d",
+                "name": "rideClassId"
+            }
+        ]
+    },
+    "87": {
+        "name": "Dummy",
+        "data": []
+    },
+    "88": {
+        "name": "PledgeShowInfoUpdate",
+        "data": [
+            {
+                "type": "d",
+                "name": "clanId"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "clanLvl"
+            },
+            {
+                "type": "d",
+                "name": "hasCastle"
+            },
+            {
+                "type": "d",
+                "name": "hasHideOut"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "reputation"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "D"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "s",
+                "name": "bil"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            }
+        ]
+    },
+    "89": {
+        "name": "ClientAction",
+        "data": [
+            {
+                "type": "d",
+                "name": "d"
+            }
+        ]
+    },
+    "8A": {
+        "name": "AcquireSkillList",
+        "data": [
+            {
+                "type": "d",
+                "name": "orig"
+            },
+            {
+                "type": "d",
+                "name": "ListCount",
+                "repeat": 5
+            },
+            {
+                "type": "d",
+                "name": "_id"
+            },
+            {
+                "type": "d",
+                "name": "nxtLvl"
+            },
+            {
+                "type": "d",
+                "name": "maxLvl"
+            },
+            {
+                "type": "d",
+                "name": "spCost"
+            },
+            {
+                "type": "d",
+                "name": "require"
+            }
+        ]
+    },
+    "8B": {
+        "name": "AcquireSkillInfo",
+        "data": [
+            {
+                "type": "d",
+                "name": "_id"
+            },
+            {
+                "type": "d",
+                "name": "level"
+            },
+            {
+                "type": "d",
+                "name": "spCost"
+            },
+            {
+                "type": "d",
+                "name": "Mode"
+            },
+            {
+                "type": "d",
+                "name": "Count",
+                "repeat": 4
+            },
+            {
+                "type": "d",
+                "name": "type"
+            },
+            {
+                "type": "d",
+                "name": "itemId"
+            },
+            {
+                "type": "d",
+                "name": "count"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            }
+        ]
+    },
+    "8C": {
+        "name": "ServerObjectInfo",
+        "data": []
+    },
+    "8D": {
+        "name": "GMHide",
+        "data": [
+            {
+                "type": "d",
+                "name": "_id"
+            }
+        ]
+    },
+    "8E": {
+        "name": "AcquireSkillDone",
+        "data": []
+    },
+    "8F": {
+        "name": "GMViewCharacterInfo",
+        "data": [
+            {
+                "type": "d",
+                "name": "X"
+            },
+            {
+                "type": "d",
+                "name": "Y"
+            },
+            {
+                "type": "d",
+                "name": "Z"
+            },
+            {
+                "type": "d",
+                "name": "Heading"
+            },
+            {
+                "type": "d",
+                "name": "ObjId"
+            },
+            {
+                "type": "s",
+                "name": "Name"
+            },
+            {
+                "type": "d",
+                "name": "Race"
+            },
+            {
+                "type": "d",
+                "name": "Sex"
+            },
+            {
+                "type": "d",
+                "name": "ClassId"
+            },
+            {
+                "type": "d",
+                "name": "Lvl"
+            },
+            {
+                "type": "q",
+                "name": "Exp"
+            },
+            {
+                "type": "d",
+                "name": "STR"
+            },
+            {
+                "type": "d",
+                "name": "DEX"
+            },
+            {
+                "type": "d",
+                "name": "CON"
+            },
+            {
+                "type": "d",
+                "name": "INT"
+            },
+            {
+                "type": "d",
+                "name": "WIT"
+            },
+            {
+                "type": "d",
+                "name": "MEN"
+            },
+            {
+                "type": "d",
+                "name": "max_HP"
+            },
+            {
+                "type": "d",
+                "name": "cur_HP"
+            },
+            {
+                "type": "d",
+                "name": "max_MP"
+            },
+            {
+                "type": "d",
+                "name": "cur_MP"
+            },
+            {
+                "type": "d",
+                "name": "SP"
+            },
+            {
+                "type": "d",
+                "name": "cur_Load"
+            },
+            {
+                "type": "d",
+                "name": "max_Load"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "Under"
+            },
+            {
+                "type": "d",
+                "name": "Rear"
+            },
+            {
+                "type": "d",
+                "name": "Lear"
+            },
+            {
+                "type": "d",
+                "name": "Neck"
+            },
+            {
+                "type": "d",
+                "name": "RFinger"
+            },
+            {
+                "type": "d",
+                "name": "LFinger"
+            },
+            {
+                "type": "d",
+                "name": "Head"
+            },
+            {
+                "type": "d",
+                "name": "RHand"
+            },
+            {
+                "type": "d",
+                "name": "LHand"
+            },
+            {
+                "type": "d",
+                "name": "Gloves"
+            },
+            {
+                "type": "d",
+                "name": "Chest"
+            },
+            {
+                "type": "d",
+                "name": "Legs"
+            },
+            {
+                "type": "d",
+                "name": "Feet"
+            },
+            {
+                "type": "d",
+                "name": "Back"
+            },
+            {
+                "type": "d",
+                "name": "LRHand"
+            },
+            {
+                "type": "d",
+                "name": "Hair"
+            },
+            {
+                "type": "d",
+                "name": "Under"
+            },
+            {
+                "type": "d",
+                "name": "Rear"
+            },
+            {
+                "type": "d",
+                "name": "Lear"
+            },
+            {
+                "type": "d",
+                "name": "Neck"
+            },
+            {
+                "type": "d",
+                "name": "RFinger"
+            },
+            {
+                "type": "d",
+                "name": "LFinger"
+            },
+            {
+                "type": "d",
+                "name": "Head"
+            },
+            {
+                "type": "d",
+                "name": "RHand"
+            },
+            {
+                "type": "d",
+                "name": "LHand"
+            },
+            {
+                "type": "d",
+                "name": "Gloves"
+            },
+            {
+                "type": "d",
+                "name": "Chest"
+            },
+            {
+                "type": "d",
+                "name": "Legs"
+            },
+            {
+                "type": "d",
+                "name": "Feet"
+            },
+            {
+                "type": "d",
+                "name": "Back"
+            },
+            {
+                "type": "d",
+                "name": "LRHand"
+            },
+            {
+                "type": "d",
+                "name": "Hair"
+            },
+            {
+                "type": "d",
+                "name": "Patk"
+            },
+            {
+                "type": "d",
+                "name": "Paspd"
+            },
+            {
+                "type": "d",
+                "name": "PDef"
+            },
+            {
+                "type": "d",
+                "name": "Evasion"
+            },
+            {
+                "type": "d",
+                "name": "Accuracy"
+            },
+            {
+                "type": "d",
+                "name": "Crithit"
+            },
+            {
+                "type": "d",
+                "name": "Matk"
+            },
+            {
+                "type": "d",
+                "name": "Maspd"
+            },
+            {
+                "type": "d",
+                "name": "Paspd"
+            },
+            {
+                "type": "d",
+                "name": "MDef"
+            },
+            {
+                "type": "d",
+                "name": "PvpFlag"
+            },
+            {
+                "type": "d",
+                "name": "Karma"
+            },
+            {
+                "type": "d",
+                "name": "runSpd"
+            },
+            {
+                "type": "d",
+                "name": "walkSpd"
+            },
+            {
+                "type": "d",
+                "name": "swimRSpd"
+            },
+            {
+                "type": "d",
+                "name": "swimWSpd"
+            },
+            {
+                "type": "d",
+                "name": "flRSpd"
+            },
+            {
+                "type": "d",
+                "name": "flWSpd"
+            },
+            {
+                "type": "d",
+                "name": "flyRSpd"
+            },
+            {
+                "type": "d",
+                "name": "flyWSpd"
+            },
+            {
+                "type": "f",
+                "name": "moveMul"
+            },
+            {
+                "type": "f",
+                "name": "aspdMul"
+            },
+            {
+                "type": "f",
+                "name": "collisRadius"
+            },
+            {
+                "type": "f",
+                "name": "collisHeight"
+            },
+            {
+                "type": "d",
+                "name": "HairStyle"
+            },
+            {
+                "type": "d",
+                "name": "HairColor"
+            },
+            {
+                "type": "d",
+                "name": "Face"
+            },
+            {
+                "type": "d",
+                "name": "isGM"
+            },
+            {
+                "type": "s",
+                "name": "Title"
+            },
+            {
+                "type": "d",
+                "name": "clanId"
+            },
+            {
+                "type": "d",
+                "name": "clanCrestId"
+            },
+            {
+                "type": "d",
+                "name": "allyId"
+            },
+            {
+                "type": "c",
+                "name": "Mount"
+            },
+            {
+                "type": "c",
+                "name": "store"
+            },
+            {
+                "type": "c",
+                "name": "DwarfCraft"
+            },
+            {
+                "type": "d",
+                "name": "PKkills"
+            },
+            {
+                "type": "d",
+                "name": "PVPkills"
+            },
+            {
+                "type": "h",
+                "name": "RecomLeft"
+            },
+            {
+                "type": "h",
+                "name": "RecomHave"
+            },
+            {
+                "type": "d",
+                "name": "ClassId"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "max_CP"
+            },
+            {
+                "type": "d",
+                "name": "cur_CP"
+            },
+            {
+                "type": "c",
+                "name": "isRun"
+            },
+            {
+                "type": "d",
+                "name": "FaceId"
+            },
+            {
+                "type": "d",
+                "name": "FaceIt"
+            },
+            {
+                "type": "d",
+                "name": "pledgeClass"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "NameColor"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            }
+        ]
+    },
+    "90": {
+        "name": "GMViewPledgeInfo",
+        "data": [
+            {
+                "type": "s",
+                "name": "charName"
+            },
+            {
+                "type": "d",
+                "name": "clanId"
+            },
+            {
+                "type": "s",
+                "name": "clanName"
+            },
+            {
+                "type": "s",
+                "name": "LeaderName"
+            },
+            {
+                "type": "d",
+                "name": "CrestId"
+            },
+            {
+                "type": "d",
+                "name": "clanLvl"
+            },
+            {
+                "type": "d",
+                "name": "hasCastle"
+            },
+            {
+                "type": "d",
+                "name": "hasHideOut"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "charLvl"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "allyId"
+            },
+            {
+                "type": "s",
+                "name": "allyName"
+            },
+            {
+                "type": "d",
+                "name": "allyCrestId"
+            },
+            {
+                "type": "d",
+                "name": "isAtWar"
+            },
+            {
+                "type": "d",
+                "name": "membersCount",
+                "repeat": 6
+            },
+            {
+                "type": "s",
+                "name": "memberName"
+            },
+            {
+                "type": "d",
+                "name": "memLvl"
+            },
+            {
+                "type": "d",
+                "name": "memClassId"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "isOnline"
+            }
+        ]
+    },
+    "91": {
+        "name": "GMViewSkillInfo",
+        "data": [
+            {
+                "type": "s",
+                "name": "charName"
+            },
+            {
+                "type": "d",
+                "name": "ListCount",
+                "repeat": 4
+            },
+            {
+                "type": "d",
+                "name": "isPassive"
+            },
+            {
+                "type": "d",
+                "name": "skillLVL"
+            },
+            {
+                "type": "d",
+                "name": "skillID"
+            },
+            {
+                "type": "c",
+                "name": "c"
+            }
+        ]
+    },
+    "92": {
+        "name": "GMViewMagicInfo",
+        "data": []
+    },
+    "93": {
+        "name": "GMViewQuestInfo",
+        "data": [
+            {
+                "type": "s",
+                "name": "charName"
+            },
+            {
+                "type": "h",
+                "name": "questCount",
+                "repeat": 2
+            },
+            {
+                "type": "d",
+                "name": "questId"
+            },
+            {
+                "type": "d",
+                "name": "cond"
+            },
+            {
+                "type": "h",
+                "name": "DropList",
+                "repeat": 4
+            },
+            {
+                "type": "d",
+                "name": "dropID"
+            },
+            {
+                "type": "d",
+                "name": "dropItemId"
+            },
+            {
+                "type": "d",
+                "name": "dropCount"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            }
+        ]
+    },
+    "94": {
+        "name": "GMViewItemList",
+        "data": [
+            {
+                "type": "s",
+                "name": "playerName"
+            },
+            {
+                "type": "d",
+                "name": "InventLimit"
+            },
+            {
+                "type": "h",
+                "name": "window"
+            },
+            {
+                "type": "h",
+                "name": "ItemsCount",
+                "repeat": 10
+            },
+            {
+                "type": "h",
+                "name": "type1"
+            },
+            {
+                "type": "d",
+                "name": "ObjectId"
+            },
+            {
+                "type": "d",
+                "name": "ItemId"
+            },
+            {
+                "type": "d",
+                "name": "count"
+            },
+            {
+                "type": "h",
+                "name": "type2"
+            },
+            {
+                "type": "h",
+                "name": "custType1"
+            },
+            {
+                "type": "h",
+                "name": "isEquipped"
+            },
+            {
+                "type": "d",
+                "name": "BodyPart"
+            },
+            {
+                "type": "h",
+                "name": "EnchantLvl"
+            },
+            {
+                "type": "h",
+                "name": "custType2"
+            }
+        ]
+    },
+    "95": {
+        "name": "GMViewWarehouseWithdrawList",
+        "data": [
+            {
+                "type": "s",
+                "name": "playerName"
+            },
+            {
+                "type": "d",
+                "name": "Money"
+            },
+            {
+                "type": "h",
+                "name": "itemCount",
+                "repeat": 11
+            },
+            {
+                "type": "h",
+                "name": "type1"
+            },
+            {
+                "type": "d",
+                "name": "ObjectId"
+            },
+            {
+                "type": "d",
+                "name": "ItemId"
+            },
+            {
+                "type": "d",
+                "name": "count"
+            },
+            {
+                "type": "h",
+                "name": "type2"
+            },
+            {
+                "type": "h",
+                "name": "h"
+            },
+            {
+                "type": "d",
+                "name": "BodyPart"
+            },
+            {
+                "type": "h",
+                "name": "EnchantLvl"
+            },
+            {
+                "type": "h",
+                "name": "ssCount"
+            },
+            {
+                "type": "h",
+                "name": "spsCount"
+            },
+            {
+                "type": "d",
+                "name": "ObjectId"
+            }
+        ]
+    },
+    "96": {
+        "name": "ListPartyWating",
+        "data": [
+            {
+                "type": "d",
+                "name": "plcount",
+                "repeat": 10
+            },
+            {
+                "type": "d",
+                "name": "plObjectId"
+            },
+            {
+                "type": "s",
+                "name": "playerName"
+            },
+            {
+                "type": "d",
+                "name": "lvl"
+            },
+            {
+                "type": "d",
+                "name": "classId"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "clanId"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "X"
+            },
+            {
+                "type": "d",
+                "name": "Y"
+            },
+            {
+                "type": "d",
+                "name": "Z"
+            }
+        ]
+    },
+    "97": {
+        "name": "PartyRoomInfo",
+        "data": [
+            {
+                "type": "d",
+                "name": "plObjectId"
+            },
+            {
+                "type": "d",
+                "name": "showLvl"
+            },
+            {
+                "type": "d",
+                "name": "showClass"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "s",
+                "name": "partyMemo"
+            }
+        ]
+    },
+    "98": {
+        "name": "PlaySound",
+        "data": [
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "s",
+                "name": "soundFile"
+            },
+            {
+                "type": "d",
+                "name": "ship"
+            },
+            {
+                "type": "d",
+                "name": "shipObjId"
+            },
+            {
+                "type": "d",
+                "name": "X"
+            },
+            {
+                "type": "d",
+                "name": "Y"
+            },
+            {
+                "type": "d",
+                "name": "Z"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            }
+        ]
+    },
+    "99": {
+        "name": "StaticObject",
+        "data": [
+            {
+                "type": "d",
+                "name": "StaticObjectID"
+            },
+            {
+                "type": "d",
+                "name": "ObjectID"
+            }
+        ]
+    },
+    "9A": {
+        "name": "PrivateStoreManageList",
+        "data": [
+            {
+                "type": "d",
+                "name": "playerObjID"
+            },
+            {
+                "type": "d",
+                "name": "packSell"
+            },
+            {
+                "type": "d",
+                "name": "adena"
+            },
+            {
+                "type": "d",
+                "name": "ItemCount",
+                "repeat": 9
+            },
+            {
+                "type": "d",
+                "name": "type2"
+            },
+            {
+                "type": "d",
+                "name": "objId"
+            },
+            {
+                "type": "d",
+                "name": "ItemId"
+            },
+            {
+                "type": "d",
+                "name": "count"
+            },
+            {
+                "type": "h",
+                "name": "h"
+            },
+            {
+                "type": "h",
+                "name": "Enchant"
+            },
+            {
+                "type": "h",
+                "name": "h"
+            },
+            {
+                "type": "d",
+                "name": "BodyPart"
+            },
+            {
+                "type": "d",
+                "name": "price"
+            },
+            {
+                "type": "d",
+                "name": "SellCount",
+                "repeat": 10
+            },
+            {
+                "type": "d",
+                "name": "type2"
+            },
+            {
+                "type": "d",
+                "name": "objId"
+            },
+            {
+                "type": "d",
+                "name": "ItemId"
+            },
+            {
+                "type": "d",
+                "name": "count"
+            },
+            {
+                "type": "h",
+                "name": "h"
+            },
+            {
+                "type": "h",
+                "name": "Enchant"
+            },
+            {
+                "type": "h",
+                "name": "h"
+            },
+            {
+                "type": "d",
+                "name": "BodyPart"
+            },
+            {
+                "type": "d",
+                "name": "price"
+            },
+            {
+                "type": "d",
+                "name": "storePrice"
+            }
+        ]
+    },
+    "9B": {
+        "name": "PrivateStoreList",
+        "data": [
+            {
+                "type": "d",
+                "name": "ObjectId"
+            },
+            {
+                "type": "d",
+                "name": "packSale"
+            },
+            {
+                "type": "d",
+                "name": "adena"
+            },
+            {
+                "type": "d",
+                "name": "ListCount",
+                "repeat": 10
+            },
+            {
+                "type": "d",
+                "name": "type2"
+            },
+            {
+                "type": "d",
+                "name": "objId"
+            },
+            {
+                "type": "d",
+                "name": "ItemId"
+            },
+            {
+                "type": "d",
+                "name": "count"
+            },
+            {
+                "type": "h",
+                "name": "h"
+            },
+            {
+                "type": "h",
+                "name": "Enchant"
+            },
+            {
+                "type": "h",
+                "name": "h"
+            },
+            {
+                "type": "d",
+                "name": "BodyPart"
+            },
+            {
+                "type": "d",
+                "name": "price"
+            },
+            {
+                "type": "d",
+                "name": "storePrice"
+            }
+        ]
+    },
+    "9C": {
+        "name": "PrivateStoreMsg",
+        "data": [
+            {
+                "type": "d",
+                "name": "ObjectId"
+            },
+            {
+                "type": "s",
+                "name": "storeMsg"
+            }
+        ]
+    },
+    "9D": {
+        "name": "ShowMinimap",
+        "data": [
+            {
+                "type": "d",
+                "name": "mapId"
+            }
+        ]
+    },
+    "9E": {
+        "name": "ReviveRequest",
+        "data": []
+    },
+    "9F": {
+        "name": "AbnormalVisualEffect",
+        "data": []
+    },
+    "A0": {
+        "name": "TutorialShowHtml",
+        "data": [
+            {
+                "type": "s",
+                "name": "Html"
+            }
+        ]
+    },
+    "A1": {
+        "name": "TutorialShowQuestionMark",
+        "data": [
+            {
+                "type": "d",
+                "name": "blnk"
+            }
+        ]
+    },
+    "A2": {
+        "name": "TutorialEnableClientEvent",
+        "data": [
+            {
+                "type": "d",
+                "name": "d"
+            }
+        ]
+    },
+    "A3": {
+        "name": "TutorialCloseHtml",
+        "data": []
+    },
+    "A4": {
+        "name": "ShowRadar",
+        "data": [
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            }
+        ]
+    },
+    "A5": {
+        "name": "DeleteRadar",
+        "data": [
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            }
+        ]
+    },
+    "A6": {
+        "name": "MyTargetSelected",
+        "data": [
+            {
+                "type": "d",
+                "name": "objectID"
+            },
+            {
+                "type": "h",
+                "name": "color"
+            }
+        ]
+    },
+    "A7": {
+        "name": "PartyMemberPosition",
+        "data": [
+            {
+                "type": "d",
+                "name": "membercount",
+                "repeat": 4
+            },
+            {
+                "type": "d",
+                "name": "objID"
+            },
+            {
+                "type": "d",
+                "name": "X"
+            },
+            {
+                "type": "d",
+                "name": "Y"
+            },
+            {
+                "type": "d",
+                "name": "Z"
+            }
+        ]
+    },
+    "A8": {
+        "name": "AskJoinAlliance",
+        "data": [
+            {
+                "type": "d",
+                "name": "requestorID"
+            },
+            {
+                "type": "s",
+                "name": "requestorName"
+            }
+        ]
+    },
+    "A9": {
+        "name": "JoinAlliance",
+        "data": [
+            {
+                "type": "d",
+                "name": "d"
+            }
+        ]
+    },
+    "AA": {
+        "name": "WithdrawAlliance",
+        "data": [
+            {
+                "type": "d",
+                "name": "d"
+            }
+        ]
+    },
+    "AB": {
+        "name": "OustAllianceMemberPledge",
+        "data": [
+            {
+                "type": "d",
+                "name": "d"
+            }
+        ]
+    },
+    "AC": {
+        "name": "DismissAlliance",
+        "data": [
+            {
+                "type": "d",
+                "name": "d"
+            }
+        ]
+    },
+    "AD": {
+        "name": "SetAllianceCrest",
+        "data": []
+    },
+    "AE": {
+        "name": "AllianceCrest",
+        "data": [
+            {
+                "type": "d",
+                "name": "CrestID"
+            },
+            {
+                "type": "b",
+                "name": "IconCrest"
+            }
+        ]
+    },
+    "AF": {
+        "name": "ServerCloseSocket",
+        "data": []
+    },
+    "B0": {
+        "name": "PetStatusShow",
+        "data": [
+            {
+                "type": "d",
+                "name": "summonType"
+            }
+        ]
+    },
+    "B1": {
+        "name": "PetInfo",
+        "data": [
+            {
+                "type": "d",
+                "name": "summonType"
+            },
+            {
+                "type": "d",
+                "name": "ObjectID"
+            },
+            {
+                "type": "d",
+                "name": "templ"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "X"
+            },
+            {
+                "type": "d",
+                "name": "Y"
+            },
+            {
+                "type": "d",
+                "name": "Z"
+            },
+            {
+                "type": "d",
+                "name": "Heading"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "Maspd"
+            },
+            {
+                "type": "d",
+                "name": "Paspd"
+            },
+            {
+                "type": "d",
+                "name": "runSpd"
+            },
+            {
+                "type": "d",
+                "name": "walkSpd"
+            },
+            {
+                "type": "d",
+                "name": "swimRSpd"
+            },
+            {
+                "type": "d",
+                "name": "swimWSpd"
+            },
+            {
+                "type": "d",
+                "name": "flRSpd"
+            },
+            {
+                "type": "d",
+                "name": "flWSpd"
+            },
+            {
+                "type": "d",
+                "name": "flyRSpd"
+            },
+            {
+                "type": "d",
+                "name": "flyWSpd"
+            },
+            {
+                "type": "f",
+                "name": "prMul"
+            },
+            {
+                "type": "f",
+                "name": "AspdMul"
+            },
+            {
+                "type": "f",
+                "name": "collisRadius"
+            },
+            {
+                "type": "f",
+                "name": "collisHeight"
+            },
+            {
+                "type": "d",
+                "name": "RHand"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "LHand"
+            },
+            {
+                "type": "c",
+                "name": "nameAbove"
+            },
+            {
+                "type": "c",
+                "name": "isRun"
+            },
+            {
+                "type": "c",
+                "name": "isInFight"
+            },
+            {
+                "type": "c",
+                "name": "isAlikeDead"
+            },
+            {
+                "type": "c",
+                "name": "isSummon"
+            },
+            {
+                "type": "s",
+                "name": "summonName"
+            },
+            {
+                "type": "s",
+                "name": "summonTitle"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "sumPVPflag"
+            },
+            {
+                "type": "d",
+                "name": "sumKarma?"
+            },
+            {
+                "type": "d",
+                "name": "cur_Fed"
+            },
+            {
+                "type": "d",
+                "name": "max_Fed"
+            },
+            {
+                "type": "d",
+                "name": "cur_HP"
+            },
+            {
+                "type": "d",
+                "name": "max_HP"
+            },
+            {
+                "type": "d",
+                "name": "cur_MP"
+            },
+            {
+                "type": "d",
+                "name": "max_MP"
+            },
+            {
+                "type": "d",
+                "name": "SP"
+            },
+            {
+                "type": "d",
+                "name": "LVL"
+            },
+            {
+                "type": "q",
+                "name": "Exp"
+            },
+            {
+                "type": "q",
+                "name": "ExpThisLvl"
+            },
+            {
+                "type": "q",
+                "name": "ExpNextLvl"
+            },
+            {
+                "type": "d",
+                "name": "totalLoad"
+            },
+            {
+                "type": "d",
+                "name": "maxLoad"
+            },
+            {
+                "type": "d",
+                "name": "PAtk"
+            },
+            {
+                "type": "d",
+                "name": "PDef"
+            },
+            {
+                "type": "d",
+                "name": "MAtk"
+            },
+            {
+                "type": "d",
+                "name": "MDef"
+            },
+            {
+                "type": "d",
+                "name": "Accuracy"
+            },
+            {
+                "type": "d",
+                "name": "Evasion"
+            },
+            {
+                "type": "d",
+                "name": "Crit"
+            },
+            {
+                "type": "d",
+                "name": "runSpd"
+            },
+            {
+                "type": "d",
+                "name": "Paspd"
+            },
+            {
+                "type": "d",
+                "name": "Maspd"
+            },
+            {
+                "type": "d",
+                "name": "bleedPoisFlame"
+            },
+            {
+                "type": "h",
+                "name": "Ride"
+            },
+            {
+                "type": "c",
+                "name": "c"
+            },
+            {
+                "type": "h",
+                "name": "h"
+            },
+            {
+                "type": "c",
+                "name": "TeamAura"
+            },
+            {
+                "type": "d",
+                "name": "usedSS"
+            },
+            {
+                "type": "d",
+                "name": "usedSpS"
+            }
+        ]
+    },
+    "B2": {
+        "name": "PetItemList",
+        "data": [
+            {
+                "type": "h",
+                "name": "ItemCount",
+                "repeat": 10
+            },
+            {
+                "type": "h",
+                "name": "type1"
+            },
+            {
+                "type": "d",
+                "name": "objID"
+            },
+            {
+                "type": "d",
+                "name": "ItemID"
+            },
+            {
+                "type": "d",
+                "name": "count"
+            },
+            {
+                "type": "h",
+                "name": "type2"
+            },
+            {
+                "type": "h",
+                "name": "h"
+            },
+            {
+                "type": "h",
+                "name": "isEquipped"
+            },
+            {
+                "type": "d",
+                "name": "BodyPart"
+            },
+            {
+                "type": "h",
+                "name": "Enchant"
+            },
+            {
+                "type": "h",
+                "name": "h"
+            }
+        ]
+    },
+    "B3": {
+        "name": "PetInventoryUpdate",
+        "data": [
+            {
+                "type": "h",
+                "name": "ItemCount",
+                "repeat": 11
+            },
+            {
+                "type": "h",
+                "name": "change"
+            },
+            {
+                "type": "h",
+                "name": "type1"
+            },
+            {
+                "type": "d",
+                "name": "objID"
+            },
+            {
+                "type": "d",
+                "name": "ItemID"
+            },
+            {
+                "type": "d",
+                "name": "count"
+            },
+            {
+                "type": "h",
+                "name": "type2"
+            },
+            {
+                "type": "h",
+                "name": "h"
+            },
+            {
+                "type": "h",
+                "name": "isEquipped"
+            },
+            {
+                "type": "d",
+                "name": "BodyPart"
+            },
+            {
+                "type": "h",
+                "name": "Enchant"
+            },
+            {
+                "type": "h",
+                "name": "h"
+            }
+        ]
+    },
+    "B4": {
+        "name": "AllianceInfo",
+        "data": []
+    },
+    "B5": {
+        "name": "PetStatusUpdate",
+        "data": [
+            {
+                "type": "d",
+                "name": "SummonType"
+            },
+            {
+                "type": "d",
+                "name": "ObjectID"
+            },
+            {
+                "type": "d",
+                "name": "X"
+            },
+            {
+                "type": "d",
+                "name": "Y"
+            },
+            {
+                "type": "d",
+                "name": "Z"
+            },
+            {
+                "type": "s",
+                "name": "Title"
+            },
+            {
+                "type": "d",
+                "name": "cur_Fed"
+            },
+            {
+                "type": "d",
+                "name": "max_Fed"
+            },
+            {
+                "type": "d",
+                "name": "cur_HP"
+            },
+            {
+                "type": "d",
+                "name": "max_HP"
+            },
+            {
+                "type": "d",
+                "name": "cur_MP"
+            },
+            {
+                "type": "d",
+                "name": "max_MP"
+            },
+            {
+                "type": "d",
+                "name": "Level"
+            },
+            {
+                "type": "q",
+                "name": "Exp"
+            },
+            {
+                "type": "q",
+                "name": "ExpThisLvl"
+            },
+            {
+                "type": "q",
+                "name": "ExpNextLvl"
+            }
+        ]
+    },
+    "B6": {
+        "name": "PetDelete",
+        "data": [
+            {
+                "type": "d",
+                "name": "PetID"
+            },
+            {
+                "type": "d",
+                "name": "PetNumber"
+            }
+        ]
+    },
+    "B7": {
+        "name": "PrivateStoreBuyManageList",
+        "data": [
+            {
+                "type": "d",
+                "name": "ObjectID"
+            },
+            {
+                "type": "d",
+                "name": "Adena"
+            },
+            {
+                "type": "d",
+                "name": "ItemsCount",
+                "repeat": 7
+            },
+            {
+                "type": "d",
+                "name": "ItemID"
+            },
+            {
+                "type": "h",
+                "name": "h"
+            },
+            {
+                "type": "d",
+                "name": "count"
+            },
+            {
+                "type": "d",
+                "name": "refPrice"
+            },
+            {
+                "type": "h",
+                "name": "h"
+            },
+            {
+                "type": "d",
+                "name": "BodyPart"
+            },
+            {
+                "type": "h",
+                "name": "type2"
+            },
+            {
+                "type": "d",
+                "name": "ByuCount",
+                "repeat": 9
+            },
+            {
+                "type": "d",
+                "name": "ItemID"
+            },
+            {
+                "type": "h",
+                "name": "h"
+            },
+            {
+                "type": "d",
+                "name": "count"
+            },
+            {
+                "type": "d",
+                "name": "refPrice"
+            },
+            {
+                "type": "h",
+                "name": "h"
+            },
+            {
+                "type": "d",
+                "name": "BodyPart"
+            },
+            {
+                "type": "h",
+                "name": "type2"
+            },
+            {
+                "type": "d",
+                "name": "yourPrice"
+            },
+            {
+                "type": "d",
+                "name": "refPrice"
+            }
+        ]
+    },
+    "B8": {
+        "name": "PrivateBuyListBuy",
+        "data": [
+            {
+                "type": "d",
+                "name": "ObjectID"
+            },
+            {
+                "type": "d",
+                "name": "adena"
+            },
+            {
+                "type": "d",
+                "name": "ItemsCount",
+                "repeat": 10
+            },
+            {
+                "type": "d",
+                "name": "objID"
+            },
+            {
+                "type": "d",
+                "name": "ItemID"
+            },
+            {
+                "type": "h",
+                "name": "Enchant"
+            },
+            {
+                "type": "d",
+                "name": "count"
+            },
+            {
+                "type": "d",
+                "name": "refPrice"
+            },
+            {
+                "type": "h",
+                "name": "h"
+            },
+            {
+                "type": "d",
+                "name": "BodyPart"
+            },
+            {
+                "type": "h",
+                "name": "type2"
+            },
+            {
+                "type": "d",
+                "name": "BuyersPrice"
+            },
+            {
+                "type": "d",
+                "name": "count"
+            }
+        ]
+    },
+    "B9": {
+        "name": "PrivateStoreMsgBuy",
+        "data": [
+            {
+                "type": "d",
+                "name": "ObjectID"
+            },
+            {
+                "type": "s",
+                "name": "storeMsg"
+            }
+        ]
+    },
+    "BA": {
+        "name": "VehicleStart",
+        "data": [
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            }
+        ]
+    },
+    "BB": {
+        "name": "RequestTimeCheck",
+        "data": [
+            {
+                "type": "d",
+                "name": "d"
+            }
+        ]
+    },
+    "BC": {
+        "name": "StartAllianceWar",
+        "data": [
+            {
+                "type": "s",
+                "name": "s"
+            },
+            {
+                "type": "s",
+                "name": "s"
+            }
+        ]
+    },
+    "BD": {
+        "name": "ReplyStartAllianceWar",
+        "data": []
+    },
+    "BE": {
+        "name": "StopAllianceWar",
+        "data": [
+            {
+                "type": "s",
+                "name": "s"
+            },
+            {
+                "type": "s",
+                "name": "s"
+            }
+        ]
+    },
+    "BF": {
+        "name": "ReplyStopAllianceWar",
+        "data": []
+    },
+    "C0": {
+        "name": "SurrenderAllianceWar",
+        "data": []
+    },
+    "C1": {
+        "name": "SkillCoolTime",
+        "data": [
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            }
+        ]
+    },
+    "C2": {
+        "name": "PackageToList",
+        "data": [
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "s",
+                "name": "s"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            }
+        ]
+    },
+    "C3": {
+        "name": "PackageSendableList",
+        "data": [
+            {
+                "type": "h",
+                "name": "h"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            }
+        ]
+    },
+    "C4": {
+        "name": "EarthQuake",
+        "data": [
+            {
+                "type": "d",
+                "name": "X"
+            },
+            {
+                "type": "d",
+                "name": "Y"
+            },
+            {
+                "type": "d",
+                "name": "Z"
+            },
+            {
+                "type": "d",
+                "name": "Intensivity"
+            },
+            {
+                "type": "d",
+                "name": "Duration"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            }
+        ]
+    },
+    "C5": {
+        "name": "FlyToLoaction",
+        "data": [
+            {
+                "type": "d",
+                "name": "ObjID"
+            },
+            {
+                "type": "d",
+                "name": "ToX"
+            },
+            {
+                "type": "d",
+                "name": "ToY"
+            },
+            {
+                "type": "d",
+                "name": "ToZ"
+            },
+            {
+                "type": "d",
+                "name": "OrigX"
+            },
+            {
+                "type": "d",
+                "name": "OrigY"
+            },
+            {
+                "type": "d",
+                "name": "OrigZ"
+            }
+        ]
+    },
+    "C6": {
+        "name": "BlockList",
+        "data": []
+    },
+    "C7": {
+        "name": "SpecialCamera",
+        "data": [
+            {
+                "type": "d",
+                "name": "_id"
+            },
+            {
+                "type": "d",
+                "name": "Distantion"
+            },
+            {
+                "type": "d",
+                "name": "Yaw"
+            },
+            {
+                "type": "d",
+                "name": "Pitch"
+            },
+            {
+                "type": "d",
+                "name": "Time"
+            },
+            {
+                "type": "d",
+                "name": "Duration"
+            }
+        ]
+    },
+    "C8": {
+        "name": "NormalCamera",
+        "data": []
+    },
+    "C9": {
+        "name": "CastleSiegeInfo",
+        "data": [
+            {
+                "type": "d",
+                "name": "CastleID"
+            },
+            {
+                "type": "d",
+                "name": "ActLeader"
+            },
+            {
+                "type": "d",
+                "name": "OwnerID"
+            },
+            {
+                "type": "s",
+                "name": "name"
+            },
+            {
+                "type": "s",
+                "name": "ClanLeader"
+            },
+            {
+                "type": "d",
+                "name": "allyID"
+            },
+            {
+                "type": "s",
+                "name": "allyName"
+            },
+            {
+                "type": "d",
+                "name": "time_ms"
+            },
+            {
+                "type": "d",
+                "name": "siege_time"
+            },
+            {
+                "type": "d",
+                "name": "num"
+            }
+        ]
+    },
+    "CA": {
+        "name": "CastleSiegeAttackerList",
+        "data": [
+            {
+                "type": "d",
+                "name": "CastleID"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "count"
+            },
+            {
+                "type": "d",
+                "name": "count",
+                "repeat": 9
+            },
+            {
+                "type": "d",
+                "name": "ClanID"
+            },
+            {
+                "type": "s",
+                "name": "clanName"
+            },
+            {
+                "type": "s",
+                "name": "leaderName"
+            },
+            {
+                "type": "d",
+                "name": "crestID"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "allyID"
+            },
+            {
+                "type": "s",
+                "name": "allyName"
+            },
+            {
+                "type": "s",
+                "name": "allyLeader"
+            },
+            {
+                "type": "d",
+                "name": "allyCrestID"
+            }
+        ]
+    },
+    "CB": {
+        "name": "CastleSiegeDefenderList",
+        "data": [
+            {
+                "type": "d",
+                "name": "CastleID"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "count"
+            },
+            {
+                "type": "d",
+                "name": "count",
+                "repeat": 20
+            },
+            {
+                "type": "d",
+                "name": "ClanID"
+            },
+            {
+                "type": "s",
+                "name": "clanName"
+            },
+            {
+                "type": "s",
+                "name": "leaderName"
+            },
+            {
+                "type": "d",
+                "name": "crestID"
+            },
+            {
+                "type": "d",
+                "name": "signedTime"
+            },
+            {
+                "type": "d",
+                "name": "SiegeType"
+            },
+            {
+                "type": "d",
+                "name": "allyID"
+            },
+            {
+                "type": "s",
+                "name": "allyName"
+            },
+            {
+                "type": "s",
+                "name": "allyLeader"
+            },
+            {
+                "type": "d",
+                "name": "allyCrestID"
+            },
+            {
+                "type": "d",
+                "name": "ClanID"
+            },
+            {
+                "type": "s",
+                "name": "clanName"
+            },
+            {
+                "type": "s",
+                "name": "leaderName"
+            },
+            {
+                "type": "d",
+                "name": "crestID"
+            },
+            {
+                "type": "d",
+                "name": "signedTime"
+            },
+            {
+                "type": "d",
+                "name": "SiegeType"
+            },
+            {
+                "type": "d",
+                "name": "allyID"
+            },
+            {
+                "type": "s",
+                "name": "allyName"
+            },
+            {
+                "type": "s",
+                "name": "allyLeader"
+            },
+            {
+                "type": "d",
+                "name": "allyCrestID"
+            }
+        ]
+    },
+    "CC": {
+        "name": "NickNameChanged",
+        "data": [
+            {
+                "type": "d",
+                "name": "objID"
+            },
+            {
+                "type": "s",
+                "name": "NeedName"
+            }
+        ]
+    },
+    "CD": {
+        "name": "PledgeStatusChanged",
+        "data": [
+            {
+                "type": "d",
+                "name": "LeaderID"
+            },
+            {
+                "type": "d",
+                "name": "ClanID"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "clanLVL"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            }
+        ]
+    },
+    "CE": {
+        "name": "RelationChanged",
+        "data": [
+            {
+                "type": "d",
+                "name": "objId"
+            },
+            {
+                "type": "d",
+                "name": "relation"
+            },
+            {
+                "type": "d",
+                "name": "autoattackable"
+            },
+            {
+                "type": "d",
+                "name": "karma"
+            },
+            {
+                "type": "d",
+                "name": "pvpflag"
+            }
+        ]
+    },
+    "CF": {
+        "name": "EventTrigger",
+        "data": [
+            {
+                "type": "d",
+                "name": "_id"
+            },
+            {
+                "type": "c",
+                "name": "On"
+            }
+        ]
+    },
+    "D0": {
+        "name": "MultiSellList_",
+        "data": [
+            {
+                "type": "-",
+                "name": "Script"
+            }
+        ]
+    },
+    "D1": {
+        "name": "SetSummonRemainTime",
+        "data": [
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            }
+        ]
+    },
+    "D2": {
+        "name": "SkillRemainSec",
+        "data": [
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            }
+        ]
+    },
+    "D3": {
+        "name": "NetPing",
+        "data": [
+            {
+                "type": "d",
+                "name": "kID"
+            }
+        ]
+    },
+    "D4": {
+        "name": "Dice",
+        "data": [
+            {
+                "type": "d",
+                "name": "PlayerID"
+            },
+            {
+                "type": "d",
+                "name": "ItemID"
+            },
+            {
+                "type": "d",
+                "name": "Number"
+            },
+            {
+                "type": "d",
+                "name": "X"
+            },
+            {
+                "type": "d",
+                "name": "Y"
+            },
+            {
+                "type": "d",
+                "name": "Z"
+            }
+        ]
+    },
+    "D5": {
+        "name": "Snoop",
+        "data": [
+            {
+                "type": "d",
+                "name": "ConvoID"
+            },
+            {
+                "type": "s",
+                "name": "Name"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "Type"
+            },
+            {
+                "type": "s",
+                "name": "Speaker"
+            },
+            {
+                "type": "s",
+                "name": "Msg"
+            }
+        ]
+    },
+    "D6": {
+        "name": "RecipeBookItemList",
+        "data": [
+            {
+                "type": "d",
+                "name": "isDwarven"
+            },
+            {
+                "type": "d",
+                "name": "max_MP"
+            },
+            {
+                "type": "d",
+                "name": "recipesCount",
+                "repeat": 2
+            },
+            {
+                "type": "d",
+                "name": "recipeId"
+            },
+            {
+                "type": "d",
+                "name": "recipeNum"
+            }
+        ]
+    },
+    "D7": {
+        "name": "RecipeItemMakeInfo",
+        "data": [
+            {
+                "type": "d",
+                "name": "_id"
+            },
+            {
+                "type": "d",
+                "name": "IsDwarven"
+            },
+            {
+                "type": "d",
+                "name": "cur_MP"
+            },
+            {
+                "type": "d",
+                "name": "max_MP"
+            },
+            {
+                "type": "d",
+                "name": "Success"
+            }
+        ]
+    },
+    "D8": {
+        "name": "RecipeShopManageList",
+        "data": [
+            {
+                "type": "d",
+                "name": "ObjectID"
+            },
+            {
+                "type": "d",
+                "name": "Adena"
+            },
+            {
+                "type": "d",
+                "name": "IsDwarven"
+            },
+            {
+                "type": "d",
+                "name": "ListCount",
+                "repeat": 2
+            },
+            {
+                "type": "d",
+                "name": "RecipeID"
+            },
+            {
+                "type": "d",
+                "name": "recipeNum"
+            },
+            {
+                "type": "d",
+                "name": "Listcount",
+                "repeat": 3
+            },
+            {
+                "type": "d",
+                "name": "RecipeID"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "Cost"
+            }
+        ]
+    },
+    "D9": {
+        "name": "RecipeShopSellList",
+        "data": [
+            {
+                "type": "d",
+                "name": "ObjectID"
+            },
+            {
+                "type": "d",
+                "name": "cur_MP"
+            },
+            {
+                "type": "d",
+                "name": "max_MP"
+            },
+            {
+                "type": "d",
+                "name": "Adena"
+            },
+            {
+                "type": "d",
+                "name": "ListCount",
+                "repeat": 3
+            },
+            {
+                "type": "d",
+                "name": "RecipeID"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "Cost"
+            }
+        ]
+    },
+    "DA": {
+        "name": "RecipeShopItemInfo",
+        "data": [
+            {
+                "type": "d",
+                "name": "ShopID"
+            },
+            {
+                "type": "d",
+                "name": "RecipeID"
+            },
+            {
+                "type": "d",
+                "name": "cur_MP"
+            },
+            {
+                "type": "d",
+                "name": "max_MP"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            }
+        ]
+    },
+    "DB": {
+        "name": "RecipeShopMsg",
+        "data": [
+            {
+                "type": "d",
+                "name": "ObjectID"
+            },
+            {
+                "type": "s",
+                "name": "StoreName"
+            }
+        ]
+    },
+    "DC": {
+        "name": "ShowCalculator",
+        "data": [
+            {
+                "type": "d",
+                "name": "CalculatorID"
+            }
+        ]
+    },
+    "DD": {
+        "name": "MonRaceInfo",
+        "data": [
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "Count",
+                "repeat": 37
+            },
+            {
+                "type": "d",
+                "name": "monsterObjID"
+            },
+            {
+                "type": "d",
+                "name": "npcId"
+            },
+            {
+                "type": "d",
+                "name": "OrigX"
+            },
+            {
+                "type": "d",
+                "name": "OrigY"
+            },
+            {
+                "type": "d",
+                "name": "OrigZ"
+            },
+            {
+                "type": "d",
+                "name": "ToX"
+            },
+            {
+                "type": "d",
+                "name": "ToY"
+            },
+            {
+                "type": "d",
+                "name": "ToZ"
+            },
+            {
+                "type": "f",
+                "name": "collisHeight"
+            },
+            {
+                "type": "f",
+                "name": "collis(Radius"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "c",
+                "name": "1"
+            },
+            {
+                "type": "c",
+                "name": "2"
+            },
+            {
+                "type": "c",
+                "name": "3"
+            },
+            {
+                "type": "c",
+                "name": "4"
+            },
+            {
+                "type": "c",
+                "name": "5"
+            },
+            {
+                "type": "c",
+                "name": "6"
+            },
+            {
+                "type": "c",
+                "name": "7"
+            },
+            {
+                "type": "c",
+                "name": "8"
+            },
+            {
+                "type": "c",
+                "name": "9"
+            },
+            {
+                "type": "c",
+                "name": "10"
+            },
+            {
+                "type": "c",
+                "name": "11"
+            },
+            {
+                "type": "c",
+                "name": "12"
+            },
+            {
+                "type": "c",
+                "name": "13"
+            },
+            {
+                "type": "c",
+                "name": "14"
+            },
+            {
+                "type": "c",
+                "name": "15"
+            },
+            {
+                "type": "c",
+                "name": "16"
+            },
+            {
+                "type": "c",
+                "name": "17"
+            },
+            {
+                "type": "c",
+                "name": "18"
+            },
+            {
+                "type": "c",
+                "name": "19"
+            },
+            {
+                "type": "c",
+                "name": "20"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            }
+        ]
+    },
+    "DE": {
+        "name": "ShowTownMap",
+        "data": [
+            {
+                "type": "s",
+                "name": "texture"
+            },
+            {
+                "type": "d",
+                "name": "X"
+            },
+            {
+                "type": "d",
+                "name": "Y"
+            }
+        ]
+    },
+    "DF": {
+        "name": "ObservationMode",
+        "data": [
+            {
+                "type": "d",
+                "name": "X"
+            },
+            {
+                "type": "d",
+                "name": "Y"
+            },
+            {
+                "type": "d",
+                "name": "Z"
+            },
+            {
+                "type": "c",
+                "name": "c"
+            },
+            {
+                "type": "c",
+                "name": "c"
+            },
+            {
+                "type": "c",
+                "name": "c"
+            }
+        ]
+    },
+    "E0": {
+        "name": "ObservationReturn",
+        "data": [
+            {
+                "type": "d",
+                "name": "X"
+            },
+            {
+                "type": "d",
+                "name": "Y"
+            },
+            {
+                "type": "d",
+                "name": "Z"
+            }
+        ]
+    },
+    "E1": {
+        "name": "ChairSit",
+        "data": [
+            {
+                "type": "d",
+                "name": "ActiveObjectID"
+            },
+            {
+                "type": "d",
+                "name": "StaticObjectID"
+            }
+        ]
+    },
+    "E2": {
+        "name": "HennaEquipList",
+        "data": [
+            {
+                "type": "d",
+                "name": "PlayerAdena"
+            },
+            {
+                "type": "d",
+                "name": "Slots"
+            },
+            {
+                "type": "d",
+                "name": "ListCount",
+                "repeat": 5
+            },
+            {
+                "type": "d",
+                "name": "SymbolID"
+            },
+            {
+                "type": "d",
+                "name": "ItemDyeID"
+            },
+            {
+                "type": "d",
+                "name": "dyeRequire"
+            },
+            {
+                "type": "d",
+                "name": "adenaRequire"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            }
+        ]
+    },
+    "E3": {
+        "name": "HennaItemInfo",
+        "data": [
+            {
+                "type": "d",
+                "name": "SymbolID"
+            },
+            {
+                "type": "d",
+                "name": "ItemID"
+            },
+            {
+                "type": "d",
+                "name": "DyeRequire"
+            },
+            {
+                "type": "d",
+                "name": "Price"
+            },
+            {
+                "type": "d",
+                "name": "Draw"
+            },
+            {
+                "type": "d",
+                "name": "Adena"
+            },
+            {
+                "type": "d",
+                "name": "cur_INT"
+            },
+            {
+                "type": "c",
+                "name": "equip_INT"
+            },
+            {
+                "type": "d",
+                "name": "cur_STR"
+            },
+            {
+                "type": "c",
+                "name": "equip_STR"
+            },
+            {
+                "type": "d",
+                "name": "cur_CON"
+            },
+            {
+                "type": "c",
+                "name": "equip_CON"
+            },
+            {
+                "type": "d",
+                "name": "cur_MEN"
+            },
+            {
+                "type": "c",
+                "name": "equip_MEN"
+            },
+            {
+                "type": "d",
+                "name": "cur_DEX"
+            },
+            {
+                "type": "c",
+                "name": "equip_DEX"
+            },
+            {
+                "type": "d",
+                "name": "cur_WIT"
+            },
+            {
+                "type": "c",
+                "name": "equip_WIT"
+            }
+        ]
+    },
+    "E4": {
+        "name": "HennaInfo",
+        "data": [
+            {
+                "type": "c",
+                "name": "INT"
+            },
+            {
+                "type": "c",
+                "name": "STR"
+            },
+            {
+                "type": "c",
+                "name": "CON"
+            },
+            {
+                "type": "c",
+                "name": "MEN"
+            },
+            {
+                "type": "c",
+                "name": "DEX"
+            },
+            {
+                "type": "c",
+                "name": "WIT"
+            },
+            {
+                "type": "d",
+                "name": "SlotCount",
+                "repeat": 2
+            },
+            {
+                "type": "d",
+                "name": "slot"
+            },
+            {
+                "type": "d",
+                "name": "SymbolID"
+            }
+        ]
+    },
+    "E5": {
+        "name": "HennaUnequipList",
+        "data": []
+    },
+    "E6": {
+        "name": "HennaUnequipInfo",
+        "data": []
+    },
+    "E7": {
+        "name": "SendMacroList",
+        "data": [
+            {
+                "type": "d",
+                "name": "Revision"
+            },
+            {
+                "type": "c",
+                "name": "c"
+            },
+            {
+                "type": "c",
+                "name": "Count"
+            },
+            {
+                "type": "c",
+                "name": "c"
+            },
+            {
+                "type": "d",
+                "name": "MacroID"
+            },
+            {
+                "type": "s",
+                "name": "Name"
+            },
+            {
+                "type": "s",
+                "name": "Descr"
+            },
+            {
+                "type": "s",
+                "name": "Acronym"
+            },
+            {
+                "type": "c",
+                "name": "Icon"
+            },
+            {
+                "type": "c",
+                "name": "Lenght",
+                "repeat": 5
+            },
+            {
+                "type": "c",
+                "name": "idx"
+            },
+            {
+                "type": "c",
+                "name": "type"
+            },
+            {
+                "type": "d",
+                "name": "SkillID"
+            },
+            {
+                "type": "c",
+                "name": "ShortcutID"
+            },
+            {
+                "type": "s",
+                "name": "cmdName"
+            }
+        ]
+    },
+    "E8": {
+        "name": "BuyListSeed",
+        "data": [
+            {
+                "type": "d",
+                "name": "money"
+            },
+            {
+                "type": "d",
+                "name": "ListID"
+            },
+            {
+                "type": "h",
+                "name": "ListCount",
+                "repeat": 7
+            },
+            {
+                "type": "h",
+                "name": "itemType1"
+            },
+            {
+                "type": "d",
+                "name": "ObjectID"
+            },
+            {
+                "type": "d",
+                "name": "ItemID"
+            },
+            {
+                "type": "d",
+                "name": "Count"
+            },
+            {
+                "type": "h",
+                "name": "itemType2"
+            },
+            {
+                "type": "h",
+                "name": "h"
+            },
+            {
+                "type": "d",
+                "name": "price"
+            }
+        ]
+    },
+    "E9": {
+        "name": "SellListProcure",
+        "data": [
+            {
+                "type": "d",
+                "name": "money"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "h",
+                "name": "ListCount",
+                "repeat": 7
+            },
+            {
+                "type": "h",
+                "name": "itemType1"
+            },
+            {
+                "type": "d",
+                "name": "ObjectID"
+            },
+            {
+                "type": "d",
+                "name": "ItemID"
+            },
+            {
+                "type": "d",
+                "name": "Count"
+            },
+            {
+                "type": "h",
+                "name": "itemType2"
+            },
+            {
+                "type": "h",
+                "name": "h"
+            },
+            {
+                "type": "d",
+                "name": "price"
+            }
+        ]
+    },
+    "EA": {
+        "name": "GMHennaInfo",
+        "data": [
+            {
+                "type": "c",
+                "name": "INT"
+            },
+            {
+                "type": "c",
+                "name": "STR"
+            },
+            {
+                "type": "c",
+                "name": "CON"
+            },
+            {
+                "type": "c",
+                "name": "MEN"
+            },
+            {
+                "type": "c",
+                "name": "DEX"
+            },
+            {
+                "type": "c",
+                "name": "WIT"
+            },
+            {
+                "type": "d",
+                "name": "SlotCount",
+                "repeat": 2
+            },
+            {
+                "type": "d",
+                "name": "slot"
+            },
+            {
+                "type": "d",
+                "name": "SymbolID"
+            }
+        ]
+    },
+    "EB": {
+        "name": "RadarControl",
+        "data": [
+            {
+                "type": "d",
+                "name": "ShowRadar"
+            },
+            {
+                "type": "d",
+                "name": "Type"
+            },
+            {
+                "type": "d",
+                "name": "X"
+            },
+            {
+                "type": "d",
+                "name": "Y"
+            },
+            {
+                "type": "d",
+                "name": "Z"
+            }
+        ]
+    },
+    "EC": {
+        "name": "ClientSetTime",
+        "data": [
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            }
+        ]
+    },
+    "ED": {
+        "name": "ConfirmDlg",
+        "data": [
+            {
+                "type": "d",
+                "name": "requestID"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "s",
+                "name": "name"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            }
+        ]
+    },
+    "EE": {
+        "name": "PartySpelled",
+        "data": [
+            {
+                "type": "d",
+                "name": "Summon"
+            },
+            {
+                "type": "d",
+                "name": "ObjecID"
+            },
+            {
+                "type": "d",
+                "name": "EffectCount",
+                "repeat": 3
+            },
+            {
+                "type": "d",
+                "name": "SkillID"
+            },
+            {
+                "type": "h",
+                "name": "Data"
+            },
+            {
+                "type": "d",
+                "name": "Duration"
+            }
+        ]
+    },
+    "EF": {
+        "name": "ShopPreviewList",
+        "data": [
+            {
+                "type": "c",
+                "name": "c"
+            },
+            {
+                "type": "c",
+                "name": "c"
+            },
+            {
+                "type": "c",
+                "name": "c"
+            },
+            {
+                "type": "c",
+                "name": "c"
+            },
+            {
+                "type": "d",
+                "name": "money"
+            },
+            {
+                "type": "d",
+                "name": "ListID"
+            },
+            {
+                "type": "h",
+                "name": "ListCount",
+                "repeat": 4
+            },
+            {
+                "type": "d",
+                "name": "ItemId"
+            },
+            {
+                "type": "h",
+                "name": "type2"
+            },
+            {
+                "type": "h",
+                "name": "BodyPart"
+            },
+            {
+                "type": "d",
+                "name": "wearPrice"
+            }
+        ]
+    },
+    "F0": {
+        "name": "ShopPreviewInfo",
+        "data": []
+    },
+    "F1": {
+        "name": "CameraMode",
+        "data": [
+            {
+                "type": "d",
+                "name": "Mode"
+            }
+        ]
+    },
+    "F2": {
+        "name": "ShowXMasSeal",
+        "data": [
+            {
+                "type": "d",
+                "name": "d"
+            }
+        ]
+    },
+    "F3": {
+        "name": "EtcStatusUpdate",
+        "data": [
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            }
+        ]
+    },
+    "F4": {
+        "name": "ShortBuffStatusUpdate",
+        "data": [
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            }
+        ]
+    },
+    "F5": {
+        "name": "SSQStatus_",
+        "data": [
+            {
+                "type": "-",
+                "name": "Script"
+            }
+        ]
+    },
+    "F6": {
+        "name": "PetitionVote",
+        "data": []
+    },
+    "F7": {
+        "name": "AgitDecoInfo",
+        "data": [
+            {
+                "type": "d",
+                "name": "d"
+            }
+        ]
+    },
+    "F8": {
+        "name": "SSQInfo",
+        "data": [
+            {
+                "type": "h",
+                "name": "Sky"
+            }
+        ]
+    },
+    "F9": {
+        "name": "GameGuardQuery",
+        "data": [
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            }
+        ]
+    },
+    "FA": {
+        "name": "FriendList",
+        "data": [
+            {
+                "type": "d",
+                "name": "FriendCount",
+                "repeat": 5
+            },
+            {
+                "type": "h",
+                "name": "h"
+            },
+            {
+                "type": "d",
+                "name": "friendID"
+            },
+            {
+                "type": "s",
+                "name": "friendName"
+            },
+            {
+                "type": "d",
+                "name": "isOnLine"
+            },
+            {
+                "type": "h",
+                "name": "h"
+            }
+        ]
+    },
+    "FB": {
+        "name": "Friend",
+        "data": []
+    },
+    "FC": {
+        "name": "FriendStatus",
+        "data": []
+    },
+    "FD": {
+        "name": "FriendSay",
+        "data": [
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "s",
+                "name": "sender"
+            },
+            {
+                "type": "s",
+                "name": "receiver"
+            },
+            {
+                "type": "s",
+                "name": "message"
+            }
+        ]
+    },
+    "FE01": {
+        "name": "ExRegMax",
+        "data": [
+            {
+                "type": "h",
+                "name": "subID"
+            },
+            {
+                "type": "d",
+                "name": "1"
+            },
+            {
+                "type": "d",
+                "name": "Count"
+            },
+            {
+                "type": "d",
+                "name": "Time"
+            },
+            {
+                "type": "f",
+                "name": "Max"
+            }
+        ]
+    },
+    "FE12": {
+        "name": "ExAutoSoulShot",
+        "data": [
+            {
+                "type": "h",
+                "name": "subID"
+            },
+            {
+                "type": "d",
+                "name": "itemID"
+            },
+            {
+                "type": "d",
+                "name": "type"
+            }
+        ]
+    },
+    "FE13": {
+        "name": "ExFishingStart",
+        "data": [
+            {
+                "type": "h",
+                "name": "subID"
+            },
+            {
+                "type": "d",
+                "name": "charObjID"
+            },
+            {
+                "type": "d",
+                "name": "fishType"
+            },
+            {
+                "type": "d",
+                "name": "X"
+            },
+            {
+                "type": "d",
+                "name": "Y"
+            },
+            {
+                "type": "d",
+                "name": "Z"
+            },
+            {
+                "type": "c",
+                "name": "isNightLure"
+            },
+            {
+                "type": "c",
+                "name": "c"
+            }
+        ]
+    },
+    "FE14": {
+        "name": "ExFishingEnd",
+        "data": [
+            {
+                "type": "h",
+                "name": "subID"
+            },
+            {
+                "type": "d",
+                "name": "charObjectId"
+            },
+            {
+                "type": "c",
+                "name": "isWin"
+            }
+        ]
+    },
+    "FE15": {
+        "name": "ExFishingStartCombat",
+        "data": [
+            {
+                "type": "h",
+                "name": "subID"
+            },
+            {
+                "type": "d",
+                "name": "charObjID"
+            },
+            {
+                "type": "d",
+                "name": "time"
+            },
+            {
+                "type": "d",
+                "name": "HP"
+            },
+            {
+                "type": "c",
+                "name": "Fighting"
+            },
+            {
+                "type": "c",
+                "name": "LureType"
+            },
+            {
+                "type": "c",
+                "name": "isFishDeceptive"
+            }
+        ]
+    },
+    "FE16": {
+        "name": "ExFishingHpRegen",
+        "data": [
+            {
+                "type": "h",
+                "name": "subID"
+            },
+            {
+                "type": "d",
+                "name": "charObjID"
+            },
+            {
+                "type": "d",
+                "name": "time"
+            },
+            {
+                "type": "d",
+                "name": "fish_HP"
+            },
+            {
+                "type": "c",
+                "name": "HPstop/rise"
+            },
+            {
+                "type": "c",
+                "name": "GoodUse"
+            },
+            {
+                "type": "c",
+                "name": "anim"
+            },
+            {
+                "type": "d",
+                "name": "penalty"
+            },
+            {
+                "type": "c",
+                "name": "BarColor"
+            }
+        ]
+    },
+    "FE17": {
+        "name": "ExEnchantSkillList",
+        "data": [
+            {
+                "type": "h",
+                "name": "subID"
+            },
+            {
+                "type": "d",
+                "name": "ListCount",
+                "repeat": 4
+            },
+            {
+                "type": "d",
+                "name": "id"
+            },
+            {
+                "type": "d",
+                "name": "nextLevel"
+            },
+            {
+                "type": "d",
+                "name": "SP"
+            },
+            {
+                "type": "q",
+                "name": "Exp"
+            }
+        ]
+    },
+    "FE18": {
+        "name": "ExEnchantSkillInfo",
+        "data": [
+            {
+                "type": "h",
+                "name": "subID"
+            },
+            {
+                "type": "d",
+                "name": "_id"
+            },
+            {
+                "type": "d",
+                "name": "lvl"
+            },
+            {
+                "type": "d",
+                "name": "SPcost"
+            },
+            {
+                "type": "q",
+                "name": "XPcost"
+            },
+            {
+                "type": "d",
+                "name": "rate"
+            },
+            {
+                "type": "d",
+                "name": "reqsCount",
+                "repeat": 4
+            },
+            {
+                "type": "d",
+                "name": "type"
+            },
+            {
+                "type": "d",
+                "name": "id"
+            },
+            {
+                "type": "d",
+                "name": "count"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            }
+        ]
+    },
+    "FE19": {
+        "name": "ExQuestInfo",
+        "data": [
+            {
+                "type": "h",
+                "name": "subID"
+            }
+        ]
+    },
+    "FE1B": {
+        "name": "ExSendManorList",
+        "data": [
+            {
+                "type": "h",
+                "name": "subID"
+            },
+            {
+                "type": "d",
+                "name": "ListCount",
+                "repeat": 2
+            },
+            {
+                "type": "d",
+                "name": "idx"
+            },
+            {
+                "type": "s",
+                "name": "Name"
+            }
+        ]
+    },
+    "FE21": {
+        "name": "ManorList1",
+        "data": [
+            {
+                "type": "h",
+                "name": "subID"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "ListCount",
+                "repeat": 12
+            },
+            {
+                "type": "d",
+                "name": "ObjectID"
+            },
+            {
+                "type": "d",
+                "name": "itemID"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "c",
+                "name": "c"
+            },
+            {
+                "type": "c",
+                "name": "c"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "Reward"
+            },
+            {
+                "type": "d",
+                "name": "BuyCount"
+            },
+            {
+                "type": "d",
+                "name": "BuyPrice"
+            },
+            {
+                "type": "c",
+                "name": "c"
+            },
+            {
+                "type": "d",
+                "name": "ItemCount"
+            }
+        ]
+    },
+    "FE22": {
+        "name": "ManorList2",
+        "data": [
+            {
+                "type": "h",
+                "name": "subID"
+            },
+            {
+                "type": "d",
+                "name": "ItemID"
+            },
+            {
+                "type": "d",
+                "name": "ListCount",
+                "repeat": 4
+            },
+            {
+                "type": "d",
+                "name": "City"
+            },
+            {
+                "type": "d",
+                "name": "Count"
+            },
+            {
+                "type": "d",
+                "name": "Price"
+            },
+            {
+                "type": "c",
+                "name": "c"
+            }
+        ]
+    },
+    "FE23": {
+        "name": "ExHeroList",
+        "data": [
+            {
+                "type": "h",
+                "name": "subID"
+            },
+            {
+                "type": "d",
+                "name": "ListCount",
+                "repeat": 7
+            },
+            {
+                "type": "s",
+                "name": "heroName"
+            },
+            {
+                "type": "d",
+                "name": "ClassId"
+            },
+            {
+                "type": "s",
+                "name": "clanName"
+            },
+            {
+                "type": "d",
+                "name": "clanCrest"
+            },
+            {
+                "type": "s",
+                "name": "allyName"
+            },
+            {
+                "type": "d",
+                "name": "allyCrest"
+            },
+            {
+                "type": "d",
+                "name": "count"
+            }
+        ]
+    },
+    "FE28": {
+        "name": "ExPledgeCrestLarge",
+        "data": [
+            {
+                "type": "h",
+                "name": "subID"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "crestID"
+            },
+            {
+                "type": "b",
+                "name": "IconCrest"
+            }
+        ]
+    },
+    "FE29": {
+        "name": "ExOlympiadUserInfo",
+        "data": [
+            {
+                "type": "h",
+                "name": "subID"
+            },
+            {
+                "type": "c",
+                "name": "Side"
+            },
+            {
+                "type": "d",
+                "name": "charObjID"
+            },
+            {
+                "type": "s",
+                "name": "Name"
+            },
+            {
+                "type": "d",
+                "name": "ClassId"
+            },
+            {
+                "type": "d",
+                "name": "cur_HP"
+            },
+            {
+                "type": "d",
+                "name": "max_HP"
+            },
+            {
+                "type": "d",
+                "name": "cur_CP"
+            },
+            {
+                "type": "d",
+                "name": "max_CP"
+            }
+        ]
+    },
+    "FE2A": {
+        "name": "ExOlympiadSpelledInfo",
+        "data": [
+            {
+                "type": "h",
+                "name": "subID"
+            },
+            {
+                "type": "d",
+                "name": "charObjID"
+            },
+            {
+                "type": "d",
+                "name": "Count",
+                "repeat": 3
+            },
+            {
+                "type": "d",
+                "name": "skillID"
+            },
+            {
+                "type": "h",
+                "name": "dat"
+            },
+            {
+                "type": "d",
+                "name": "duration"
+            }
+        ]
+    },
+    "FE2B": {
+        "name": "ExOlympiadMode",
+        "data": [
+            {
+                "type": "h",
+                "name": "subID"
+            },
+            {
+                "type": "c",
+                "name": "mode"
+            }
+        ]
+    },
+    "FE2D": {
+        "name": "ExMailArrived",
+        "data": [
+            {
+                "type": "h",
+                "name": "subID"
+            }
+        ]
+    },
+    "FE2E": {
+        "name": "ExStorageMaxCount",
+        "data": [
+            {
+                "type": "h",
+                "name": "subID"
+            },
+            {
+                "type": "d",
+                "name": "inventory"
+            },
+            {
+                "type": "d",
+                "name": "warehouse"
+            },
+            {
+                "type": "d",
+                "name": "freight"
+            },
+            {
+                "type": "d",
+                "name": "privateSell"
+            },
+            {
+                "type": "d",
+                "name": "privateBuy"
+            },
+            {
+                "type": "d",
+                "name": "receipeD"
+            },
+            {
+                "type": "d",
+                "name": "recipe"
+            }
+        ]
+    },
+    "FE31": {
+        "name": "ExPCCafePointInfo",
+        "data": [
+            {
+                "type": "h",
+                "name": "subID"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "c",
+                "name": "c"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "c",
+                "name": "c"
+            }
+        ]
+    },
+    "FE32": {
+        "name": "ExSetCompassZoneCode",
+        "data": [
+            {
+                "type": "h",
+                "name": "subID"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            }
+        ]
+    },
+    "FE33": {
+        "name": "ExGetBossRecord",
+        "data": [
+            {
+                "type": "h",
+                "name": "subID"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "ListSize"
+            }
+        ]
+    },
+    "FE34": {
+        "name": "ExAskJoinPartyRoom",
+        "data": [
+            {
+                "type": "h",
+                "name": "subID"
+            },
+            {
+                "type": "s",
+                "name": "charName"
+            }
+        ]
+    },
+    "FE37": {
+        "name": "ExShowAdventurerGuideBook",
+        "data": [
+            {
+                "type": "h",
+                "name": "subID"
+            }
+        ]
+    },
+    "FE39": {
+        "name": "PledgeSkillList",
+        "data": [
+            {
+                "type": "h",
+                "name": "subID"
+            },
+            {
+                "type": "d",
+                "name": "ListCount",
+                "repeat": 2
+            },
+            {
+                "type": "d",
+                "name": "SkillID"
+            },
+            {
+                "type": "d",
+                "name": "Level"
+            }
+        ]
+    },
+    "FE3A": {
+        "name": "PledgeSkillListAdd",
+        "data": [
+            {
+                "type": "h",
+                "name": "subID"
+            },
+            {
+                "type": "d",
+                "name": "SkillID"
+            },
+            {
+                "type": "d",
+                "name": "Level"
+            }
+        ]
+    },
+    "FE3B": {
+        "name": "PledgePowerGradeList",
+        "data": [
+            {
+                "type": "h",
+                "name": "subID"
+            },
+            {
+                "type": "d",
+                "name": "Listcount",
+                "repeat": 2
+            },
+            {
+                "type": "d",
+                "name": "Rank"
+            },
+            {
+                "type": "d",
+                "name": "Party"
+            }
+        ]
+    },
+    "FE3C": {
+        "name": "PledgeReceivePowerInfo",
+        "data": [
+            {
+                "type": "h",
+                "name": "subID"
+            },
+            {
+                "type": "d",
+                "name": "membPowerGrade"
+            },
+            {
+                "type": "s",
+                "name": "memberName"
+            },
+            {
+                "type": "d",
+                "name": "privileges"
+            }
+        ]
+    },
+    "FE3D": {
+        "name": "PledgeReceiveMemberInfo",
+        "data": [
+            {
+                "type": "h",
+                "name": "subID"
+            },
+            {
+                "type": "d",
+                "name": "memberPledge"
+            },
+            {
+                "type": "s",
+                "name": "memName"
+            },
+            {
+                "type": "s",
+                "name": "memTitle"
+            },
+            {
+                "type": "d",
+                "name": "memPowerGrade"
+            },
+            {
+                "type": "s",
+                "name": "clanName"
+            },
+            {
+                "type": "s",
+                "name": "Apprent"
+            }
+        ]
+    },
+    "FE3E": {
+        "name": "PledgeReceiveWarList",
+        "data": [
+            {
+                "type": "h",
+                "name": "subID"
+            },
+            {
+                "type": "d",
+                "name": "Enemy/attaker"
+            },
+            {
+                "type": "d",
+                "name": "page"
+            },
+            {
+                "type": "d",
+                "name": "ListCount",
+                "repeat": 3
+            },
+            {
+                "type": "s",
+                "name": "clanName"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            }
+        ]
+    },
+    "FE3F": {
+        "name": "PledgeReceiveSubPledgeCreated",
+        "data": [
+            {
+                "type": "h",
+                "name": "subID"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "subPledgeID"
+            },
+            {
+                "type": "s",
+                "name": "subPledgeName"
+            },
+            {
+                "type": "s",
+                "name": "leaderName"
+            }
+        ]
+    },
+    "FE40": {
+        "name": "ExRedSky",
+        "data": [
+            {
+                "type": "h",
+                "name": "subID"
+            },
+            {
+                "type": "d",
+                "name": "duration"
+            }
+        ]
+    },
+    "FE43": {
+        "name": "ShowPCCafeCouponShowUI",
+        "data": [
+            {
+                "type": "h",
+                "name": "subID"
+            }
+        ]
+    },
+    "FE44": {
+        "name": "ExOrcMove",
+        "data": [
+            {
+                "type": "h",
+                "name": "subID"
+            }
+        ]
+    },
+    "FE45": {
+        "name": "ExCursedWeaponList",
+        "data": [
+            {
+                "type": "h",
+                "name": "subID"
+            },
+            {
+                "type": "d",
+                "name": "ListCount",
+                "repeat": 1
+            },
+            {
+                "type": "d",
+                "name": "cursWeapID"
+            }
+        ]
+    },
+    "FE46": {
+        "name": "ExCursedWeaponLocation",
+        "data": [
+            {
+                "type": "h",
+                "name": "subID"
+            },
+            {
+                "type": "d",
+                "name": "ListCount",
+                "repeat": 5
+            },
+            {
+                "type": "d",
+                "name": "cursWeapID"
+            },
+            {
+                "type": "d",
+                "name": "d"
+            },
+            {
+                "type": "d",
+                "name": "X"
+            },
+            {
+                "type": "d",
+                "name": "Y"
+            },
+            {
+                "type": "d",
+                "name": "Z"
+            }
+        ]
+    },
+    "FE47": {
+        "name": "ExRestartClient",
+        "data": [
+            {
+                "type": "h",
+                "name": "subID"
+            }
+        ]
+    }
+}

@@ -1,0 +1,76 @@
+program packread;
+
+uses
+    Sysutils;
+
+type
+    TPckReadData = packed record
+        PckID: cardinal;
+        PckId2: cardinal;
+        PckSize: cardinal;
+        PckData: array[0..1024] of byte;
+    end;
+
+    PPckReadData = ^TPckReadData;
+
+var
+    hMapFile: cardinal;
+    pBuf: pointer;
+    mapname: string;
+    PckReadData: PPckReadData;
+
+const
+INVALID_HANDLE_VALUE = cardinal(-1);
+PAGE_READWRITE = $04;
+FILE_MAP_ALL_ACCESS = $F001F;
+GENERIC_READ = $80000000;
+GENERIC_WRITE = $40000000;
+
+function OpenFileMapping(dwDesiredAccess: cardinal; bInheritHandle: boolean; lpName: PWideChar): cardinal; stdcall; external 'kernel32.dll' name 'OpenFileMappingW';
+function MapViewOfFile(hFileMappingObject: cardinal; dwDesiredAccess: cardinal; dwFileOffsetHigh: cardinal; dwFileOffsetLow: cardinal; dwNumberOfBytesToMap: cardinal): pointer; stdcall; external 'kernel32.dll' name 'MapViewOfFile';
+function UnmapViewOfFile(lpBaseAddress: pointer): boolean; stdcall; external 'kernel32.dll' name 'UnmapViewOfFile';
+function CloseHandle(hObject: cardinal): boolean; stdcall; external 'kernel32.dll' name 'CloseHandle';
+
+procedure OnFree;
+begin
+    if pBuf <> nil then
+    begin
+        UnmapViewOfFile(pBuf);
+        pBuf := nil;
+    end;
+    if hMapFile <> 0 then
+    begin
+        CloseHandle(hMapFile);
+        hMapFile := 0;
+    end;
+end;
+
+
+begin
+    mapname := 'Global\BOTSM' + user.name;
+    hMapFile := OpenFileMapping(FILE_MAP_ALL_ACCESS, false, pchar(mapName));
+    pBuf := MapViewOfFile(hMapFile, FILE_MAP_ALL_ACCESS, 0, 0, SizeOf(TPckReadData));
+    PckReadData := PPckReadData(pBuf);
+    try
+        while true do
+        begin
+            Delay(10);
+            if PckReadData^.PckID <> 0 then
+            begin
+                Print('PckID: ' + IntToHex(PckReadData.PckID, 2) + '  ' + IntToHex(PCardinal(@PckReadData^.PckData [0])^, 4));
+                PckReadData^.PckID := 0;
+            end;
+        end;
+    finally
+        if pBuf <> nil then
+        begin
+            UnmapViewOfFile(pBuf);
+            pBuf := nil;
+        end;
+        if hMapFile <> 0 then
+        begin
+            CloseHandle(hMapFile);
+            hMapFile := 0;
+        end;
+    end;
+end.

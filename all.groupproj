@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{17DCF855-EECF-4F23-AAEC-3E59C884DC2F}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="Project4.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="l2conn.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="Project4">
+        <MSBuild Projects="Project4.dproj"/>
+    </Target>
+    <Target Name="Project4:Clean">
+        <MSBuild Projects="Project4.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Project4:Make">
+        <MSBuild Projects="Project4.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="l2conn">
+        <MSBuild Projects="l2conn.dproj"/>
+    </Target>
+    <Target Name="l2conn:Clean">
+        <MSBuild Projects="l2conn.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="l2conn:Make">
+        <MSBuild Projects="l2conn.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="Project4;l2conn"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="Project4:Clean;l2conn:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="Project4:Make;l2conn:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

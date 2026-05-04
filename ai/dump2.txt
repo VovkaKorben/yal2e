@@ -1,0 +1,44 @@
+Подключение к 51.83.130.113:2106...
+Подключено! Ожидание пакета Init...
+
+Ожидаемый размер пакета (с учетом 2 байт заголовка): 194 байт
+
+--- HEX DUMP ЗАШИФРОВАННОГО ПАКЕТА (c заголовком) ---
+0000   C2 00 F4 F3 67 C7 A8 3B B3 22 0E 74 A0 77 93 FF    ....g..;.".t.w..
+0010   42 CD 42 0D DC 95 FE BA ED AA D4 CD 9F 63 3C A5    B.B..........c<.
+0020   ED C7 70 45 97 91 3B 81 B8 A7 D0 38 C2 EE 5A 42    ..pE..;....8..ZB
+0030   D9 7D AB 3D D7 81 47 61 74 C5 29 28 69 B8 2C 70    .}.=..Gat.)(i.,p
+0040   0E AE EC 12 20 E0 88 BD 8C 2E F0 E3 E4 94 7B EA    .... .........{.
+0050   A7 90 25 0D F9 96 7B 0B DD CE 8C 19 55 50 8A 01    ..%...{.....UP..
+0060   C5 ED 05 1C E9 D9 98 BE 0C 33 1E 0B 01 98 21 D4    .........3....!.
+0070   03 67 39 D7 8A 37 C0 76 2F 79 66 F1 3B DB FF 01    .g9..7.v/yf.;...
+0080   50 07 3C A6 97 27 1D D7 BD F3 EB 44 9A B0 49 EB    P.<..'.....D..I.
+0090   D0 A2 09 D5 32 AC F6 0C 65 DE 67 E2 CD DA 4D 20    ....2...e.g...M 
+00A0   9E 4D 44 FD 9F 63 B2 DB 78 5D A9 34 02 4F 33 CB    .MD..c..x].4.O3.
+00B0   1C 80 89 CE 0A B1 9D 55 B1 81 08 AC F7 82 A5 ED    .......U........
+00C0   1A 09                                              ..
+
+Дешифруем с использованием статического Blowfish ключа (Little Endian)...
+
+--- HEX DUMP РАСШИФРОВАННОГО ПАКЕТА ---
+0000   00 B7 A1 78 15 E3 32 F0 7A 42 0D 11 8A DD 0D 78    ...x..2.zB.....x
+0010   B3 5D 1F 6F 77 D5 9F DE FB 7F 98 31 2B 24 E5 E9    .].ow......1+$..
+0020   4E A1 B5 C8 51 55 16 F0 9C C8 34 1B 64 DD 8A 76    N...QU....4.d..v
+0030   79 FF 05 DE 8F 93 9C 7E 35 E9 75 85 A2 DB 33 76    y......~5.u...3v
+0040   C4 DA 7D FC DC 48 D0 71 2B F9 4C 03 84 13 AC 25    ..}..H.q+.L....%
+0050   81 3A 10 1A FE 25 0E C5 E6 88 B8 E5 A1 18 A2 48    .:...%.........H
+0060   A3 9A 82 8D DB 5E 60 6D 71 3A 4B CC CA 5A 57 2D    .....^`mq:K..ZW-
+0070   11 73 19 CB 20 6B 40 8F 0A 1D 13 AF 15 A8 5F 44    .s.. k@......._D
+0080   1E 46 48 6B E7 6F C2 24 4A C9 CC 49 A8 C9 CC 49    .FHk.o.$J..I...I
+0090   A8 C9 CC 49 A8 C9 CC 49 A8 C9 F4 BA A8 73 9A 0C    ...I...I.....s..
+00A0   74 46 C2 0A 31 DB 04 C6 99 3E AE 14 CD C2 77 15    tF..1....>....w.
+00B0   5D 07 27 47 CB 65 F2 07 55 B1 7B A9 50 BE D8 D7    ].'G.e..U.{.P...
+
+--- РАСШИФРОВКА ПОЛЕЙ ПАКЕТА (Init 0x00) ---
+Packet ID: 0x00 (Init)
+Session ID:       0x1578A1B7 (360227255)
+Protocol Version: 0x7AF032E3 (2062562019)
+RSA Public Key:   420D118ADD0D78B35D1F6F77D59FDEFB7F98312B24E5E94EA1B5C8515516F09CC8341B64DD8A7679FF05DE8F939C7E35E97585A2DB3376C4DA7DFCDC48D0712BF94C038413AC25813A101AFE250EC5E688B8E5A118A248A39A828DDB5E606D713A4BCCCA5A572D117319CB206B408F0A1D13AF15A85F441E46486BE76FC2244A
+Unknown (GG?):    C9CC49A8C9CC49A8C9CC49A8C9CC49A8
+BlowFish Session: C9F4BAA8739A0C7446C20A31DB04C699
+Остаток/Паддинг:  3EAE14CDC277155D072747CB65F20755B17BA950BED8D7

@@ -8,7 +8,7 @@ type
         PckID: cardinal;
         PckId2: cardinal;
         PckSize: cardinal;
-        PckData: array[0..1024] of byte;
+        PckData: array [0 .. 1024] of byte;
     end;
 
     PPckReadData = ^TPckReadData;
@@ -16,43 +16,46 @@ type
 var
     hMapFile: cardinal;
     pBuf: pointer;
-    mapname: string;
+    packets_filename, mapname: string;
     PckReadData: PPckReadData;
 
-    { MMF РґР°РјРї
-     Р¤РѕСЂРјР°С‚ РЅРµРїСЂРµСЂС‹РІРЅРѕР№ Р·Р°РїРёСЃРё Р±Р»РѕРєРѕРІ РІ packet_dump.bin (Little Endian):
-     1. [4 Р±Р°Р№С‚Р°] PckID   (uint32)
-     2. [4 Р±Р°Р№С‚Р°] PckId2  (uint32)
-     3. [4 Р±Р°Р№С‚Р°] PckSize (uint32) - РґР»РёРЅР° РґР°РЅРЅС‹С… РїР°РєРµС‚Р°
-     4. [PckSize Р±Р°Р№С‚] PckData - СЃС‹СЂС‹Рµ РґР°РЅРЅС‹Рµ РїР°РєРµС‚Р°
-      Р›СЋР±РѕР№ РІРЅРµС€РЅРёР№ РїР°СЂСЃРµСЂ СЃРјРѕР¶РµС‚ Р»РµРіРєРѕ РїСЂРѕС…РѕРґРёС‚СЊ РїРѕ С„Р°Р№Р»Сѓ, С‡РёС‚Р°СЏ 12 Р±Р°Р№С‚ Р·Р°РіРѕР»РѕРІРєР°, Р° Р·Р°С‚РµРј СЃРјРµС‰Р°СЏСЃСЊ РЅР° PckSize Р±Р°Р№С‚ РІРїРµСЂРµРґ, С‡С‚РѕР±С‹ РїРѕР»СѓС‡РёС‚СЊ С‡РёСЃС‚СѓСЋ РїРѕР»РµР·РЅСѓСЋ РЅР°РіСЂСѓР·РєСѓ РїР°РєРµС‚Р°.
-     }
+    { MMF дамп
+      Формат непрерывной записи блоков в packet_dump.bin (Little Endian):
+      1. [4 байта] PckID   (uint32)
+      2. [4 байта] PckId2  (uint32)
+      3. [4 байта] PckSize (uint32) - длина данных пакета
+      4. [PckSize байт] PckData - сырые данные пакета
+      Любой внешний парсер сможет легко проходить по файлу, читая 12 байт заголовка, а затем смещаясь на PckSize байт вперед, чтобы получить чистую полезную нагрузку пакета.
+    }
     hDumpFile, hDumpMap: cardinal;
     pDumpBuf: pointer;
     DumpPos, PckFullSize: cardinal;
     LogPos: integer;
-    BlockCount, PackCount: cardinal;
+    BlockCount, PacketCount: cardinal;
 
 const
-INVALID_HANDLE_VALUE = cardinal(-1);
-PAGE_READWRITE = $04;
-FILE_MAP_ALL_ACCESS = $F001F;
-FILE_MAP_WRITE = $0002;
-GENERIC_READ = $80000000;
-GENERIC_WRITE = $40000000;
-CREATE_ALWAYS = 2;
-FILE_BEGIN = 0;
+    INVALID_HANDLE_VALUE = cardinal($FFFFFFFF);
+    PAGE_READWRITE = $04;
+    FILE_MAP_ALL_ACCESS = $F001F;
+    FILE_MAP_WRITE = $0002;
+    GENERIC_READ = $80000000;
+    GENERIC_WRITE = $40000000;
+    CREATE_ALWAYS = 2;
+    FILE_BEGIN = 0;
 
-DUMP_SIZE = 52428800; // 50 * 1024 * 1024 (50 РњРµРіР°Р±Р°Р№С‚)
-LOG_STEP = 1024 * 64; // 
+    DUMP_SIZE = 52428800; // 50 * 1024 * 1024 (50 Мегабайт)
+    LOG_STEP = 1024 * 64; //
 
 function OpenFileMapping(dwDesiredAccess: cardinal; bInheritHandle: boolean; lpName: PWideChar): cardinal; stdcall; external 'kernel32.dll' name 'OpenFileMappingW';
-function MapViewOfFile(hFileMappingObject: cardinal; dwDesiredAccess: cardinal; dwFileOffsetHigh: cardinal; dwFileOffsetLow: cardinal; dwNumberOfBytesToMap: cardinal): pointer; stdcall; external 'kernel32.dll' name 'MapViewOfFile';
+function MapViewOfFile(hFileMappingObject: cardinal; dwDesiredAccess: cardinal; dwFileOffsetHigh: cardinal; dwFileOffsetLow: cardinal; dwNumberOfBytesToMap: cardinal): pointer; stdcall;
+  external 'kernel32.dll' name 'MapViewOfFile';
 function UnmapViewOfFile(lpBaseAddress: pointer): boolean; stdcall; external 'kernel32.dll' name 'UnmapViewOfFile';
 function CloseHandle(hObject: cardinal): boolean; stdcall; external 'kernel32.dll' name 'CloseHandle';
 
-function CreateFile(lpFileName: PWideChar; dwDesiredAccess: cardinal; dwShareMode: cardinal; lpSecurityAttributes: pointer; dwCreationDisposition: cardinal; dwFlagsAndAttributes: cardinal; hTemplateFile: cardinal): cardinal; stdcall; external 'kernel32.dll' name 'CreateFileW';
-function CreateFileMapping(hFile: cardinal; lpFileMappingAttributes: pointer; flProtect: cardinal; dwMaximumSizeHigh: cardinal; dwMaximumSizeLow: cardinal; lpName: PWideChar): cardinal; stdcall; external 'kernel32.dll' name 'CreateFileMappingW';
+function CreateFile(lpFileName: PWideChar; dwDesiredAccess: cardinal; dwShareMode: cardinal; lpSecurityAttributes: pointer; dwCreationDisposition: cardinal; dwFlagsAndAttributes: cardinal; hTemplateFile: cardinal): cardinal;
+  stdcall; external 'kernel32.dll' name 'CreateFileW';
+function CreateFileMapping(hFile: cardinal; lpFileMappingAttributes: pointer; flProtect: cardinal; dwMaximumSizeHigh: cardinal; dwMaximumSizeLow: cardinal; lpName: PWideChar): cardinal; stdcall;
+  external 'kernel32.dll' name 'CreateFileMappingW';
 function SetFilePointer(hFile: cardinal; lDistanceToMove: integer; lpDistanceToMoveHigh: pointer; dwMoveMethod: cardinal): cardinal; stdcall; external 'kernel32.dll' name 'SetFilePointer';
 function SetEndOfFile(hFile: cardinal): boolean; stdcall; external 'kernel32.dll' name 'SetEndOfFile';
 procedure CopyMemory(Destination: cardinal; Source: cardinal; Length: cardinal); stdcall; external 'kernel32.dll' name 'RtlMoveMemory';
@@ -81,7 +84,7 @@ begin
     end;
     if hDumpFile <> INVALID_HANDLE_VALUE then
     begin
-        // РћР±СЂРµР·Р°РµРј С„Р°Р№Р» РґРѕ СЂРµР°Р»СЊРЅРѕ Р·Р°РїРёСЃР°РЅРЅРѕРіРѕ СЂР°Р·РјРµСЂР°
+        // Обрезаем файл до реально записанного размера
         if DumpPos > 0 then
             SetFilePointer(hDumpFile, DumpPos, nil, FILE_BEGIN);
         SetEndOfFile(hDumpFile);
@@ -95,22 +98,24 @@ begin
     CleanupAll;
 end;
 
-
 begin
     hDumpFile := INVALID_HANDLE_VALUE;
     DumpPos := 0;
-    LogPos  := 0;
+    LogPos := 0;
     BlockCount := 0;
-    PackCount := 0;
+    PacketCount := 0;
 
-    // 1. РЎРѕР·РґР°РµРј С„РёР·РёС‡РµСЃРєРёР№ С„Р°Р№Р» РЅР° РґРёСЃРєРµ
-    hDumpFile := CreateFile('packet_dump.bin', GENERIC_READ or GENERIC_WRITE, 0, nil, CREATE_ALWAYS, 0, 0);
+    packets_filename := script.path() + FormatDateTime('dd-mm hh-nn-ss', Now) + '.packets';
+    Print('packets_filename: ' + packets_filename);
+
+    // 1. Создаем физический файл на диске
+    hDumpFile := CreateFile(PWIDECHAR(packets_filename), GENERIC_READ or GENERIC_WRITE, 0, nil, CREATE_ALWAYS, 0, 0);
     if hDumpFile <> INVALID_HANDLE_VALUE then
     begin
-        // 2. РЎРѕР·РґР°РµРј РїСЂРѕРµРєС†РёСЋ
+        // 2. Создаем проекцию
         hDumpMap := CreateFileMapping(hDumpFile, nil, PAGE_READWRITE, 0, DUMP_SIZE, nil);
         if hDumpMap <> 0 then
-            // 3. РћС‚РѕР±СЂР°Р¶Р°РµРј РїСЂРѕРµРєС†РёСЋ РІ РїР°РјСЏС‚СЊ СЃРєСЂРёРїС‚Р°
+            // 3. Отображаем проекцию в память скрипта
             pDumpBuf := MapViewOfFile(hDumpMap, FILE_MAP_WRITE, 0, 0, DUMP_SIZE);
     end;
 
@@ -124,41 +129,43 @@ begin
             Delay(1);
             if (PckReadData <> nil) and (PckReadData^.PckID <> 0) then
             begin
-                inc(PackCount);
-                // Р’С‹С‡РёСЃР»СЏРµРј СЂР°Р·РјРµСЂ РїР°РєРµС‚Р°: Р·Р°РіРѕР»РѕРІРѕРє 12 Р±Р°Р№С‚ (ID, ID2, Size) + СЃР°РјР° РґР»РёРЅР° РґР°РЅРЅС‹С…
+                inc(PacketCount);
+                // Вычисляем размер пакета: заголовок 12 байт (ID, ID2, Size) + сама длина данных
                 if PckReadData^.PckSize <= 1024 then
                     PckFullSize := 12 + PckReadData^.PckSize
                 else
-                    PckFullSize := SizeOf(TPckReadData); // Р—Р°С‰РёС‚Р° РѕС‚ РїРµСЂРµРїРѕР»РЅРµРЅРёСЏ
+                    PckFullSize := SizeOf(TPckReadData); // Защита от переполнения
 
-                // Р‘С‹СЃС‚СЂРѕ РїРµСЂРµРЅРѕСЃРёРј РґР°РЅРЅС‹Рµ РІ РїР°РјСЏС‚СЊ РґР°РјРїР°, РµСЃР»Рё С…РІР°С‚Р°РµС‚ РјРµСЃС‚Р°
+                // Быстро переносим данные в память дампа, если хватает места
                 if pDumpBuf <> nil then
                 begin
                     if (DumpPos + PckFullSize) <= DUMP_SIZE then
                     begin
                         CopyMemory(cardinal(pDumpBuf) + DumpPos, cardinal(PckReadData), PckFullSize);
                         DumpPos := DumpPos + PckFullSize;
-                        LogPos  := LogPos + PckFullSize;
+                        LogPos := LogPos + PckFullSize;
 
-                        // РџРµСЂРёРѕРґРёС‡РµСЃРєРёР№ РІС‹РІРѕРґ РІ Р»РѕРі, С‡С‚РѕР±С‹ РЅРµ РіСЂСѓР·РёС‚СЊ РєРѕРЅСЃРѕР»СЊ
+                        // Периодический вывод в лог, чтобы не грузить консоль
                         if LogPos >= LOG_STEP then
                         begin
                             BlockCount := BlockCount + 1;
-                            print(format('Block %d, packets %d', [BlockCount, PackCount]));
+                            print(format('Block %d, packets %d', [BlockCount, PacketCount]));
                             LogPos := LogPos - LOG_STEP;
                         end;
                     end else begin
-                        print('Р’РЅРёРјР°РЅРёРµ: Р¤Р°Р№Р» РґР°РјРїР° РїРµСЂРµРїРѕР»РЅРµРЅ! Р›РёРјРёС‚ РґРѕСЃС‚РёРіРЅСѓС‚. РЎРєСЂРёРїС‚ РѕСЃС‚Р°РЅР°РІР»РёРІР°РµС‚СЃСЏ...');
-                        break; // Р’С‹С…РѕРґ РёР· Р±РµСЃРєРѕРЅРµС‡РЅРѕРіРѕ С†РёРєР»Р°
+                        print('Внимание: Файл дампа переполнен! Лимит достигнут. Скрипт останавливается...');
+                        break; // Выход из бесконечного цикла
                     end;
                 end;
-                print(PackCount); // DEBUG ONLY
-            //    Print('PckID: ' + IntToHex(PckReadData.PckID, 2) + '  ' + IntToHex(PCardinal(@PckReadData^.PckData [0])^, 4));
-
+              //  print(PacketCount); // DEBUG ONLY
+                Print(inttostr(PacketCount)+' PckID: ' + IntToHex(PckReadData.PckID, 2) + '  ' + IntToHex(PCardinal(@PckReadData^.PckData [0])^, 4));
+                if (PacketCount > 20) then
+                    break;
             end;
             PckReadData^.PckID := 0;
         end;
     finally
         CleanupAll;
     end;
+
 end.

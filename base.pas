@@ -1,12 +1,22 @@
+{ packets naming
+ac - Auth Server -> Client 
+ca - reverse
+gc - Game Server -> Client
+cg- reverse
+
+
+}
+
+
 unit  laClasses;
 
 interface
 
 uses
-    Classes, SysUtils, Generics.Collections, IdTCPClient, IdGlobal;
+    Classes, SysUtils, Generics.Collections, IdTCPClient, IdGlobal, Types, SyncObjs;
 
 type
-
+    esState = (esOffline, esAuth, esGame);
 
     TL2Object = class
     end;
@@ -22,39 +32,25 @@ type
 
     TL2User = class (TL2Char)
     public
-        X, Y, Z: Integer;
+        X, Y, Z: integer;
         HP: integer;
     end;
 
     TEngine = class ; // Опережающее объявление
 
-    // Легковесная структура для последовательного чтения данных из пакета (Advanced Record)
-    TPacketReader = record
+
+      // Индивидуальный поток для блокирующего чтения сети для конкретного бота
+    TReceiveThread = class (TThread)
     private
-        FData: TBytes;
-        FOffset: integer;
+        FEngine: TEngine;
+    protected
+        procedure Execute; override;
     public
-        constructor Create(const AData: TBytes; AStartOffset: integer = 1);
-        function GetC: byte;     // 1 байт
-        function GetH: word;     // 2 байта
-        function GetD: integer;  // 4 байта
-        function GetS: string;   // UTF-16LE строка
+        constructor Create(AEngine: TEngine);
     end;
 
-    // Легковесная структура для сборки пакетов
-    TPacketBuilder = record
-    private
-        FData: TBytes;
-    public
-        procedure WriteC(Value: byte);
-        procedure WriteH(Value: word);
-        procedure WriteD(Value: integer);
-        procedure WriteS(const Value: string);
-        function GetPacket: TBytes;
-    end;
-
-    // Индивидуальный поток для блокирующего чтения сети для конкретного бота
-    TEngineThread = class (TThread)
+    // Индивидуальный поток для блокирующей отправки пакетов
+    TSendThread = class (TThread)
     private
         FEngine: TEngine;
     protected
@@ -67,148 +63,52 @@ type
     TEngine = class
     private
         FUser: TL2User;
-        FEnv: TObjectDictionary<Cardinal, TL2Object>; // Хранилище окружения
-        FThread: TEngineThread;
+        FEnv:  TObjectDictionary<cardinal, TL2Object>; // Хранилище окружения
+        FThread: TReceiveThread;
+        FSendThread: TSendThread;
         FSocket: TIdTCPClient;
+        FSendQueue: TThreadedQueue<TBytes>;
+
+    protected
+
+        FState: esState;
     public
         constructor Create;
         destructor Destroy; override;
 
-        procedure Connect(const Host: string; Port: Word);
+        procedure Connect(const Host: string; Port: word);
         procedure SendPacket(const Data: TBytes);
 
         // В будущем тут могут быть методы типа Connect(), MoveTo(), UseSkill() и т.д.
 
         property User: TL2User read FUser;
-        property Env: TObjectDictionary<Cardinal, TL2Object> read FEnv;
+        property Env: TObjectDictionary<cardinal, TL2Object> read FEnv;
     end;
 
-    // Сигнатура глобальной процедуры-обработчика (без of object)
-    TPacketHandler = procedure(engine: TEngine; var reader: TPacketReader);
 
 implementation
 
-{ TPacketReader }
-
-constructor TPacketReader.Create(const AData: TBytes; AStartOffset: integer = 1);
-begin
-    // Сохраняем ссылку на массив. AStartOffset = 1, чтобы пропустить ID пакета
-    FData := AData;
-    FOffset := AStartOffset;
-end;
-
-function TPacketReader.GetC: byte;
-begin
-    Result := FData [FOffset];
-    Inc(FOffset, 1);
-end;
-
-function TPacketReader.GetH: word;
-begin
-    Result := PWord(@FData [FOffset])^;
-    Inc(FOffset, 2);
-end;
-
-function TPacketReader.GetD: integer;
-begin
-    Result := PInteger(@FData [FOffset])^;
-    Inc(FOffset, 4);
-end;
-
-function TPacketReader.GetS: string;
-var
-    StartOff, StrLen: integer;
-begin
-    StartOff := FOffset;
-
-    // Ищем конец строки: два нулевых байта подряд (#0#0)
-    while FOffset + 1 < Length(FData) do
-    begin
-        if (FData [FOffset] = 0) and (FData [FOffset + 1] = 0) then
-            Break;
-        Inc(FOffset, 2);
-    end;
-
-    // Вычисляем длину строки в символах (каждый символ 2 байта)
-    StrLen := (FOffset - StartOff) div 2;
-    SetLength(Result, StrLen);
-
-    if StrLen > 0 then
-        Move(FData [StartOff], Result [1], StrLen * 2);
-
-    Inc(FOffset, 2); // Пропускаем нули-терминаторы
-end;
-
-{ TPacketBuilder }
-
-procedure TPacketBuilder.WriteC(Value: byte);
-begin
-    FData := FData + [Value];
-end;
-
-procedure TPacketBuilder.WriteH(Value: word);
-begin
-    FData := FData + TBytes(BitConverter.GetBytes(Value)); // Потребуется System.SysUtils
-end;
-
-procedure TPacketBuilder.WriteD(Value: integer);
-begin
-    FData := FData + TBytes(BitConverter.GetBytes(Value));
-end;
-
-procedure TPacketBuilder.WriteS(const Value: string);
-begin
-    if Value <> '' then
-        FData := FData + TEncoding.Unicode.GetBytes(Value);
-    FData := FData + [0, 0]; // Null-terminator (UTF-16)
-end;
-
-function TPacketBuilder.GetPacket: TBytes;
-begin
-    Result := FData;
-end;
-
 { Обработчики пакетов }
 
-procedure scKeyInit(engine: TEngine; var reader: TPacketReader);
-begin
-end;
 
-procedure scMoveToLocation(engine: TEngine; var reader: TPacketReader);
-//var    TargetX, TargetY, TargetZ: Integer;
-begin
-    engine.User.X := Reader.GetD;
-    engine.User.Y := Reader.GetD;
-    engine.User.Z := Reader.GetD;
-    // engine.User.X := TargetX; // Обновляем состояние нашего движка
-end;
-
-// Таблица обработчиков (Lookup Table)
-const
-    PacketHandlers: array[0..255] of TPacketHandler = (
-        scKeyInit,        // 0x00
-        scMoveToLocation, // 0x01
-        nil               // и так далее... нужно заполнить все 256 элементов
-        );
-
-{ TEngineThread }
-constructor TEngineThread.Create(AEngine: TEngine);
+{ TReceiveThread }
+constructor TReceiveThread.Create(AEngine: TEngine);
 begin
     FEngine := AEngine;
     inherited Create(false);
     FreeOnTerminate := false;
 end;
 
-procedure TEngineThread.Execute;
+procedure TReceiveThread.Execute;
 var
-    PacketBytes: TBytes;
-    Reader: TPacketReader;
-    PacketLen: Word;
+    data: TBytes;
+    dataLen: word;
 begin
     while not Terminated do
     begin
         try
             // Если мы еще не подключились, просто ждем
+
             if not FEngine.FSocket.Connected then
             begin
                 Sleep(10);
@@ -216,17 +116,57 @@ begin
             end;
 
             // Блокирующее чтение заголовка (2 байта длины) и затем тела
-            PacketLen := FEngine.FSocket.IOHandler.ReadUInt16;
-            FEngine.FSocket.IOHandler.ReadBytes(TIdBytes(PacketBytes), PacketLen - 2, False);
-            
-            if Length(PacketBytes) > 0 then
-            begin
-                Reader := TPacketReader.Create(PacketBytes);
-                PacketHandlers[PacketBytes[0]](FEngine, Reader);
+            dataLen := FEngine.FSocket.IOHandler.ReadUInt16;
+            FEngine.FSocket.IOHandler.ReadBytes(TIdBytes(data), dataLen - 2, false);
+
+
+            case FEngine.FState of
+                esAuth: AuthHandler(FEngine, data);
+                esGame: GameHandler(FEngine, data);
+
             end;
+
+
         except
             on E: Exception do
                 Break;
+        end;
+    end;
+end;
+
+{ TSendThread }
+constructor TSendThread.Create(AEngine: TEngine);
+begin
+    FEngine := AEngine;
+    inherited Create(false);
+    FreeOnTerminate := false;
+end;
+
+procedure TSendThread.Execute;
+var
+    Buf: TBytes;
+begin
+    while not Terminated do
+    begin
+        if not FEngine.FSocket.Connected then
+        begin
+            Sleep(10);
+            Continue;
+        end;
+
+        // Пытаемся извлечь пакет. Таймаут 100мс позволяет циклу пойти дальше 
+        // и проверить условие Terminated, если очередь пуста.
+        if FEngine.FSendQueue.PopItem(Buf) = wrSignaled then
+        begin
+            try
+                // В будущем сюда можно вставить фильтр пакетов:
+                // if not ShouldSendPacket(Buf) then Continue;
+                
+                FEngine.FSocket.IOHandler.Write(TIdBytes(Buf));
+            except
+                on E: Exception do
+                    Break;
+            end;
         end;
     end;
 end;
@@ -235,10 +175,17 @@ end;
 
 constructor TEngine.Create;
 begin
-    FEnv := TObjectDictionary<Cardinal, TL2Object>.Create([doOwnsValues]);
+    FState := esOffline;
+    FEnv := TObjectDictionary<cardinal, TL2Object>.Create([doOwnsValues]);
     FUser := TL2User.Create;
     FSocket := TIdTCPClient.Create(nil);
-    FThread := TEngineThread.Create(Self);
+    
+    // Создаем очередь на 1024 пакета. INFINITE - бесконечное ожидание записи (если забита), 
+    // 100 - таймаут 100 мс на извлечение
+    FSendQueue := TThreadedQueue<TBytes>.Create(1024, INFINITE, 100);
+    
+    FThread := TReceiveThread.Create(Self);
+    FSendThread := TSendThread.Create(Self);
 end;
 
 destructor TEngine.Destroy;
@@ -246,17 +193,25 @@ begin
     // Отключаем сокет перед убийством потока, чтобы сбросить блокировку Read
     if FSocket.Connected then
         FSocket.Disconnect;
-        
+
     FThread.Terminate;
+    FSendThread.Terminate;
+    
+    // Разблокируем очередь, если поток завис на PopItem / PushItem
+    FSendQueue.DoShutDown;
+
     FThread.WaitFor;
+    FSendThread.WaitFor;
     FThread.Free;
+    FSendThread.Free;
+    FSendQueue.Free;
     FSocket.Free;
     FEnv.Free;
     FUser.Free;
     inherited;
 end;
 
-procedure TEngine.Connect(const Host: string; Port: Word);
+procedure TEngine.Connect(const Host: string; Port: word);
 begin
     FSocket.Host := Host;
     FSocket.Port := Port;
@@ -265,15 +220,19 @@ end;
 
 procedure TEngine.SendPacket(const Data: TBytes);
 var
-    Len: Word;
+    Len: word;
     Buf: TBytes;
 begin
-    if not FSocket.Connected then Exit;
+    if not FSocket.Connected then
+        Exit;
+        
     Len := Length(Data) + 2;
     SetLength(Buf, Len);
-    PWord(@Buf[0])^ := Len; // Пишем размер пакета в начало
-    Move(Data[0], Buf[2], Length(Data)); // Копируем само тело пакета
-    FSocket.IOHandler.Write(TIdBytes(Buf));
+    PWord(@Buf [0])^ := Len; // Пишем размер пакета в начало
+    Move(Data [0], Buf [2], Length(Data)); // Копируем само тело пакета
+    
+    // Вместо прямой отправки, просто складываем подготовленный массив в очередь
+    FSendQueue.PushItem(Buf);
 end;
 
 end.

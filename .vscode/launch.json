@@ -4,11 +4,12 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-        { "name": "parse_dump", 
-        "type": "debugpy",
-         "request": "launch",
-         "program": "parse_dump.py", 
-        "console": "integratedTerminal" },
+        { "name": "Python Current", "type": "debugpy", "request": "launch", "program": "${file}", "console": "integratedTerminal" },
+        { "name": "parse_dump",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "parse_dump.py",
+            "console": "integratedTerminal" },
         {
             "type": "node",
             "request": "launch",

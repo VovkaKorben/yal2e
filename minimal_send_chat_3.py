@@ -37,6 +37,11 @@ GS_CHAR_INFO = 0x31
 GS_LOGOUT_OK = 0x7E
 GS_CREATURE_SAY = 0x4A
 
+# ONLINE = True
+ONLINE = False
+
+INIT_DUMP_FILE = "init_dump.bin"
+
 STATIC_BLOWFISH_KEY = bytes.fromhex("6b 60 cb 5b 82 ce 90 b1 cc 2b 6c 55 6c 6c 6c 6c")
 LEGACY_STATIC_BLOWFISH_KEY = bytes.fromhex("6b 60 cb 5b 82 ce 90 b1")
 INTERLUDE_PROTOCOL_BLOB = bytes.fromhex(
@@ -49,7 +54,16 @@ INTERLUDE_PROTOCOL_BLOB = bytes.fromhex(
     "54 04 00 05 02 04 54 00 09 42 53 05 04 01 04 05 05 01 52 51 52 0D 06 51 08 09 54 53 00 0D 01 02 03 54 53 "
     "01 05 03 08 56 54 07 02 54 0B 06"
 )
+"""
+with open("STATIC_BLOWFISH_KEY", "wb") as f:
+    f.write(STATIC_BLOWFISH_KEY)
 
+with open("LEGACY_STATIC_BLOWFISH_KEY", "wb") as f:
+    f.write(LEGACY_STATIC_BLOWFISH_KEY)
+
+with open("INTERLUDE_PROTOCOL_BLOB", "wb") as f:
+    f.write(INTERLUDE_PROTOCOL_BLOB)
+"""
 
 def recv_exact(sock: socket.socket, n: int) -> bytes:
     out = bytearray()
@@ -142,13 +156,14 @@ def xor_crypt(data: bytes, key: bytearray, decrypt: bool) -> bytes:
 def cstr(s: str) -> bytes:
     return s.encode("utf-16le") + b"\x00\x00"
 
+
 def read_string(data: bytes, offset: int) -> tuple[str, int]:
     """Читает null-terminated UTF-16LE строку из пакета по заданному смещению."""
     res = bytearray()
     while offset + 1 < len(data):
-        char_bytes = data[offset:offset+2]
+        char_bytes = data[offset : offset + 2]
         offset += 2
-        if char_bytes == b'\x00\x00':
+        if char_bytes == b"\x00\x00":
             break
         res.extend(char_bytes)
     return res.decode("utf-16le", errors="replace"), offset
@@ -196,7 +211,17 @@ def rsa_block(username: str, password: str, mod_scrambled: bytes) -> bytes:
 # ---- Login server flow: init -> gg -> auth -> server list -> play ok
 ls = socket.create_connection((AUTH_HOST, AUTH_PORT), timeout=TIMEOUT)
 ls.settimeout(TIMEOUT)
-init = decrypt_login_init(recv_packet(ls))
+
+if ONLINE:
+    rp = recv_packet(ls)
+    with open(INIT_DUMP_FILE, "wb") as f:
+        f.write(rp)
+else:
+    with open(INIT_DUMP_FILE, "rb") as f:
+        rp = f.read()
+
+init = decrypt_login_init(rp)
+
 if init[0] != LS_INIT:
     raise RuntimeError("unexpected LS init opcode")
 session_id = struct.unpack_from("<I", init, 1)[0]
@@ -249,6 +274,7 @@ send_key = bytearray(seed)
 gauth = b"\x08" + cstr(USERNAME) + struct.pack("<I", pk2) + struct.pack("<I", pk1) + b"\x00" * 8 + struct.pack("<I", 6)
 send_packet(gs, xor_crypt(gauth, send_key, False))
 
+
 # Read one decrypted game packet and auto-reply to ping.
 def recv_game() -> bytes:
     while True:
@@ -258,6 +284,7 @@ def recv_game() -> bytes:
             send_packet(gs, xor_crypt(b"\xa8" + struct.pack("<II", ping_id, 0x800), send_key, False))
             continue
         return p
+
 
 # Wait for char list.
 while True:
@@ -302,7 +329,7 @@ while time.monotonic() < deadline:
         obj_id, text_type = struct.unpack_from("<I", p, 1)[0], struct.unpack_from("<I", p, 5)[0]
         sender_name, next_off = read_string(p, 9)
         msg_text, _ = read_string(p, next_off)
-        
+
         print(f"[Chat Received] Type: {text_type} | {sender_name}: {msg_text}")
         break
 

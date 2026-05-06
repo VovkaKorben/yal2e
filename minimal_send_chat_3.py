@@ -65,6 +65,7 @@ with open("INTERLUDE_PROTOCOL_BLOB", "wb") as f:
     f.write(INTERLUDE_PROTOCOL_BLOB)
 """
 
+
 def recv_exact(sock: socket.socket, n: int) -> bytes:
     out = bytearray()
     while len(out) < n:
@@ -97,6 +98,8 @@ def bf_crypt(key: bytes, payload: bytes, decrypt: bool) -> bytes:
 
 
 def dec_xor_pass(raw: bytearray, size: int) -> None:
+    with open("tmp/raw", "wb") as f:
+        f.write(raw)
     key = struct.unpack_from("<I", raw, size - 8)[0]
     pos = size - 12
     while pos >= 4:

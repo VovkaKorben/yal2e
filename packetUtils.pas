@@ -1,8 +1,9 @@
 unit packetUtils;
 interface
-  
+ 
     // Легковесная структура для последовательного чтения данных из пакета (Advanced Record)
   
+
   TPacketReader = record
     private
         FData: TBytes;
@@ -13,6 +14,7 @@ interface
         function GetH: word;     // 2 байта
         function GetD: integer;  // 4 байта
         function GetS: string;   // UTF-16LE строка
+        property Raw:TBytes read FData; 
     end;
   // Легковесная структура для сборки пакетов
     TPacketBuilder = record
@@ -25,10 +27,29 @@ interface
         procedure WriteS(const Value: string);
         function GetPacket: TBytes;
     end;
-
+ procedure  swap8(var data: tbytes);
 
     implementation
-// 
+function swapEndianness(const v:uint32):uint32;inline;
+begin
+    result :=//
+     ((v and $FF000000) shr 24) or //
+    ((v and $00FF0000) shr 8) or //
+    ((v and $0000FF00) shl 8) or //
+    ((v and $000000FF) shl 24) ;
+end;
+
+procedure  swap8(var data: tbytes);
+var i:int32;
+    p:puint32;
+begin
+    p := PUint32(data);
+    for i:=0 to (length(data) shr 2)-1 do
+    begin
+        p^ := swapEndianness(p^);
+        inc(p);
+    end;
+end;
 
     { TPacketReader }
 var INTERLUDE_PROTOCOL_BLOB,LEGACY_STATIC_BLOWFISH_KEY,STATIC_BLOWFISH_KEY:TBytes;
@@ -38,10 +59,12 @@ begin
 result:=  (Length(A) = Length(B)) and CompareMem(@A[0], @B[0], Length(A)) ;
 
 end;
-procedure LoadFromRes(resName:string;out data:TBytes);
+procedure LoadFromRes(resName:string;out data:TBytes):TBytes;
 begin
-
-
+// check res exists 
+// else raise Exception.CreateFmt('Resource %s not found', [resName]);
+//// set length
+// load resource
 
 end;
 
@@ -127,7 +150,6 @@ end;
 
 initialization
 LoadFromRes('INTERLUDE_PROTOCOL_BLOB',INTERLUDE_PROTOCOL_BLOB);
-LoadFromRes('LEGACY_STATIC_BLOWFISH_KEY',LEGACY_STATIC_BLOWFISH_KEY);
-LoadFromRes('STATIC_BLOWFISH_KEY',STATIC_BLOWFISH_KEY);
+
 
 end.

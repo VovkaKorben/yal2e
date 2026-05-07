@@ -1,5 +1,7 @@
 unit authPackets;
 
+{$mode delphi}
+
 interface
 
 uses
@@ -65,18 +67,33 @@ begin
         BlowfishEncryptECB(blowfishData, @payload [0], @result [0]);
     swap8(result);
 end;
+function login_checksum(const payload: tbytes):uint32;
+var count:int32;
+p:puint32;
+begin
+count := length(payload) shr 2;
+p := PUint32(@payload[0]);
+while count>0 do
+begin
+
+ result := result xor p^;
+dec(count);
+inc(p);
+end;
+    
 
 
-procedure acInit(const engine: TEngine; var reader: TPacketReader); // 0x00
+procedure acInit(var AEngine: TEngine; var AReader:TPacketReader; var ABuilder:TPacketBuilder); // 0x00
 var
     keyIndex: int32;
     initOk: boolean;
-    decrypted: TBytes;
+    decrypted,Modulus,BF_Key: TBytes;
+    
 begin
     initOk := false;
     for keyIndex := low(INTERLUDE_BLOWFISH_KEYS) to high(INTERLUDE_BLOWFISH_KEYS) do
     begin
-        decrypted := bf_crypt(INTERLUDE_BLOWFISH_KEYS [keyIndex], reader.Raw, true);
+        decrypted := bf_crypt(INTERLUDE_BLOWFISH_KEYS [keyIndex], AReader.Raw, true);
         if decrypted [0] = $00 then
         begin
             initOk := true;
@@ -98,9 +115,19 @@ begin
 // Заменяем reader на новый, смотрящий на РАСШИФРОВАННЫЕ данные.
     // Offset = 1, чтобы пропустить Opcode ($00)
     reader := TPacketReader.Create(decrypted, 1);
+SessionID := AReader.GetD;
 
-    // Теперь можно безопасно читать SessionID:
-    // SessionID := reader.GetD;
+// Modulus = Init[9..136] (137 не включительно, как в Python)
+Modulus := AReader.Bytes( 9, 128); 
+
+// BF_Key = Init[153..168]
+BF_Key :=AReader.Bytes( 153, 16);
+
+ ABuilder.Write8($07);
+ ABuilder.Write32(SessionID);
+ ABuilder.Fill(19, $00);
+ 
+ABuilder.Finalize(0);
 end;
 
 procedure acLoginFail(const engine: TEngine; var reader: TPacketReader); // 0x01
@@ -134,17 +161,16 @@ const
         );
 
 
-procedure AuthHandler(const FEngine: TEngine; const data: TBytes);
+procedure AuthHandler(var AEngine: TEngine; var AReader:TPacketReader; var ABuilder:TPacketBuilder);
 var
     packetId: uint8;
-    Reader: TPacketReader;
+    
     handler: TPacketHandler;
 begin
     if Length(data) = 0 then
         raise Exception.Create('Empty auth packet');
 
-    Reader := TPacketReader.Create(data);
-    packetId := Reader.GetC;
+    packetId := AReader.GetC;
 
     // Защита от выхода за границы массива (Access Violation)
     if packetId > High(AuthPacketHandlers) then
@@ -154,7 +180,10 @@ begin
     if not Assigned(handler) then
         raise Exception.CreateFmt('Unhandled auth packet #%d', [packetId]);
 
-    handler(FEngine, Reader);
+ // reset builder offset
+ABuilder.Reset();
+    handler(AEngine, AReader,  ABuilder);
+
 end;
 
 initialization

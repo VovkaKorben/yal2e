@@ -38,7 +38,7 @@ GS_LOGOUT_OK = 0x7E
 GS_CREATURE_SAY = 0x4A
 
 # ONLINE = True
-ONLINE = False
+ONLINE = True
 
 INIT_DUMP_FILE = "init_dump.bin"
 

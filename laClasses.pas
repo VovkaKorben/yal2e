@@ -8,7 +8,9 @@ cg- reverse
 }
 
 
-unit  laClasses;{$mode delphi}
+unit  laClasses;
+
+{$mode delphi}
 
 interface
 
@@ -41,12 +43,9 @@ type
 
 
       // Индивидуальный поток для блокирующего чтения сети для конкретного бота
-    TReadThread = class (TThread)
+    TReceiveThread = class (TThread)
     private
         FEngine: TEngine;
-        FPckReader: TPacketReader;
-        FPckBuilder: TPacketBuilder;
-
     protected
         procedure Execute; override;
     public
@@ -68,7 +67,7 @@ type
     private
         FUser: TL2User;
         FEnv:  TObjectDictionary<cardinal, TL2Object>; // Хранилище окружения
-        FThread: TReadThread;
+        FThread: TReceiveThread;
         FSendThread: TSendThread;
         FSocket: TL2Socket; // Заменяем TIdTCPClient на наш класс
         FSendQueue: TThreadedQueue<TBytes>;
@@ -92,26 +91,25 @@ type
 
 implementation
 
+// Добавляем, чтобы были видны AuthHandler и (в будущем) GameHandler
+uses authPackets;
+
 { Обработчики пакетов }
 
 
-{ TReadThread }
-constructor TReadThread.Create(AEngine: TEngine);
+{ TReceiveThread }
+constructor TReceiveThread.Create(AEngine: TEngine);
 begin
     FEngine := AEngine;
-    FPckReader.Create(32768);
-    FPckBuilder.Create(32768);
-
-
     inherited Create(false);
     FreeOnTerminate := false;
 end;
 
-procedure TReadThread.Execute;
+procedure TReceiveThread.Execute;
 var
     data: TBytes;
     lenBytes: TBytes;
-    dataLen: word;
+    dataLen: Word;
 begin
     while not Terminated do
     begin
@@ -124,18 +122,16 @@ begin
             end;
 
             // Блокирующее чтение заголовка (2 байта длины)
-            if not FEngine.FSocket.ReceiveAll(lenBytes, 2) then
-                Break;
-            dataLen := PWord(@lenBytes [0])^;
+            if not FEngine.FSocket.ReceiveAll(lenBytes, 2) then Break;
+            dataLen := PWord(@lenBytes[0])^;
 
             // Читаем тело пакета
-            if not FEngine.FSocket.ReceiveAll(data, dataLen - 2) then
-                Break;
+            if not FEngine.FSocket.ReceiveAll(data, dataLen - 2) then Break;
 
 
             case FEngine.FState of
-                esAuth: AuthHandler(FEngine, FPckReader, FPckBuilder);
-                esGame: GameHandler(FEngine, data, FPckBuilder);
+                esAuth: AuthHandler(FEngine, data);
+                esGame: GameHandler(FEngine, data);
 
             end;
 
@@ -172,31 +168,9 @@ begin
         if FEngine.FSendQueue.PopItem(Buf) = wrSignaled then
         begin
             try
-             
-
-{
-кодируем Auth пакет 
-
-procedure encrypt_login_packet(const blowfishKey: bytes; var payload: tbytes);
-var checksum:uint32;
-begin    
-    PadToSize(payload,8);
-    checksum :=login_checksum(payload);
-    Write32(payload,
-    d.extend(struct.pack("<I", login_checksum(d)))
-    d.extend(b"\x00" * 12)
-    enc = bf_crypt(key, bytes(d), False)
-    return struct.pack("<H", len(enc) + 2) + enc
-end;
-}
-
-
-
-
-
-
-
-
+                // В будущем сюда можно вставить фильтр пакетов:
+                // if not ShouldSendPacket(Buf) then Continue;
+                
                 FEngine.FSocket.Send(Buf);
             except
                 on E: Exception do
@@ -214,12 +188,12 @@ begin
     FEnv := TObjectDictionary<cardinal, TL2Object>.Create([doOwnsValues]);
     FUser := TL2User.Create;
     FSocket := TL2Socket.Create; // Создаем экземпляр нашего класса
-
+    
     // Создаем очередь на 1024 пакета. INFINITE - бесконечное ожидание записи (если забита), 
     // 100 - таймаут 100 мс на извлечение
     FSendQueue := TThreadedQueue<TBytes>.Create(1024, INFINITE, 100);
-
-    FThread := TReadThread.Create(Self);
+    
+    FThread := TReceiveThread.Create(Self);
     FSendThread := TSendThread.Create(Self);
 end;
 
@@ -231,7 +205,7 @@ begin
 
     FThread.Terminate;
     FSendThread.Terminate;
-
+    
     // Разблокируем очередь, если поток завис на PopItem / PushItem
     FSendQueue.DoShutDown;
 
@@ -258,12 +232,12 @@ var
 begin
     if not FSocket.Connected then
         Exit;
-
+        
     Len := Length(Data) + 2;
     SetLength(Buf, Len);
     PWord(@Buf [0])^ := Len; // Пишем размер пакета в начало
     Move(Data [0], Buf [2], Length(Data)); // Копируем само тело пакета
-
+    
     // Вместо прямой отправки, просто складываем подготовленный массив в очередь
     FSendQueue.PushItem(Buf);
 end;
